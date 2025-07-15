@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支付方式管理</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* 基本樣式與手機優先 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 15px; /* 增加手機端內邊距 */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 讓內容從頂部開始 */
+            min-height: 100vh;
+            box-sizing: border-box; /* 確保 padding 不會增加總寬度 */
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 25px; /* 手機端內邊距 */
+            border-radius: 12px; /* 更圓潤的圓角 */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* 更明顯的陰影 */
+            width: 100%;
+            max-width: 600px; /* 最大寬度 */
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #2c3e50; /* 深色標題 */
+            text-align: center;
+            margin-bottom: 25px; /* 增加間距 */
+            font-size: 1.8rem; /* 手機端標題大小 */
+            font-weight: 600;
+        }
+
+        /* 支付方式分區容器 */
+        .payment-sections-wrapper {
+            display: flex;
+            flex-direction: column; /* 手機上垂直堆疊 */
+            gap: 20px; /* 區塊間距 */
+            margin-bottom: 25px;
+        }
+
+        .payment-section {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* 內部陰影 */
+        }
+
+        .payment-section h2 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 10px; /* 減少組間距 */
+            display: flex;
+            flex-direction: column; /* 手機上預設垂直堆疊 */
+            align-items: flex-start; /* 元素左對齊 */
+            gap: 8px; /* 元素間距 */
+        }
+        .form-group.checkbox-group {
+            flex-direction: row; /* 核取方塊組保持橫向 */
+            align-items: center;
+            margin-bottom: 8px; /* 減少核取方塊組的間距 */
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.3); /* 讓核取方塊更大，方便點擊 */
+            accent-color: #007bff; /* 核取方塊顏色 */
+        }
+        input[type="text"], select {
+            width: 100%; /* 佔滿可用寬度 */
+            padding: 12px; /* 增加輸入框和選擇框的內邊距 */
+            border-radius: 8px; /* 更圓潤的邊框 */
+            border: 1px solid #dcdcdc; /* 淺灰色邊框 */
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus, select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 14px 20px; /* 增加按鈕內邊距 */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px; /* 更圓潤的按鈕 */
+            font-size: 1.1rem; /* 增大字體 */
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 30px; /* 增加與上方元素的間距 */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px); /* 輕微上浮效果 */
+        }
+        button[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .speech-input-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%; /* 確保包裝器佔滿寬度 */
+            gap: 8px;
+        }
+
+        .speech-button {
+            background-color: #28a745; /* 綠色麥克風按鈕 */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 15px; /* 調整按鈕大小 */
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(40, 167, 69, 0.2);
+        }
+        .speech-button:hover {
+            background-color: #218838;
+            transform: translateY(-1px);
+        }
+        .speech-button.listening {
+            background-color: #ffc107; /* 監聽時變黃色 */
+            color: #333;
+            box-shadow: 0 2px 5px rgba(255, 193, 7, 0.4);
+        }
+        .speech-button:active {
+            transform: translateY(0);
+        }
+
+        /* 自定義訊息框樣式 */
+        .custom-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .custom-alert-box {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 1.1rem;
+            color: #333;
+            max-width: 350px;
+            width: 90%;
+        }
+        .custom-alert-box button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .custom-alert-box button:hover {
+            background-color: #0056b3;
+        }
+
+
+        /* 桌面/平板優化 (RWD) */
+        @media (min-width: 768px) {
+            body {
+                padding: 30px;
+            }
+            .container {
+                padding: 40px; /* 桌面端內邊距 */
+            }
+            h1 {
+                font-size: 2.2rem; /* 桌面端標題大小 */
+            }
+
+            .payment-sections-wrapper {
+                flex-direction: row; /* 桌面端橫向排列 */
+                flex-wrap: wrap; /* 允許換行 */
+                justify-content: space-between; /* 兩端對齊 */
+            }
+
+            .payment-section {
+                flex: 1 1 calc(50% - 10px); /* 兩欄佈局，考慮 gap */
+                max-width: calc(50% - 10px); /* 確保兩欄 */
+                box-sizing: border-box;
+            }
+
+            /* 確保新增支付方式區塊佔滿整行 */
+            .payment-section.add-new-method-section {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .form-group {
+                flex-direction: row; /* 桌面端橫向排列 */
+                align-items: center;
+                gap: 15px; /* 桌面端元素間距 */
+            }
+            .form-group label {
+                flex-shrink: 0; /* 防止標籤縮小 */
+                width: auto; /* 標籤寬度自適應 */
+                margin-right: 10px; /* 標籤與輸入框間距 */
+            }
+            .speech-input-wrapper {
+                flex-grow: 1; /* 讓輸入框和語音按鈕組佔據更多空間 */
+            }
+            input[type="text"] {
+                flex-grow: 1; /* 讓輸入框佔據剩餘空間 */
+            }
+            select {
+                width: auto; /* 選擇框寬度自適應 */
+                min-width: 120px; /* 最小寬度 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>支付方式管理</h1>
+        <!-- 表單提交到 Flask 應用程式的 /payment_methods_save_web 路由 -->
+        <form action="{{ url_for('payment_methods_save_web') }}" method="post">
+            {% if error_message %}
+                <p style='color: red;'>{{ error_message }}</p>
+            {% endif %}
+
+            <div class="payment-sections-wrapper">
+                <div class="payment-section electronic-payment-section">
+                    <h2>電子支付區</h2>
+                    {% if not electronic_payments %}
+                        <p>目前沒有電子支付方式。</p>
+                    {% else %}
+                        {% for method in electronic_payments %}
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="method_{{ method.id }}" name="method_{{ method.id }}" value="on" {% if method.id in selected_methods %}checked{% endif %}>
+                                <label for="method_{{ method.id }}">{{ method.name }}</label>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="payment-section credit-card-section">
+                    <h2>信用卡區</h2>
+                    {% if not credit_cards %}
+                        <p>目前沒有信用卡支付方式。</p>
+                    {% else %}
+                        {% for method in credit_cards %}
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="method_{{ method.id }}" name="method_{{ method.id }}" value="on" {% if method.id in selected_methods %}checked{% endif %}>
+                                <label for="method_{{ method.id }}">{{ method.name }}</label>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                {% if other_methods %}
+                    <div class="payment-section other-payment-section">
+                        <h2>其他支付方式</h2>
+                        {% for method in other_methods %}
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="method_{{ method.id }}" name="method_{{ method.id }}" value="on" {% if method.id in selected_methods %}checked{% endif %}>
+                                <label for="method_{{ method.id }}">{{ method.name }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="payment-section add-new-method-section">
+                <h2>新增支付方式</h2>
+                {% for i in range(1, 3) %} {# 迴圈處理 2 個新的支付方式輸入框 #}
+                    <div class="form-group">
+                        <label for="new_method_{{ i }}">{{ i }}:</label>
+                        <div class="speech-input-wrapper">
+                            <input type="text" id="new_method_{{ i }}" name="new_method_{{ i }}" value="" placeholder="請輸入或語音輸入支付方式名稱">
+                            <button type="button" class="speech-button" data-target="new_method_{{ i }}">🎤 語音輸入</button>
+                        </div>
+                        <select name="new_method_{{ i }}_type">
+                            <option value="credit_card">信用卡</option>
+                            <option value="mobile">行動支付</option>
+                            <option value="other">其他</option> {# 新增「其他」選項 #}
+                        </select>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <input type="hidden" name="user_id" value="{{ user_id }}">
+            <button type="submit">儲存設定</button>
+        </form>
+    </div>
+
+    <script>
+        // 檢查瀏覽器是否支援 Web Speech API
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+        const SpeechRecognitionEvent = window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
+
+        if (!SpeechRecognition) {
+            console.warn('您的瀏覽器不支援 Web Speech API。請使用 Chrome 或其他支援的瀏覽器。');
+            // 可以選擇性地隱藏語音輸入按鈕或顯示提示
+            document.querySelectorAll('.speech-button').forEach(button => {
+                button.style.display = 'none';
+                // 也可以在此處添加一個提示訊息給用戶
+                const input = document.getElementById(button.dataset.target);
+                if (input) {
+                    input.placeholder = '您的瀏覽器不支援語音輸入';
+                }
+            });
+        } else {
+            document.querySelectorAll('.speech-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetInputId = button.dataset.target;
+                    const targetInput = document.getElementById(targetInputId);
+
+                    if (!targetInput) {
+                        console.error('找不到目標輸入框:', targetInputId);
+                        return;
+                    }
+
+                    // 停止任何正在進行的語音辨識
+                    if (window.currentRecognition) {
+                        window.currentRecognition.stop();
+                        // 重置之前按鈕的狀態
+                        document.querySelectorAll('.speech-button').forEach(btn => {
+                            btn.classList.remove('listening');
+                            btn.textContent = '🎤 語音輸入';
+                        });
+                    }
+
+                    const recognition = new SpeechRecognition();
+                    window.currentRecognition = recognition; // 儲存當前辨識實例
+
+                    recognition.continuous = false; // 只辨識一次
+                    recognition.lang = 'zh-TW'; // 設定語音辨識語言為繁體中文
+                    recognition.interimResults = false; // 不顯示中間結果
+                    recognition.maxAlternatives = 1; // 只返回一個最佳結果
+
+                    // 視覺回饋：按鈕變色
+                    button.classList.add('listening');
+                    button.textContent = '🔴 聆聽中...';
+
+                    recognition.onresult = (event) => {
+                        const speechResult = event.results[0][0].transcript;
+                        targetInput.value = speechResult; // 將辨識結果填入輸入框
+                        console.log('語音辨識結果:', speechResult);
+                        console.log('信心度:', event.results[0][0].confidence);
+                    };
+
+                    recognition.onspeechend = () => {
+                        recognition.stop();
+                        button.classList.remove('listening');
+                        button.textContent = '🎤 語音輸入';
+                        window.currentRecognition = null; // 清除當前辨識實例
+                    };
+
+                    recognition.onerror = (event) => {
+                        console.error('語音辨識錯誤:', event.error);
+                        button.classList.remove('listening');
+                        button.textContent = '🎤 語音輸入';
+                        targetInput.value = ''; // 清空輸入框
+                        // 使用自定義的訊息框取代 alert
+                        showCustomAlert('語音輸入失敗，請檢查麥克風權限或重試。');
+                        window.currentRecognition = null; // 清除當前辨識實例
+                    };
+
+                    recognition.onnomatch = () => {
+                        console.log('未辨識到語音。');
+                        button.classList.remove('listening');
+                        button.textContent = '🎤 語音輸入';
+                        targetInput.value = ''; // 清空輸入框
+                        // 使用自定義的訊息框取代 alert
+                        showCustomAlert('未辨識到語音，請說清楚一點。');
+                        window.currentRecognition = null; // 清除當前辨識實例
+                    };
+
+                    recognition.start();
+                });
+            });
+        }
+
+        // 自定義訊息框函數，取代 alert()
+        function showCustomAlert(message) {
+            const existingAlert = document.querySelector('.custom-alert-overlay');
+            if (existingAlert) {
+                existingAlert.remove(); // 移除舊的訊息框，避免重複
+            }
+
+            const alertOverlay = document.createElement('div');
+            alertOverlay.className = 'custom-alert-overlay';
+            alertOverlay.innerHTML = `
+                <div class="custom-alert-box">
+                    <p>${message}</p>
+                    <button onclick="this.parentNode.parentNode.remove()">確定</button>
+                </div>
+            `;
+            document.body.appendChild(alertOverlay);
+        }
+    </script>
+</body>
+</html>

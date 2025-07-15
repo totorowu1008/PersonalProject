@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>支付方式選擇</title>
+  <style>
+    body { font-family: sans-serif; margin: 1em; }
+    .method-list { display: flex; flex-wrap: wrap; gap: 1em; }
+    .method-item { border: 1px solid #ccc; padding: 0.5em 1em; border-radius: 5px; cursor: pointer; }
+    .selected { background: #cce5ff; }
+    @media (max-width: 600px) {
+      .method-list { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <h2>選擇您的支付方式</h2>
+  <div id="method-list" class="method-list"></div>
+  <input type="text" id="custom-method" placeholder="新增支付方式" />
+  <button onclick="addCustomMethod()">新增</button>
+  <button onclick="startVoiceInput()">語音輸入</button>
+  <button onclick="submitSelection()">送出</button>
+
+  <script>
+    let userId = null; // 從 LINE LIFF 或 URL 取得
+    let selectedMethods = new Set();
+    let allMethods = [];
+
+    async function fetchData() {
+      // 假設有API: /api/get_methods?line_user_id=xxx
+      const res = await fetch(`/api/get_methods?line_user_id=${getLineUserId()}`);
+      const data = await res.json();
+      userId = data.user_id;
+      allMethods = data.methods;
+      selectedMethods = new Set(data.selected_method_ids);
+      renderMethods();
+    }
+
+    function renderMethods() {
+      const list = document.getElementById('method-list');
+      list.innerHTML = '';
+      allMethods.forEach(m => {
+        const div = document.createElement('div');
+        div.className = 'method-item' + (selectedMethods.has(m.id) ? ' selected' : '');
+        div.textContent = m.name + (selectedMethods.has(m.id) ? ' (已選)' : '');
+        div.onclick = () => {
+          if (selectedMethods.has(m.id)) selectedMethods.delete(m.id);
+          else selectedMethods.add(m.id);
+          renderMethods();
+        };
+        list.appendChild(div);
+      });
+    }
+
+    function addCustomMethod() {
+      const input = document.getElementById('custom-method');
+      const name = input.value.trim();
+      if (name) {
+        allMethods.push({id: 'custom_' + Date.now(), name});
+        renderMethods();
+        input.value = '';
+      }
+    }
+
+    function startVoiceInput() {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert('您的瀏覽器不支援語音輸入');
+        return;
+      }
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = 'zh-TW';
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById('custom-method').value = transcript;
+      };
+      recognition.start();
+    }
+
+    async function submitSelection() {
+      // 過濾出原本就有的ID（非 custom_ 開頭），以及新增的自訂名稱
+      const selected = Array.from(selectedMethods);
+      const customNames = allMethods.filter(m => m.id.startsWith('custom_') && selected.includes(m.id)).map(m => m.name);
+      const methodIds = allMethods.filter(m => !m.id.startsWith('custom_') && selected.includes(m.id)).map(m => m.id);
+
+      await fetch('/api/save_methods', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({user_id: userId, method_ids: methodIds, custom_names: customNames})
+      });
+      alert('已儲存');
+    }
+
+    function getLineUserId() {
+      // 從 LIFF 或 URL 取得 LINE USER_ID
+      return new URLSearchParams(location.search).get('line_user_id');
+    }
+
+    fetchData();
+  </script>
+</body>
+</html>

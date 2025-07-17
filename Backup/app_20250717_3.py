@@ -34,6 +34,8 @@ from linebot.v3.webhooks import FollowEvent, MessageEvent, PostbackEvent, TextMe
 import google.generativeai as genai
 import logging
 
+from linebot.models import MessageEvent, TextMessage, TextSendMessage
+
 # --- 組態設定 (從 config.ini 讀取) ---
 config = configparser.ConfigParser()
 config.read('config.ini', encoding='utf-8')
@@ -43,7 +45,7 @@ import db # 假設 connect_db 模組提供 get_db_connection()
 # LINE 設定
 LINE_CHANNEL_ACCESS_TOKEN = config.get('LINE', 'CHANNEL_ACCESS_TOKEN')
 LINE_CHANNEL_SECRET = config.get('LINE', 'CHANNEL_SECRET')
-LIFF_PAYMENT_MANAGER_URL = config.get('LINE', 'LIFF_PAYMENT_MANAGER_URL') # 新增：讀取 LIFF URL
+LIFF_PAYMENT_MANAGER_URL = config.get('LINE', 'LIFF_PAYMENT_MANAGER_URL')
 
 # Gemini 設定
 GEMINI_API_KEY = config.get('GEMINI', 'API_KEY')
@@ -225,6 +227,17 @@ def handle_message(event):
     app.logger.info(f"MessageEvent received from {line_user_id}: '{text}'")
     state = user_states.get(line_user_id)
 
+    # line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
+    # handler = WebhookHandler(LINE_CHANNEL_SECRET)
+
+    # @handler.add(MessageEvent, message=TextMessage)
+    # def handle_message(event):
+    #     liff_url = "https://liff.line.me/<你的LIFF_ID>"
+    #     line_bot_api.reply_message(
+    #         event.reply_token, 
+    #         TextSendMessage(text=f"請點此進入：{liff_url}")
+    #     )
+
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
 
@@ -238,6 +251,7 @@ def handle_message(event):
                 user_db_id = get_user_id(line_user_id) # 獲取資料庫中的 user_id
                 if user_db_id:
                     # 構建 LIFF URL，將 user_id 作為參數傳遞
+                    liff_url_with_param = f"{LIFF_PAYMENT_MANAGER_URL}?user_id={user_db_id}"
                     line_bot_api.reply_message(
                         ReplyMessageRequest(
                             reply_token=reply_token,
@@ -249,7 +263,7 @@ def handle_message(event):
                                         title='支付方式管理',
                                         text='點擊按鈕進入設定頁面',
                                         actions=[
-                                            URIAction(label='前往管理', uri=payment_manager_url+user_db_id)
+                                            URIAction(label='前往管理', uri=payment_manager_url+str(user_db_id))
                                         ]
                                     )
                                 )
@@ -297,7 +311,37 @@ def handle_message(event):
                 )
         except Exception as e:
             app.logger.error(f"Error in handle_message: {e}")
-
+            # --- 直接用網址連接支付方式管理頁面 ---
+            if text == "管理支付方式":
+                app.logger.info("Matched '管理支付方式', opening payment manager URL.")
+                user_db_id = get_user_id(line_user_id) # 獲取資料庫中的 user_id
+                if user_db_id:
+                    payment_manager_url = f"{LIFF_PAYMENT_MANAGER_URL}?userid={user_db_id}"
+                    line_bot_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=reply_token,
+                            messages=[
+                                TextMessage(text="請點擊下方連結管理您的支付方式："),
+                                TemplateMessage(
+                                    alt_text="管理支付方式",
+                                    template=ButtonsTemplate(
+                                        title='支付方式管理',
+                                        text='點擊按鈕進入設定頁面',
+                                        actions=[
+                                            URIAction(label='前往管理', uri=payment_manager_url+str(user_db_id))
+                                        ]
+                                    )
+                                )
+                            ]
+                        )
+                    )
+                else:
+                    line_bot_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=reply_token,
+                            messages=[TextMessage(text="抱歉，無法獲取您的用戶ID，請稍後再試。")]
+                        )
+                    )
 @handler.add(PostbackEvent)
 def handle_postback(event):
     print('處理 Postback 事件 (使用者點擊按鈕)')
@@ -344,11 +388,17 @@ def start_consumption_flow(line_user_id, reply_token, api: MessagingApi):
         for cat in ["餐飲", "購物", "交通", "娛樂", "網購"]
     ]
 
+    # # 建立 TextSendMessage 物件
+    # text_message_content = TextSendMessage(
+    #     text="請告訴我這次的消費類別是什麼？\n(例如：餐飲、購物、繳費...)\n或直接點選下方建議類別。",
+    #     quick_reply=QuickReply(items=quick_reply_items)
+    # )
+
+    # 回覆訊息給用戶
     api.reply_message(
         ReplyMessageRequest(
             reply_token=reply_token,
-            messages=[TextMessage(
-                text="請告訴我這次的消費類別是什麼？\n(例如：餐飲、購物、繳費...)\n或直接點選下方建議類別。",
+            messages=[TextMessage(text="請告訴我這次的消費類別是什麼？\n(例如：餐飲、購物、繳費...)\n或直接點選下方建議類別。",
                 quick_reply=QuickReply(items=quick_reply_items)
             )]
         )
@@ -382,7 +432,7 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
     # 任務
     請嚴格按照指定的 JSON 格式回傳，不要有任何額外的文字或解釋。
 
-    - **就使用者「已有」的支付工具**: 從他擁有的工具中，選出最適合這次消費的前 5 名，並標示回饋%數，並自動計算預估回饋金。如果他沒有任何工具，或沒有適合的，請在 `recommendations` 中回傳空陣列 `[]`。
+    - **就使用者「已有」的支付工具**: 從他擁有的工具中，選出最適合這次消費的前 5 名，並標示回饋%數，及自動計算預估回饋金，然後顯示回饋金最高的前 3 名。如果他沒有任何工具，或沒有適合的，請在 `recommendations` 中回傳空陣列 `[]`。
 
     # JSON 格式範本
     {{
@@ -403,11 +453,11 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
         cleaned_response_text = response.text.strip().replace("```json", "").replace("```", "")
         recommendations = json.loads(cleaned_response_text)
 
-        print("刷卡內容：", user_id, category, amount, recommendations)
+        print("刷卡內容：", user_id, category, amount, recommendations, "\n")
         save_transaction(user_id, category, amount, recommendations)
 
         reply_messages = format_recommendation_messages(recommendations)
-        print("回覆訊息：", reply_messages)
+        print("回覆訊息：", reply_messages, "\n")
         api.push_message(PushMessageRequest(to=line_user_id, messages=reply_messages))
 
     except Exception as e:

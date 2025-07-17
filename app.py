@@ -94,7 +94,7 @@ get_db_connection = db.get_db_connection
 
 # 管理支付方式連結
 payment_manager_url = f"https://personalproject-je9f.onrender.com/userid/"
-payment_manager_url = f"https://2b0d0b6ebaa4.ngrok-free.app/userid/"
+#payment_manager_url = f"https://2b0d0b6ebaa4.ngrok-free.app/userid/"
 
 def get_payment_options(type_filter):
     print('從資料庫獲取支付選項')

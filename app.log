@@ -1274,3 +1274,4 @@ Handling webhook event with signature: 1N2LtMTupPM5dHQkti/JfYTgLA3Gj94oKmt38kF67
 處理文字訊息事件
 MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '中信英雄聯盟卡：若本次娛樂消費為線上遊戲或指定數位通路（如Steam、PS Store、App Store遊戲內購等），可享10%現金回饋（每月上限300元，此筆消費可刷滿）。'
 No match found, sending main menu as default.
+Redirecting to payment manager: https://gae25213.ct.ws/pmgr.php?user_id=1

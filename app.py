@@ -304,6 +304,7 @@ def handle_postback(event):
 # --- 功能流程函式 ---
 def create_main_menu():
     print('建立主選單 TemplateMessage')
+    liff_url = (LIFF_PAYMENT_MANAGER_URL + "?user_id=" + get_user_id) if LIFF_PAYMENT_MANAGER_URL else "https://example.com/liff_payment_manager"
     return TemplateMessage(
         alt_text='主選單',
         template=ButtonsTemplate(
@@ -311,7 +312,7 @@ def create_main_menu():
             text='請選擇您要使用的服務：',
             actions=[
                 MessageAction(label='智慧消費推薦', text='智慧消費推薦'),
-                URIAction(label='管理支付方式', uri=LIFF_PAYMENT_MANAGER_URL) # 新增：管理支付方式按鈕
+                URIAction(label='管理支付方式', uri=) # 新增：管理支付方式按鈕
             ]
         )
     )

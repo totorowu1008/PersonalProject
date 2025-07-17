@@ -220,7 +220,7 @@ def handle_message(event):
                 user_db_id = get_user_id(line_user_id) # 獲取資料庫中的 user_id
                 if user_db_id:
                     # 構建 LIFF URL，將 user_id 作為參數傳遞
-                    liff_url_with_param = f"{LIFF_PAYMENT_MANAGER_URL}?user_id={user_db_id}"
+                    global liff_url_with_param = f"{LIFF_PAYMENT_MANAGER_URL}?user_id={user_db_id}"
                     line_bot_api.reply_message(
                         ReplyMessageRequest(
                             reply_token=reply_token,
@@ -304,7 +304,6 @@ def handle_postback(event):
 # --- 功能流程函式 ---
 def create_main_menu():
     print('建立主選單 TemplateMessage')
-    liff_url = (LIFF_PAYMENT_MANAGER_URL + "?user_id=" + get_user_id) if LIFF_PAYMENT_MANAGER_URL else "https://example.com/liff_payment_manager"
     return TemplateMessage(
         alt_text='主選單',
         template=ButtonsTemplate(
@@ -312,7 +311,7 @@ def create_main_menu():
             text='請選擇您要使用的服務：',
             actions=[
                 MessageAction(label='智慧消費推薦', text='智慧消費推薦'),
-                URIAction(label='管理支付方式', uri=) # 新增：管理支付方式按鈕
+                URIAction(label='管理支付方式', uri=liff_url_with_param) # 新增：管理支付方式按鈕
             ]
         )
     )

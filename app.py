@@ -363,7 +363,7 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
     # 任務
     請嚴格按照指定的 JSON 格式回傳，不要有任何額外的文字或解釋。
 
-    - **就使用者「已有」的支付工具**: 從他擁有的工具中，選出最適合這次消費的前 10 名，並標示回饋%數，並自動計算預估回饋金，然後顯示回饋金最高的三家。如果他沒有任何工具，或沒有適合的，請在 `recommendations` 中回傳空陣列 `[]`。
+    - **就使用者「已有」的支付工具**: 從他擁有的工具中，選出最適合這次消費的前 5 名，並標示回饋%數，及自動計算預估回饋金，然後顯示回饋金最高的前 3 名。如果他沒有任何工具，或沒有適合的，請在 `recommendations` 中回傳空陣列 `[]`。
 
     # JSON 格式範本
     {{
@@ -384,11 +384,11 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
         cleaned_response_text = response.text.strip().replace("```json", "").replace("```", "")
         recommendations = json.loads(cleaned_response_text)
 
-        print("刷卡內容：", user_id, category, amount, recommendations)
+        print("刷卡內容：", user_id, category, amount, recommendations, "\n")
         save_transaction(user_id, category, amount, recommendations)
 
+        print("回覆訊息：", reply_messages, "\n")
         reply_messages = format_recommendation_messages(recommendations)
-        print("回覆訊息：", reply_messages)
         api.push_message(PushMessageRequest(to=line_user_id, messages=reply_messages))
 
     except Exception as e:

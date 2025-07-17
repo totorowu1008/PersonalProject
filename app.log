@@ -809,3 +809,168 @@ Handling webhook event with signature: qBV0+Eu5QmFCMfwo7zTS2hIKm5xcFLGKuUp3ipd5F
 處理文字訊息事件
 MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '99'
 No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Invalid signature. Please check your channel secret.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Invalid signature. Please check your channel secret.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570146060714901507","quoteToken":"sQHTaZpZKYrFNj_XmGOq02r5OcQ7JDGom4JuIbc0v6ZG6-0Os1Nbzvs50clvTZR2oGV8mwJt03X_NJdQefFiRdS1_vRkzC00D5sQkghgDJgR-RTtTiOwRbYxRGQeZj3uagjrXR-4hxIDH2zGLmBBHw","text":"55"},"webhookEventId":"01K09FE4PD1J9V6P1FFH5VZ358","deliveryContext":{"isRedelivery":false},"timestamp":1752664838363,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"0248b2af115f4e6fa4c0615aae93fd5c","mode":"active"}]}
+Handling webhook event with signature: cpUdmYWsDqYYhzp31JR5O7HgfqyrOfnaNxiHRFWqpFU=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '55'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570146068348534944","quoteToken":"Z8LOzzQHla3A45LyDh6DMR3E7nzOQDCmevAIhUR9F640SLdODHGocLTxnLhSlrDW01FEcXXaZQ7enFk12igEUrr2I31Hzc5sN2Ki9yxnkvXDCjodFWxwI0n1EzTKReHfY38FQi8ajFNHJnlZ1xHS_w","text":"智慧消費推薦"},"webhookEventId":"01K09FE9414XP9TK1V98ND3VTG","deliveryContext":{"isRedelivery":false},"timestamp":1752664842886,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"c1009bb788754685949e32db5aac907e","mode":"active"}]}
+Handling webhook event with signature: 4I64YJVAcwJL/7Q3Z8MReHpqjqGupoJefwIqE24dh9k=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570146073935347974","quoteToken":"GfCsP3LRjo9yiJU5kWZkSYSvJ0e62L1r0IHQNwR89R6dGSChnz7L1P7FnSJJAi1XPDbctvhB_pkCpXFhpy3JMe6FkQfReuBwIz_PlDopSgsSjpaY0iFh4AY_7yKIvcFKJuT0t28de2CitDDOJ0AvPA","text":"餐飲"},"webhookEventId":"01K09FEBW7WAY1XX3YBMS58AYD","deliveryContext":{"isRedelivery":false},"timestamp":1752664846094,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1b76280b0cfa45c4953a949a1420dc89","mode":"active"}]}
+Handling webhook event with signature: Asp1N1P7nmGDFZKVtfXN1I/SC7kzQQ1VKqu1hAxnIYE=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570146083230187846","quoteToken":"2R1_ahYZUo4MTb6Z6GwKURb0ljeZq1fATtdb4XyxbhbetZz0MDnVtdTjmqTAJ6vVlBYStHhMERRWkpkJ26FdHBvFeLZPEshcIblB7Iy5Ma572KzencyoIifhKT-rVpJ4or2ppofAjLS-enKOwvA5og","text":"2000"},"webhookEventId":"01K09FEHDAK7HB8ZQKW5WA3TPE","deliveryContext":{"isRedelivery":false},"timestamp":1752664851647,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"73051220fa844e229b04c54890f77896","mode":"active"}]}
+Handling webhook event with signature: EK8RZB5txqwhYe+nNh47EH/xLcV+eKluzTGqOtvE9Nc=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570146145708802322","quoteToken":"mFxH0DH6oFIDcWpiW3Wgmycr6fSMIhiet-lvXKd2CYCbyEHPbSRLrdFZvCuNh_2HxJsmj5bo7wCTXNP1K7ZPk5e-Iaw4hu_GTzB1bLXzVp_pRA8mSbA8pl5Xe9C7Umd5h3GDpz-zVfCVCJj85Gofzg","text":"台新 GoGo 卡 (透過LINE Pay/街口支付綁定)：綁定指定行動支付(如LINE Pay、街口支付)消費，享高額回饋(需符合指定通路及活動條件)。"},"webhookEventId":"01K09FFP350AJA0RZQSA0KYVYX","deliveryContext":{"isRedelivery":false},"timestamp":1752664888937,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"e5039c65d3cc460aaf470ae6e54f4b93","mode":"active"}]}
+Handling webhook event with signature: DV/DSjwiA2x4DXyuugu2UyRK2jnknBNg0VIj2xnfTYw=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '台新 GoGo 卡 (透過LINE Pay/街口支付綁定)：綁定指定行動支付(如LINE Pay、街口支付)消費，享高額回饋(需符合指定通路及活動條件)。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570149385188147816","quoteToken":"Lz3WMDYSZx8JRW4xNSmwFsF9AX-yPoxr4h4eehvqv9zYTBA0Ks-pMx0dt4CHj2JMsntYra96dGL5RqjrCGp3vDoozVp5kO6Pu9W2iUuUYTHyRjEY5lh4L6qdfn9p80ZVw1eY5fsc_ZO7xDPsStjwNw","text":"智慧消費推薦"},"webhookEventId":"01K09HAK9954FR6A5J23SZ852X","deliveryContext":{"isRedelivery":false},"timestamp":1752666819850,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"47ef560860e6484da6a3014cb7121001","mode":"active"}]}
+Handling webhook event with signature: JmfBySR3QF+2BMRb/244c3DMaYKuauxHQc1Hu4P2nzw=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570149394431869137","quoteToken":"yMTAcmYvG24z3VlqkyMNJjU6vPKOUV8HPilpZb0IKve0BxmW54bJdMU8egHZrunHMRkS8Kpecn9IhTEiOzWd4cM3RN2i5wzAtgGhWDgtleKzB6Up0w7Dr6LMmQOg4EuPN6u2NtKiuoSP1dRKN9Utfg","text":"娛樂"},"webhookEventId":"01K09HARK9H6P5ZXAA6NMY2DDW","deliveryContext":{"isRedelivery":false},"timestamp":1752666825308,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"79bc8b35e205436d85cebaef55819112","mode":"active"}]}
+Handling webhook event with signature: 06zk2pcNOFK9P1JqnSpTWzcqmRrAMe+u72Oo170KZSE=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '娛樂'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570149408575586462","quoteToken":"LgTylVRd97x2ifsapDMdnUlqZ2O0utamjI0-66RlHzO62CoySlt2sGm4Ioo2-Gcw9IzSLyml34WknpKsPPwzRgvwLZyidoySzHJq2tQmCbFcD0pAJ-dVtVdXfX5C5Sz2d3zlIJiFdai5lZ7nGlVgGQ","text":"2000"},"webhookEventId":"01K09HB16RW1T6762NJJ77QHXJ","deliveryContext":{"isRedelivery":false},"timestamp":1752666833722,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1562965856cf413a8893482b46c85a26","mode":"active"}]}
+Handling webhook event with signature: 7nhMNipRwaO4xryg6wAmEq/1stXOus9qX4/LIIpgUkc=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570149734220563015","quoteToken":"4bMYv-45SPRPYEqHlDUGTm7qIHWn2hoBQ71O_oj7VeMmyFhQtu3tcuubMLbde52gLD_JKB_n1xMu_tEkzLrda5BJo6t2OJuqJBainnjs_Rl36HbzbRO2Fa97VakH3_nTWnENVjR8TsRHKw3glgiZow","text":"智慧消費推薦"},"webhookEventId":"01K09HGYP81F1X042K2SVGAS62","deliveryContext":{"isRedelivery":false},"timestamp":1752667027785,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"a5f55941077b4b5dbbe8b7c69ddf7dcc","mode":"active"}]}
+Handling webhook event with signature: sgMWHnZZyw1jVfnN1izBkKqtX9xSNa6YBvxMHc+pAJE=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570149740059820105","quoteToken":"Gq0ug33YvCh_PLoZJXiIP9H_lSOMJqHYp5muBkbEYHqvjXfCfIv3HvIRUboxT_0y31LVDUmZ1nQzCUOhD-fse2MO-Uxyo15w4Ghe7BrxK3JnVJcaCcCQ3rjzkyS9o1ys2MZtAZ8cqqJetoAvEOJ7Aw","text":"娛樂"},"webhookEventId":"01K09HH25HGA0PNVEY7Y6GJSM9","deliveryContext":{"isRedelivery":false},"timestamp":1752667031297,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"c8f5d240a285462fbb9a007d268581a1","mode":"active"}]}
+Handling webhook event with signature: fLYI8EbLUIn+R3+0Y/+N3Tkz7bsGnz36K+9A88VZCwk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '娛樂'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570149750897115247","quoteToken":"YJJ0fINHbHIg5Axa2roQnNjNNbK1oQRY3NARyA6mBmZzNLBJFCj7F0TB_5AS2flTa5J2euobSAShmCaf9VFEmkGL-rNNXcBqX9OsQsJNMuTh3gciiAy155v36HptJHJfw241Lr8NRigM6po7A5qq8Q","text":"3000"},"webhookEventId":"01K09HH88FPW4V295J0BGV7BMQ","deliveryContext":{"isRedelivery":false},"timestamp":1752667037719,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"07f48b6f9b6249a7a248dce34c38efa7","mode":"active"}]}
+Handling webhook event with signature: n2iY7h8BaamWRkEibOnv9w17rpiWcOWkLfzNRwSycwQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570150860005310499","quoteToken":"W_LUauxbMfCUxLamHPLtBeLMlpa4aNw2R6tgjdstUo0fYAFroRpj8B0HzptJWm7-71UO0CAX2Qsqw9Nxu6xbV48swf59hBmCepNfWYdAcx4QjZE5Nyer_AJvrsFj96uhW-3NQNDrR1LCWm41--NVZQ","text":"智慧消費推薦"},"webhookEventId":"01K09J5E3AA7VRXQ3YRE8ZKKGN","deliveryContext":{"isRedelivery":false},"timestamp":1752667698799,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"822184f8cfb5425b997337005985a0f8","mode":"active"}]}
+Handling webhook event with signature: TMYK8tYX24+QfKCdPbxlvozH74yRjCkbTjvhNEEcMsk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570150865877336456","quoteToken":"B4blrlF4ROWBgawKDjji-nX1kCfP-Mrnoe-8xN8T38DPzwtNPt-63qIlFiODPMnvy3FZK6fci_QASWZKclAKTN04aJLsFZSkoTk4voWzvD7_iv5hudyHAoF8mOTqDjl7qSuHgpNLsLl3wtk9_brUAA","text":"交通"},"webhookEventId":"01K09J5HGYA0TTK0XJ0T45VM2V","deliveryContext":{"isRedelivery":false},"timestamp":1752667702307,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"3b111f2de79a4a25b07d7883461e359b","mode":"active"}]}
+Handling webhook event with signature: YT+UQA7Xs6I9iH0b2IFDP50OtVH/atKegH1j+11T91A=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '交通'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570150873057984653","quoteToken":"ofLykihA9hPS7eZcL2_FYBWUZD1H2f_JBrEHMnzWgPrS4E_wUQiK9Tkry5TohgPnXPdLTvxttu2IMs-bTy-iuqWiXgVJCvo8BFzy8QGvlzrgzWjl9FxCJ_MdpgfDcSeEqbulEg7vw2RKQ--FXRSzMA","text":"3000"},"webhookEventId":"01K09J5NPJJHHQSPWP7HRH6KMN","deliveryContext":{"isRedelivery":false},"timestamp":1752667706580,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"cbac39c71f84473791c938528da3a287","mode":"active"}]}
+Handling webhook event with signature: qtiTcGXFu4in8+iZjBrhh7ADL9Ovofhxb5ngl3AvUW4=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570152655637184976","quoteToken":"J_hGFqWLg-s_rwgx71UB8i58EM01ZjvB7YDroGVbSXuJ4MA-kYA1LA-a0W-i97AGg28YfYkXEOCjw60mMqMy3Q3CRTLiHdCgx_DIVggZScxRoBhsqy2AnKazZrj0uDQRTN8MFKX03V9EvieJGdxzpw","text":"智慧消費推薦"},"webhookEventId":"01K09K6342G9K9FKTN13N7CBV1","deliveryContext":{"isRedelivery":false},"timestamp":1752668769195,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"38e7701eb75646aab7cdc93fd89ff53e","mode":"active"}]}
+Handling webhook event with signature: QFLUtPiYOZB2do4ehWSqYQyvWmTHSNZubSJjKjt2t0A=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570152664294228484","quoteToken":"38o4HR9AwBObxy7N2CL964nbp8vLZ8vi1ZsPj-trFj-we2OqRg4cKnM38B-5XgELWM5ZJwpWZQ6HKS1oFzbQ9ei1h7D3aCFMr_cud9MirMI-L0TS5vkZ4WOkFcgp6U8sQpZHTtrqjTL_Ltf3rrBR8g","text":"交通"},"webhookEventId":"01K09K68CJRJ73D8BFZSKRY97J","deliveryContext":{"isRedelivery":false},"timestamp":1752668774295,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"055a02bd8c70440c941404b7a3a7d07e","mode":"active"}]}
+Handling webhook event with signature: SRjJ6PGlJE+nkFD5XjpMoWm86IRGeXqUdO/CYIwsn5g=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '交通'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570152672515326145","quoteToken":"HX1uo87hGTfLxvII_V_08QEETFW6mZKveBbNI570xSk3lzwY-U1M8Afww8beur_CJ6nfDGqPrBAQjCDl7z5_whP6RUsIBJ_bj2_C_wTOt8jRrxKnklrTimsMjqvwnTcCMp6n36HA4jfeWvDfrvgFhA","text":"5000"},"webhookEventId":"01K09K6D3JRKWHVMW5Q2VVWYW0","deliveryContext":{"isRedelivery":false},"timestamp":1752668779229,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"46924f5fde1849deaef731b238a482fa","mode":"active"}]}
+Handling webhook event with signature: mEIrb+vdd12anr0ZWsl19G1oOQ69YA8ZLe5RRqMwaSQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '5000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570152844364087866","quoteToken":"OoFY0X8S78wmOyRP5sJZjcPeUYFT2oDi0KcT5csVRXzEMtJE6y_fLI0yM6L85mCPFr2m_CQrC2yxrd2BF_4KlolG_9kjjvOPfXbcNNkzXAAuk9jHyXrkRWoYvTm1xPfkaPHJ4wVJg0uPy2uUdjqkZw","text":"第一銀行ileo卡：若交通消費為線上購票（如高鐵、台鐵、機票等），可享網購類別高回饋。"},"webhookEventId":"01K09K9H4FRDJYJ1BXDGB88E95","deliveryContext":{"isRedelivery":false},"timestamp":1752668881578,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"e2ad92da7d5f4fe5bcc8761f279f909f","mode":"active"}]}
+Handling webhook event with signature: oVGFDNWbefti276Qkgy7QPYIAixLlCwGHJ8xsllI0dk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '第一銀行ileo卡：若交通消費為線上購票（如高鐵、台鐵、機票等），可享網購類別高回饋。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270316031377579","quoteToken":"JGgxSrgWR2W64hxfZfKZorubPq-5aJEX4ExQdJpz7odUMAu92ET-BCTSaOT5WPZP27FxTHoyG0XPVVmZ73st8B7DjlFv56mm_vP9K0oU1dFw6moLYEsiKE4m0NauOIGLw5yMKUEfsve7kjP1DQNEHw","text":"666"},"webhookEventId":"01K0BP2ADCSHEC291V5QZFHTR8","deliveryContext":{"isRedelivery":false},"timestamp":1752738900141,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"9ad7cd6844b147f7a83fe8d11bc9fc41","mode":"active"}]}
+Handling webhook event with signature: PqjQEftMpJm0Y53XRi9wSHqu+/rUaSMERBBA4kwRTM8=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '666'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270335611175424","quoteToken":"xxCtkQoR41-Am0MOF9zdVhUyEQKfHAELH9UZGqETeVetQh_mm6ytpP6XkQ7_tGHiiW6iZB_lEncDjMQqcqbJC7ednK2mebA-xdynPKRH3Q_UDZEp2JwwmBJVWbA54ZRjtHNAkK2uAVR36Lb1sGM-SQ","text":"智慧消費推薦"},"webhookEventId":"01K0BP2NQGKWVBGBZBCMM1WM2P","deliveryContext":{"isRedelivery":false},"timestamp":1752738911839,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"f08a1b4073e244cb896b48a4e4fdddba","mode":"active"}]}
+Handling webhook event with signature: QrsghsgwT8SR2ixEtrvAL2ikwrBDhRdtk2LZoJlFXtE=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270347338449425","quoteToken":"aB-UrVMFsvhlc28or3TYNd2pgXR6IMyDIgqertMzAE8yLyOh_S1pnNCNZhBatmzXCZGudFCm6QK1eVTSMVDnkiLzN8rpuleXtplSAySNjErBhbMVQRtD1o51aErAeqXEMa4aiNK0Noy7KjIWaTHOMQ","text":"娛樂"},"webhookEventId":"01K0BP2WS7FDXZHQXQZNJC1EP8","deliveryContext":{"isRedelivery":false},"timestamp":1752738918859,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"9c3ddc90443f49f881b611b6b6506b61","mode":"active"}]}
+Handling webhook event with signature: TRxUYQhA8DCHEC62AXRRmXBet3UQ+JjIfV4CGIaHjI4=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '娛樂'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270355524944213","quoteToken":"85x4so4BkpyHSd3SQgsxlKwr61oXmwkFmKwgmyX3JNuHVLRkaqzz8QN9TtuYSXYxknb4pfvkYhayZ-o5enm-xDTfWK3A82Bfil5hBJmfdbOUlVtoCxJLxUKmgWqNAGg4OfvBof2JEhyqe7q63bgNcQ","text":"2000"},"webhookEventId":"01K0BP31K3WD6R5WPHG5X74SY9","deliveryContext":{"isRedelivery":false},"timestamp":1752738923682,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"09fe34fe98654211b847a08c30b000a0","mode":"active"}]}
+Handling webhook event with signature: V4FmDVcNflwcXOv3Faw5m3WbmSHeMaa8KLiCd4LkbZ4=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270431173411271","quoteToken":"tdAAZC9QayHIQYyAJNXjmMaJf_dYSssuYkM-Okeq-_l7IvrUWFN7e7RW6PtOVGvg1RhQqdzU_TJAHCTH2bj3HNdkfd_1wRagvH-DnQRJ5tDel_B8vtu5EVzq9NHI7SsZaXSoXnI-1RSbiPuf0b0uiA","text":"永豐 大戶 卡：針對指定娛樂/影音串流平台（如Netflix、Spotify、Disney+、PlayStation Store、Steam等）消費提供7%現金回饋，每月回饋上限300元，2000元消費可全額適用。"},"webhookEventId":"01K0BP4DF728K0STJ66DMZ5K6V","deliveryContext":{"isRedelivery":false},"timestamp":1752738968775,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"c6b656916996425a9354fb3ee72a749e","mode":"active"}]}
+Handling webhook event with signature: VXZqqvzIvMUL5FzJOWDClQ6zKtwoHyzQKwaUhrQl/+8=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '永豐 大戶 卡：針對指定娛樂/影音串流平台（如Netflix、Spotify、Disney+、PlayStation Store、Steam等）消費提供7%現金回饋，每月回饋上限300元，2000元消費可全額適用。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270447162622702","quoteToken":"7WtPo84Zpoz9M4vAgzCyILHwFbSJIHquEdqJNO6dZjKyN4-zhSm86nFEeCcfvrC-_9UVlgWfYtPyy86rbh45VWyB5AudKrKWgkhLbSBu9V8ZIUMJL2faSCOh3PaLcqDKHohw5k8HfhdE5RokWyZMVQ","text":"玉山 UBear 卡：指定娛樂/影音串流（如KTV、電影院購票、線上影音平台、遊戲平台等）享3.8%現金回饋，每月回饋上限200元，2000元消費可全額適用。"},"webhookEventId":"01K0BP4Q0CS92Z0FB2YP7B9XDC","deliveryContext":{"isRedelivery":false},"timestamp":1752738978321,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"68ab8a33e13f42959a02b71996612c39","mode":"active"}]}
+Handling webhook event with signature: z1UZrU5/XGV3huvQJXjE1odMn754nhZFE3fkDMusCI8=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '玉山 UBear 卡：指定娛樂/影音串流（如KTV、電影院購票、線上影音平台、遊戲平台等）享3.8%現金回饋，每月回饋上限200元，2000元消費可全額適用。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270472831762507","quoteToken":"TX-wj0fVCM1EGedX6SqALyZfzyW18unThMVm0TzDoDvosALnf3qjoP-Mw_uL7yzM1XrbHrFhvZRFB6KWTMvMcW2MnWIMRvH-MtPz_BPjXqbaPsuUUU_kh-uvSqaFVYoanUT8K7PCnKOsm_9Y84epuA","text":"台新 GoGo 卡 (連結LINE Pay/街口支付)：若娛樂消費屬於指定網購或透過LINE Pay、街口支付等行動支付完成，可享最高3.8%現金回饋，每月回饋上限200元。需綁定Richart帳戶自動扣繳並使用電子帳單。"},"webhookEventId":"01K0BP55TQ592W1XX8ZQS38ZSH","deliveryContext":{"isRedelivery":false},"timestamp":1752738993734,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"e3dda665927441a6b5a1befc6cfb2cf0","mode":"active"}]}
+Handling webhook event with signature: IqlI9Lw2uraMgWNLFL0gvp0KP4xHHJNG98LeMFu2B9w=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '台新 GoGo 卡 (連結LINE Pay/街口支付)：若娛樂消費屬於指定網購或透過LINE Pay、街口支付等行動支付完成，可享最高3.8%現金回饋，每月回饋上限200元。需綁定Richart帳戶自動扣繳並使用電子帳單。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270711067968092","quoteToken":"7bjzFqA--Y5jMQDuKdBJl0EsEQ5WTmZz2SaJ8bNa98KxjmCA_JJ8vYLJJlJuUsyi63IHuRAAl5gsxMQlobxbp0Pu-T6s9XsALtGtI1OfqvZpv4keeNIWGR9_5T5xs7ZkHrLaAFOa1plB2KHprQzwcw","text":"智慧消費推薦"},"webhookEventId":"01K0BP9GHPZZDXM58N9TJCJ3NC","deliveryContext":{"isRedelivery":false},"timestamp":1752739135669,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"a3493562891648198ead981ea3147ae9","mode":"active"}]}
+Handling webhook event with signature: o9AaFl5qyk9Isz9ZqC4JwINvZXtuqEYFryscV75gqmk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270716185542969","quoteToken":"q1fSDeOQ_bG6QqK37dx_Pn368Lh1Yp6PaUBoyGfMrSR8Cs_QkykakrVbmQc9oW67cWfTlMSa8pmH5XFjgbHQDbcnaYfAXRIGpJvR4aMFp6fq_9HK9twduu-rlziZngtFhGf-DMNu-mWHyS-ouazNOw","text":"交通"},"webhookEventId":"01K0BP9KEY444GDSAMYR4ST7S9","deliveryContext":{"isRedelivery":false},"timestamp":1752739138843,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"050b40086a5b44ab95e1a7bbbceca8cc","mode":"active"}]}
+Handling webhook event with signature: p/Zeya8njzwQzUI7N28Hy2/FVxTDMgVV799UDG3K66w=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '交通'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270724405592117","quoteToken":"_oFNiZPxML_2RPk7uaINIrcoRUcioEr00pyNNsCCmPNnw5QKK6hZCMO39xF8o-Oy4_73jWAzWg_0TpC-pMErnTL61YAGbj2_sWWnEmfDpRGApzuabquPOEZQnvfwqldAba9LF2cKtKqoRwJ0uUJ56Q","text":"3500"},"webhookEventId":"01K0BP9R24V4CHD74DXYY65PYY","deliveryContext":{"isRedelivery":false},"timestamp":1752739143552,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"bf28b949c34e4519a88b3f63fdfdf9b2","mode":"active"}]}
+Handling webhook event with signature: M4qQ3RLrxPVwjbELt2iJ3pclXOPbnkGbafUgRVAeZwM=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3500'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270797068239279","quoteToken":"iB7Fokf-FIpPblqd6zYGEsUk3CzVq4CAY34zCwZWawflGWSaWtjjvmToUkNFcJjVsSL4Oz_7XUFqDzg6398uKR0gTxst_M32MZNt4K_9DcH5E5Z_1LyB3HCU4AU3cFXVlmNKbxtVWuhPI7NYdB5clA","text":"永豐 大戶 卡 (DAWHO)：若本次交通消費可透過LINE Pay、街口支付或悠遊付等行動支付完成，永豐大戶卡享指定行動支付最高7%回饋。預估消費3500元未達指定行動支付回饋上限(月上限300元，刷6000元封頂)。"},"webhookEventId":"01K0BPB2FJ4SJZVG38S0N8ZSW8","deliveryContext":{"isRedelivery":false},"timestamp":1752739187018,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"f39a067dd8b342b8a79c1a3676683d30","mode":"active"}]}
+Handling webhook event with signature: uivQXArXbJtSazsgCLvptMeadhB54lxPmh67l6iHBVc=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '永豐 大戶 卡 (DAWHO)：若本次交通消費可透過LINE Pay、街口支付或悠遊付等行動支付完成，永豐大戶卡享指定行動支付最高7%回饋。預估消費3500元未達指定行動支付回饋上限(月上限300元，刷6000元封頂)。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270823005290565","quoteToken":"W9yomDcwhE2-2GC9Sjl2c8qsmJkd7M0W2iSKeBMRFadawkJ-2OD1YKmF-S12PMyXkF0cCdW-uLKiMwp8wUCKRKGF0FReBB-2d9z9uUv3jZN74kuVIU3k8MGBX_bkB_ocebB2x-7fFNR_ItnM4sYD0w","text":"台新 Fly Go 卡：此卡專為交通類消費設計，涵蓋高鐵、台鐵、國內外航空等主要交通工具，享5%回饋。但需注意需綁定Richart帳戶自動扣繳，且當期帳單一般消費需滿NT$5,000元，此5%回饋才適用。預估消費3500元未達交通回饋上限(月上限1500元，刷30000元封頂)。"},"webhookEventId":"01K0BPBHKXCBG7BFEZT8AKH7B4","deliveryContext":{"isRedelivery":false},"timestamp":1752739202320,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"7cc9d795db5a4b1689b2dd495a2baa21","mode":"active"}]}
+Handling webhook event with signature: XTWf38sQtsNQU8ldlWSElfa7IOVKfJaxnxEBLp1HQsY=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '台新 Fly Go 卡：此卡專為交通類消費設計，涵蓋高鐵、台鐵、國內外航空等主要交通工具，享5%回饋。但需注意需綁定Richart帳戶自動扣繳，且當期帳單一般消費需滿NT$5,000元，此5%回饋才適用。預估消費3500元未達交通回饋上限(月上限1500元，刷30000元封頂)。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570270851258122751","quoteToken":"Y7ugQQpddXoZW34KMmotXQxF7iBP5CT3Fkwbr1o65iQzazxS2gZ3kUyAYPpmoRhFCt9lXTdiR2AiKgGxXUjz8pUPBSHlsj5d5fq_Tmyp6I3c_KOgbxmxHxS_KmHXJhqv3oWWNwYpawx6E1K5qYWZtQ","text":"台新 GoGo 卡：若交通消費可透過LINE Pay、街口支付或悠遊付等行動支付完成，台新GoGo卡享3.8%回饋。但需注意需綁定Richart帳戶自動扣繳，且當期帳單一般消費需滿NT$5,000元，此3.8%回饋才適用。預估消費3500元未達行動支付回饋上限(月上限1000元，刷27000元封頂)。"},"webhookEventId":"01K0BPC1SR7A2QKSR1KZMAKRKS","deliveryContext":{"isRedelivery":false},"timestamp":1752739219165,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"2904f329bad64735b9702cb9f41cbf4d","mode":"active"}]}
+Handling webhook event with signature: 1QopOtH254QQcT9Tmeuc44I1aASMCel04+XGt32KD7U=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '台新 GoGo 卡：若交通消費可透過LINE Pay、街口支付或悠遊付等行動支付完成，台新GoGo卡享3.8%回饋。但需注意需綁定Richart帳戶自動扣繳，且當期帳單一般消費需滿NT$5,000元，此3.8%回饋才適用。預估消費3500元未達行動支付回饋上限(月上限1000元，刷27000元封頂)。'
+No match found, sending main menu as default.

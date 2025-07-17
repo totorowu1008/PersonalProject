@@ -387,8 +387,8 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
         print("刷卡內容：", user_id, category, amount, recommendations, "\n")
         save_transaction(user_id, category, amount, recommendations)
 
-        print("回覆訊息：", reply_messages, "\n")
         reply_messages = format_recommendation_messages(recommendations)
+        print("回覆訊息：", reply_messages, "\n")
         api.push_message(PushMessageRequest(to=line_user_id, messages=reply_messages))
 
     except Exception as e:

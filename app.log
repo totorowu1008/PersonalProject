@@ -974,3 +974,36 @@ Handling webhook event with signature: 1QopOtH254QQcT9Tmeuc44I1aASMCel04+XGt32KD
 處理文字訊息事件
 MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '台新 GoGo 卡：若交通消費可透過LINE Pay、街口支付或悠遊付等行動支付完成，台新GoGo卡享3.8%回饋。但需注意需綁定Richart帳戶自動扣繳，且當期帳單一般消費需滿NT$5,000元，此3.8%回饋才適用。預估消費3500元未達行動支付回饋上限(月上限1000元，刷27000元封頂)。'
 No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570281832466612635","quoteToken":"7X5WhWmEA8g2QttGDfx26u0CEStN-imAhO-5nOapoaq4HbIzryef8bHAtHs_Tj6RRJGcuq7WJHNO47KrIGrZOUIhABOafDUYIdP6cMBE4eqHjrsfvcjBfRppqCgfKG8QmxS51LHWusdhWs2ewmsNbA","text":"智慧消費推薦"},"webhookEventId":"01K0BWKT3N1B6WH88EBD8XCBDR","deliveryContext":{"isRedelivery":false},"timestamp":1752745764476,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"84f27f0c63f54d43b9183aa006fcabfb","mode":"active"}]}
+Handling webhook event with signature: h7rwpBXCY4vgPbU/thPPYYTgVRHq/kKb8ljkJ/owXSs=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570281841676779589","quoteToken":"p6bdHNKbzsopB5x6ujG5ksO-mjSOfygJtG7tD5nVsEGIlZhW6GEZY_3MTF2nMHiYglVNSeQHGLNj_awqTTuB8nRKNM72mKGZLd_VZiyvy5i8Eoi4DK9fOL5ge4kyerAgjjFvueXLXvRuMwr7appGkA","text":"交通"},"webhookEventId":"01K0BWKZDJWA4RBMKG4GJSJNZB","deliveryContext":{"isRedelivery":false},"timestamp":1752745769959,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"8609faedddbb4d469c2e930a3fb5d1fc","mode":"active"}]}
+Handling webhook event with signature: C5Z4e372DXDSlv6e+GR/iFGlGeovJQPO7OUsQ8cl66k=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '交通'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570281850267238591","quoteToken":"EX-PxUP0bfd2Km-bbTpf5u9uuVHSAJTp3-qPzz-d8uvtPzr7L_qcXqwkOpAZGMFULlY_j6PfgE1sQdsvOc1AEmVjCWmZ8XEKFGMPlX0cnqmt-hddd4ik7X7-dQccNtz_myWkwq-CXvXu1PHk4xXp0g","text":"3500"},"webhookEventId":"01K0BWM4HSPXAEFD3JZXV1GW2E","deliveryContext":{"isRedelivery":false},"timestamp":1752745775166,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"f05db99a440d44e39c82155cf9ddfa1f","mode":"active"}]}
+Handling webhook event with signature: S+8A6DeQywqt7yYcDC15PXrS/vPUkrE0ddMumCjxD8c=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3500'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: cannot access local variable 'reply_messages' where it is not associated with a value
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570282066324488741","quoteToken":"GMigzYCMZ4aK6ux65nAA5nvzIKeyE3tXVdikwMw8XTFrtVuarr_EKMwbFvSfjM_CGkr_CiQe-MbVcUwZCIT7Gr2d-MJwpKLk2C-5hUc5ffZ3vRAbGImGXF4nHi07xFoszW23vrA6YxJD8SkLXTrVTg","text":"智慧消費推薦"},"webhookEventId":"01K0BWR2CD60BMJ7T7NP3693FE","deliveryContext":{"isRedelivery":false},"timestamp":1752745904018,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"997d3096419947d4b132937ad7d75d9b","mode":"active"}]}
+Handling webhook event with signature: cl2DHyq+RnGz4+ispo9+iMa+FRbVpd38sRw3gaRh2pU=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570282074058523120","quoteToken":"Rsdygt1YdFDgs_zQCEXI6xCkdKicM4tlkN3-5PWCuuJqD6KzJPbPRZJCnB0ITnuLoB-FO64GtEJi7d0G_MwtUQVE6RJjstl8lhMRkfbwrzFB6IlcEpGKUXaTjZKeHoqwRbk5lf2F-cKe0KB_V_dcYA","text":"交通"},"webhookEventId":"01K0BWR694HXJSR4GQ6Y02K88J","deliveryContext":{"isRedelivery":false},"timestamp":1752745908473,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"c2b0043db7c34fc3949c75bb36e67cea","mode":"active"}]}
+Handling webhook event with signature: bmztNdCFlYuC/qHbmCJ4KY4MEXr1ujbsbXuEB67lPoQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '交通'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570282080701775890","quoteToken":"CM3_tsbAHRntV8yt4RsOvAlwz6rvFztzIUWAyNcO838DXjMAXC2r4ueIRmE4k9wjNAbRaBrtX6O-qWGlz2DEdNvzfyn7uczh5tBRolsyim4cP2xi0aIX6fHLpt4U4lzOd7cfBnzjvxVhCZwmGn6VSg","text":"3500"},"webhookEventId":"01K0BWRAK8SC9QFVRDQH9EMJB4","deliveryContext":{"isRedelivery":false},"timestamp":1752745912429,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"4265532b6da347768db927553db18b64","mode":"active"}]}
+Handling webhook event with signature: 5F4BFCHtEftFUmeLr3X+ably3+RUBD1SXZI2jLooTxI=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3500'
+State is 'awaiting_amount'.

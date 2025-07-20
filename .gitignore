@@ -4,3 +4,4 @@
 __pycache__
 .git
 app.log
+app-*.log

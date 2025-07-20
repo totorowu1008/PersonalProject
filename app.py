@@ -28,11 +28,13 @@ from linebot.v3.messaging import (
     URIAction,
     QuickReply,
     QuickReplyItem,
-    MessageAction
+    MessageAction,
+    ShowLoadingAnimationRequest
 )
 from linebot.v3.webhooks import FollowEvent, MessageEvent, PostbackEvent, TextMessageContent
 import google.generativeai as genai
 import logging
+import urllib.parse
 
 # --- 組態設定 (從 config.ini 讀取) ---
 config = configparser.ConfigParser()
@@ -94,7 +96,7 @@ get_db_connection = db.get_db_connection
 
 # 管理支付方式連結
 payment_manager_url = f"https://personalproject-je9f.onrender.com/userid/"
-#payment_manager_url = f"https://2b0d0b6ebaa4.ngrok-free.app/userid/"
+#payment_manager_url = f"https://a49cf479229b.ngrok-free.app/userid/"
 
 def get_payment_options(type_filter):
     print('從資料庫獲取支付選項')
@@ -191,7 +193,7 @@ def handle_follow(event):
     line_user_id = event.source.user_id
     get_user_id(line_user_id) # 確保使用者已在資料庫中
 
-    reply_message = TextMessage(text="歡迎使用 回饋達人！\n請點擊下方選單開始。")
+    reply_message = TextMessage(text="歡迎使用 回饋達人！")
 
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
@@ -227,6 +229,14 @@ def handle_message(event):
 
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
+        # 在處理訊息前先顯示載入動畫
+        line_bot_api.show_loading_animation(
+            ShowLoadingAnimationRequest(
+                chatId=line_user_id,
+                loadingSeconds=20,  # 顯示載入動畫 3 秒
+                reply_token=reply_token
+            )
+        )
 
         try:
             if text == "智慧消費推薦":
@@ -397,6 +407,17 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
 
     try:
         api.push_message(PushMessageRequest(to=line_user_id, messages=[TextMessage(text="正在為您分析最佳支付方式，請稍候...")]))
+
+        with ApiClient(configuration) as api_client:
+            line_bot_api = MessagingApi(api_client)
+            # 在處理訊息前先顯示載入動畫
+            line_bot_api.show_loading_animation(
+                ShowLoadingAnimationRequest(
+                    chatId=line_user_id,
+                    loadingSeconds=60,  # 顯示載入動畫最長 60 秒
+                    reply_token=reply_token
+                )
+            )
 
         response = gemini_model.generate_content(prompt)
 

@@ -2,3 +2,4 @@ line-bot-sdk
 Flask
 pymysql
 google.generativeai
+psycopg2-binary

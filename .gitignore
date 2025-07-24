@@ -5,3 +5,4 @@ __pycache__
 .git
 app.log
 app-*.log
+config - 複製.ini

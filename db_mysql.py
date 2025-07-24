@@ -1,6 +1,5 @@
 # db.py
-import psycopg2
-import psycopg2.extras # For DictCursor
+import pymysql
 import configparser
 import os
 import logging
@@ -24,27 +23,26 @@ DB_HOST = config.get('DATABASE', 'HOST')
 DB_USER = config.get('DATABASE', 'USER')
 DB_PASSWORD = config.get('DATABASE', 'PASSWORD')
 DB_DATABASE = config.get('DATABASE', 'DATABASE')
-DB_PORT = config.get('DATABASE', 'PORT', fallback='5432') # PostgreSQL 預設 port 是 5432
 
 def get_db_connection():
     """
     建立並回傳一個資料庫連線。
-    使用 psycopg2 函式庫連線到 PostgreSQL 資料庫。
+    使用 pymysql 函式庫連線到 MySQL 資料庫。
     如果連線失敗，將會印出錯誤訊息並回傳 None。
     """
     logger.info('嘗試建立資料庫連線...')
     try:
-        connection = psycopg2.connect(
+        connection = pymysql.connect(
             host=DB_HOST,
             user=DB_USER,
             password=DB_PASSWORD,
-            dbname=DB_DATABASE, # PostgreSQL 使用 dbname 而非 database
-            port=DB_PORT,
-            cursor_factory=psycopg2.extras.DictCursor # 讓 cursor 回傳字典形式的行，方便存取
+            database=DB_DATABASE,
+            cursorclass=pymysql.cursors.DictCursor, # 讓 cursor 回傳字典形式的行，方便存取
+            charset='utf8mb4'
         )
         logger.info('資料庫連線成功！')
         return connection
-    except psycopg2.Error as e: # 捕獲 psycopg2 專屬的錯誤
+    except pymysql.MySQLError as e:
         logger.error(f"資料庫連線失敗: {e}")
         return None
 
@@ -54,13 +52,13 @@ if __name__ == '__main__':
     if conn:
         try:
             with conn.cursor() as cursor:
-                # PostgreSQL 查詢當前資料庫名稱的語法是 current_database()
-                cursor.execute("SELECT current_database();")
+                cursor.execute("SELECT DATABASE();")
                 record = cursor.fetchone()
-                logger.info(f"您已連線到資料庫: {record[0]}") # DictCursor 在單欄查詢時，直接取 record[0] 即可
+                logger.info(f"您已連線到資料庫: {record['DATABASE()']}")
         except Exception as e:
             logger.error(f"執行查詢時發生錯誤: {e}")
         finally:
             conn.close()
     else:
         logger.error("無法建立資料庫連線。")
+

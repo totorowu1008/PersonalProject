@@ -10,7 +10,6 @@ Original file is located at
 # -*- coding: utf-8 -*-
 import os
 import json
-#import pymysql # 假設您已經使用 connect_db 模組來處理資料庫連線
 import configparser
 from flask import Flask, request, abort
 from linebot.v3 import WebhookHandler
@@ -95,7 +94,8 @@ user_states = {}
 get_db_connection = db.get_db_connection
 
 # 管理支付方式連結
-payment_manager_url = f"https://personalproject-je9f.onrender.com/userid/"
+payment_manager_url = f"http://104.196.220.167/userid/
+#payment_manager_url = f"https://personalproject-je9f.onrender.com/userid/"
 #payment_manager_url = f"https://a49cf479229b.ngrok-free.app/userid/"
 
 def get_payment_options(type_filter):

@@ -6,3 +6,18 @@ __pycache__
 app.log
 app-*.log
 config - 複製.ini
+518248.jpg
+app_aws.py
+app.py
+config.ini
+db_ps.py
+db.py
+Dockerfile
+gae25213.ppk
+gae25213gcp
+main_Sample.py
+main.py
+requirements.txt
+Backup/.env
+Backup/config.ini
+Backup/db.php

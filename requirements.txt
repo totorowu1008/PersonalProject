@@ -1,4 +1,4 @@
 line-bot-sdk
 Flask
-pymysql
+mysql-connector-python
 google.generativeai

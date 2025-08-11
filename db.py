@@ -1,6 +1,5 @@
 # db.py
-import psycopg2
-import psycopg2.extras # For DictCursor
+import mysql.connector
 import configparser
 import os
 import logging
@@ -24,7 +23,7 @@ DB_HOST = config.get('DATABASE', 'HOST')
 DB_USER = config.get('DATABASE', 'USER')
 DB_PASSWORD = config.get('DATABASE', 'PASSWORD')
 DB_DATABASE = config.get('DATABASE', 'DATABASE')
-DB_PORT = config.get('DATABASE', 'PORT', fallback='5432') # PostgreSQL 預設 port 是 5432
+#DB_PORT = config.get('DATABASE', 'PORT', fallback='5432') # PostgreSQL 預設 port 是 5432
 
 def get_db_connection():
     """
@@ -34,19 +33,24 @@ def get_db_connection():
     """
     logger.info('嘗試建立資料庫連線...')
     try:
-        connection = psycopg2.connect(
-            host=DB_HOST,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            dbname=DB_DATABASE, # PostgreSQL 使用 dbname 而非 database
-            port=DB_PORT,
-            cursor_factory=psycopg2.extras.DictCursor # 讓 cursor 回傳字典形式的行，方便存取
+        # 連線到 MySQL
+        connection = mysql.connector.connect(
+            host=db_host,
+            user=db_user,
+            password=db_password,
+            database=db_name
         )
+        cursor = conn.cursor()
         logger.info('資料庫連線成功！')
         return connection
-    except psycopg2.Error as e: # 捕獲 psycopg2 專屬的錯誤
+    except Exception as e: # 捕獲 psycopg2 專屬的錯誤
         logger.error(f"資料庫連線失敗: {e}")
         return None
+    finally:
+        if 'connection' in locals() and connection.is_connected():
+            cursor.close()
+            connection.close()
+
 
 if __name__ == '__main__':
     # 範例用法：測試資料庫連線

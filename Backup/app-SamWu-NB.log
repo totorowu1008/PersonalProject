@@ -272,28 +272,576 @@ Reason: Bad Request
 HTTP response headers: HTTPHeaderDict({'Server': 'legy', 'Content-Type': 'application/json', 'x-content-type-options': 'nosniff', 'x-frame-options': 'DENY', 'x-line-request-id': 'adeb28a3-be9e-4a8b-88e1-e8c0b916f8e8', 'x-xss-protection': '1; mode=block', 'Content-Length': '291', 'Expires': 'Fri, 11 Jul 2025 08:07:23 GMT', 'Cache-Control': 'max-age=0, no-cache, no-store', 'Pragma': 'no-cache', 'Date': 'Fri, 11 Jul 2025 08:07:23 GMT', 'Connection': 'close'})
 HTTP response body: {"message":"A message (messages[2]) in the request body is invalid","details":[{"message":"invalid uri","property":"template/actions/0/uri"},{"message":"invalid uri scheme","property":"template/actions/0/uri"},{"message":"must not be longer than 60 characters","property":"template/text"}]}
 
-Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569402930189828693","quoteToken":"M1fMmgAePrg3UxCKTT-6PqNiEjczhyh_4JUtB0paY1fz6pyPig6TQGH5si618JKJfhQlrHABFRTUGq-l0d3NoTMTHW0TWUccvczpmCjsuYzFGJ6kjNspNbcI-EIus4uWfNGMz1ycyVVX3bbxDcqALw","text":"99"},"webhookEventId":"01JZW90NQE6GTG27VBC3FRQJE6","deliveryContext":{"isRedelivery":false},"timestamp":1752221897970,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"6374227fa41645bcad2dc5e0f2abb468","mode":"active"}]}
-Handling webhook event with signature: TcIRdhOGlwF8Q/acGfivX1YSQIVZBSIyMPovec1wjWk=
-處理文字訊息事件
-MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '99'
-No match found, sending main menu as default.
-Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569402935776903323","quoteToken":"SdENpC6ynQ6EBtCPwGkSbU-uWM0jL1pn8sPMypPhB5AFCz0OvnL8mjBl85C1VcbX8FBoMLF2Ijqn72HKK_4Pw0YX82C75vBz4144LORW_BxzHNjU17R1sZakMEFVcdxcSV6jTf3j17L3jxJk99V1tQ","text":"智慧消費推薦"},"webhookEventId":"01JZW90RXP30RDDBSZT4XBPWEA","deliveryContext":{"isRedelivery":false},"timestamp":1752221901239,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"872b599cce0143f28c26f224ea329c18","mode":"active"}]}
-Handling webhook event with signature: vjSrUvTEMH82XAXIyGD8c94pPmVi/wJSMpUAGDXCY8w=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569427485574300189","quoteToken":"20KoYx6drcOxKzde7x1BiNliB74MT9Ets3HV5EeCEMjzsId0wxEbruvKGq4h3tb-VI_h_2tzmlZKO900jH_eo4M0teKmFmJyKYerovcXDPn0UbhyyDujsj5rpmFsVGGx_SKnELJIAaI7EkkPEQ2pCg","text":"智慧消費推薦"},"webhookEventId":"01JZWPZASKTCH8XT6T480G19WV","deliveryContext":{"isRedelivery":false},"timestamp":1752236534088,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"fefe23b474ec4b38926d68161add9dcc","mode":"active"}]}
+Handling webhook event with signature: 0ADahcBsi0dqw/hIquEadmwoQghtNl9zy7R9xtBIVhY=
 處理文字訊息事件
 MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
 Matched '智慧消費推薦', starting consumption flow.
-Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569402940725658219","quoteToken":"HR3-Bjrn9enmDBaD7x8oZVWW5bJuMI5hLn7u8eMsFK6LqhjrL96oDjyxQOoRykrAFaZM64jXjl_AtLCOzqTIbGhi-7i42UW5xtkGqaCFVc3SrBhEjfzEjMsB0e1axlIlueB0hQ-GxQnGDvSTaIxR1w","text":"餐飲"},"webhookEventId":"01JZW90VM0NMQD97BNBHERGS31","deliveryContext":{"isRedelivery":false},"timestamp":1752221904211,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"5b5c4ecfadc84d11ae61c4419b5d777d","mode":"active"}]}
-Handling webhook event with signature: MObmyxuaxcDo0flnNOMMQ60IDmmxBEIUQflq938aP9s=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569427490322252236","quoteToken":"8EhlFhkN06DywuLdYP4sF8GK2FGQbBZuLGKypd-D_uXYGyMIypYIVcy0tIReiE6Fp6hde2RTY7zevuga7gSbX5JNhLDtWJ9F29Z6t6kNWDb-0wYP7vXnBCHSomUjAunrcE1m1PT6uLkn2_yTYKPTPA","text":"餐飲"},"webhookEventId":"01JZWPZDEAHMEMHTF2FDFR9ZD1","deliveryContext":{"isRedelivery":false},"timestamp":1752236536877,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"84ad57ff78bb4e14a2930885a4f06a79","mode":"active"}]}
+Handling webhook event with signature: dP6kEKRqP4oZuGUgWAAYcWYVPkOVjMLg1WvA8SSb71s=
 處理文字訊息事件
 MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
 State is 'awaiting_category'.
-Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569402948862869778","quoteToken":"Yi_j8ok2uPQhthWsjJDuCYzko18JvvtacmEg9PydNDYmFYkriyjZfHy1tzq3OrPFGQY3Bppwmd3toH8t98o8Ov3q3KX271VSnZUSFweWMI7zpxrN8kQx_rD-iHgR6ICDuY7LJmrqMT-1PU60FkJUyg","text":"2500"},"webhookEventId":"01JZW9103TJDVQ903P9P2Q0E68","deliveryContext":{"isRedelivery":false},"timestamp":1752221909029,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"902cc466fa064d7f870048b2c4e458b6","mode":"active"}]}
-Handling webhook event with signature: QBME+D3q96FvlRF1dMXNkeqqTBEyUaZGrHvSJK5+2pY=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569427500690571596","quoteToken":"Z6e1mTaiOKe7ImjlyLsPQslVA2oTfJpZ7J5293kPNeh85mztPRhUs0M_Px0YS75PJVkAAhZ9K1tAWgKWeTpCm4fPZvC6Vg_KQKu27jzOaM06-0PcD31ovt7ZBWJJDmujAzFnXEWmhbqg4ZBgZny0gQ","text":"2500"},"webhookEventId":"01JZWPZKHG56E0GYZN9FCWCENX","deliveryContext":{"isRedelivery":false},"timestamp":1752236543055,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"e177713c703a4792b2c0f573668312c0","mode":"active"}]}
+Handling webhook event with signature: ftNvTNOrzWVtrKGyd7MldHq+bMF8aIovOgCUVJFAoB4=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: 1 validation error for TextMessage
+text
+  str type expected (type=type_error.str)
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569428189362520185","quoteToken":"nJ8He5VJUjoFnJ-sUyTDwxVIZ-Xc7-R4YBdPQuk77z02rjB0ee8WPagmw-7OqbfM7Yijp116vA1--ZhnhJnYyoI8N34NFCHXQELR42_ZeN_afBN8A1PMSEPU5_orviVCptXMldNuCGf6qeJL3i0-rQ","text":"智慧消費推薦"},"webhookEventId":"01JZWQC43S4PMJJ41HD5RD8JQB","deliveryContext":{"isRedelivery":false},"timestamp":1752236953694,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"13de902c8d6b47869a237248c2c18fde","mode":"active"}]}
+Handling webhook event with signature: 7ejnYEG7FdEi5hLIgGZFkKfprGor/R9ri4VPqMtaek0=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569428198002000187","quoteToken":"DFG658qPlkb8xJTQX3LcOoZaxAc9cLTzwrsFAr02eClKzaEJFSJbSCdJfoC-prJCf5mSEuE7S4QHIOhv-3YX1aHy8gpXK8axBKU-useaVX8LITwGsblFnyMGpjlp1tlcFlJXP1gezNbHYk4EWuxloQ","text":"餐飲"},"webhookEventId":"01JZWQC91WC7CPJRZQ9DV3ZH52","deliveryContext":{"isRedelivery":false},"timestamp":1752236958684,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"9fa882adacea4e0ca89041b211d061ec","mode":"active"}]}
+Handling webhook event with signature: gE9eemPJIACpJGWA2Mzqd7ZtdXzCVUTTt3koqjltoqQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569428207984705850","quoteToken":"5ecPw2MlWlCHgQ_dpBBuNpDiAgzsfdQIoFjGOsoNJIk7bl3TRMlMxd7akHKpbStYG6Swlv_G2c-wdsG6bc8hndPCJ0jGp_QzBaBLCznw5S5s6ScmyEzR23f6y2pbqHxeWGOtDY8Nc1dOpIWyuNxFtw","text":"2500"},"webhookEventId":"01JZWQCFCRW95SM6RWFQXNVCGW","deliveryContext":{"isRedelivery":false},"timestamp":1752236964765,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"ff0dcdc74aa242958739a4eb14471172","mode":"active"}]}
+Handling webhook event with signature: V/WZ13t7rqH6GxKa7/ibikiGnnJ8bgwGYcXL2fT0dvY=
 處理文字訊息事件
 MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
 State is 'awaiting_amount'.
 Gemini API 或後續處理出錯: (400)
 Reason: Bad Request
-HTTP response headers: HTTPHeaderDict({'Server': 'legy', 'Content-Type': 'application/json', 'x-content-type-options': 'nosniff', 'x-frame-options': 'DENY', 'x-line-request-id': '8eb5d11c-a8ad-49b0-9b5a-04deccd90ff4', 'x-xss-protection': '1; mode=block', 'Content-Length': '291', 'Expires': 'Fri, 11 Jul 2025 08:18:45 GMT', 'Cache-Control': 'max-age=0, no-cache, no-store', 'Pragma': 'no-cache', 'Date': 'Fri, 11 Jul 2025 08:18:45 GMT', 'Connection': 'close'})
-HTTP response body: {"message":"A message (messages[2]) in the request body is invalid","details":[{"message":"invalid uri","property":"template/actions/0/uri"},{"message":"invalid uri scheme","property":"template/actions/0/uri"},{"message":"must not be longer than 60 characters","property":"template/text"}]}
+HTTP response headers: HTTPHeaderDict({'Server': 'legy', 'Content-Type': 'application/json', 'x-content-type-options': 'nosniff', 'x-frame-options': 'DENY', 'x-line-request-id': '52e5bb92-286f-4caa-b277-a1009ee3f80c', 'x-xss-protection': '1; mode=block', 'Content-Length': '212', 'Expires': 'Fri, 11 Jul 2025 12:29:40 GMT', 'Cache-Control': 'max-age=0, no-cache, no-store', 'Pragma': 'no-cache', 'Date': 'Fri, 11 Jul 2025 12:29:40 GMT', 'Connection': 'close'})
+HTTP response body: {"message":"A message (messages[2]) in the request body is invalid","details":[{"message":"invalid uri scheme","property":"template/actions/0/uri"},{"message":"invalid uri","property":"template/actions/0/uri"}]}
 
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569429552813310159","quoteToken":"StkFTO06U-Gkr9R2PO9pacmlZCV80bge9CDIBRLaB6Z6Puc1uK1kJTy5M7w_jiXuTS-Bzvg2u5dIwrXYlfvMzaeUXwnIODhctsg_1RZWeWN6WnUybiPHcScezCSCNVXAaBZc-HEWA6y4f8nm08zD9g","text":"智慧消費推薦"},"webhookEventId":"01JZWR4Y6B13A4ME48HRH8SZ0A","deliveryContext":{"isRedelivery":false},"timestamp":1752237766352,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"ba3c6116f7944445a388e75f12139b1f","mode":"active"}]}
+Handling webhook event with signature: qginhFG8ZXNCDaDeW0VJIWY1VG6jgiw04lbDRROKAf8=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569429557677916166","quoteToken":"57Y7PW9OTiP7FtCtTRT6M3fugEPsCFQenGYAP11brzet-xzPnlAfGi8_l1q_Gpud_XlV4Z7LDMDsgiGd2tzNHy4b7-cOVgSM1D43vJvOGfyYHnWUQ8iwzla2dcSLuxE9yeZRYmek3_mfXHU4d6Z0pQ","text":"餐飲"},"webhookEventId":"01JZWR50JGR4S3RA9Y28VSH4Q7","deliveryContext":{"isRedelivery":false},"timestamp":1752237769214,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"761d646eb48543cfbedb73855751c7b6","mode":"active"}]}
+Handling webhook event with signature: 9kd9RJ+uqrSF8XA9TwiyX5G6Z1ziuFEVMq+IygNqKJg=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569429566570365357","quoteToken":"X_NOI7zj2dGIYBnFM0hBZ63gkRqwAvCA_dLwPUvrqP261fuNuFhFH2RhKMkGHQy-QPMdpKUddBePOlxU3r_dP7tHIMb6sU-nxgSoefeoAJuuBS47bwpQXxcw35p-FllUnjM9KWVBI9FgVpKkCAzN_g","text":"2500"},"webhookEventId":"01JZWR5643CZENAWJ4A4HD2G93","deliveryContext":{"isRedelivery":false},"timestamp":1752237774471,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"34bd1008d6164bcf89e6a5831f11786b","mode":"active"}]}
+Handling webhook event with signature: fuTHfOim5Yegc+jaSPvvZa9H+BTppeMABDZoNEQVT+U=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569430280742371507","quoteToken":"YQX2ArBxRJRkbw74TQWtrAQ9369RdwqS6Y7VQzYL3iIK_5uLHAZAjKInDIxCIJeHBpPohHDRS2niFaBEkeWynLOHME1u8QwpUk5ZuLEfmzWP_puFcX4ojEKKM9ddYc36WN0VtsZd5uMu7Ks1vxAsuA","text":"智慧消費推薦"},"webhookEventId":"01JZWRJ5RPB9XY7QF71ZQ58AT0","deliveryContext":{"isRedelivery":false},"timestamp":1752238200091,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"2fefe5a3f54e4b978df96500dfc9e877","mode":"active"}]}
+Handling webhook event with signature: isUisIK1f5ObZdL878aEs4j+llT/KNR/B6MlcFIilVk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569430290775146985","quoteToken":"sUw-yKlbXC4OPw4GrI7e3l5sYjEw0Uun3vcPwmYNUvK8AR39m2Zmn22BkmwXWKhfqOpQUvEFEawRGCFktpoa-LDMWdF8QOkYyllxNrvxYU5Vv2Y2Xf5Mn-3A0_8O8DQt-H_5Zn4TB2A-clby0rV4aQ","text":"餐飲"},"webhookEventId":"01JZWRJB5SEZ91S4RWWBTMPMG9","deliveryContext":{"isRedelivery":false},"timestamp":1752238206074,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"721eaca2aab843318157649fdd678296","mode":"active"}]}
+Handling webhook event with signature: OC34mGS+jryJBSv6HalzO+iZkWHQ5IOflTqboK5iyQE=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569430299197309171","quoteToken":"sJliwPpBjgXsklF--COMrELPfNsO96H92W9ignaHGxVsyX9G3e-sYnNL-kDIhbd0p_VnLgl4d6XVBjqM1972gNaXs_Nkqxm-VLPOjCQCsWHvfBYkyPqYWwXTUE_bQdVoCGNjeNQx8WvBk2yfUHAxEA","text":"2500"},"webhookEventId":"01JZWRJGGHFMAJXPAFDXQJK2NA","deliveryContext":{"isRedelivery":false},"timestamp":1752238211092,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"43281b149dea4c70a8d794d861dd1a3c","mode":"active"}]}
+Handling webhook event with signature: IxvaJtYk4sbwroHiJDEKVMaifW8VUpBY4CsLPOCxcKc=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Server': 'legy', 'Content-Type': 'application/json', 'x-content-type-options': 'nosniff', 'x-frame-options': 'DENY', 'x-line-request-id': '7b9bd5ac-3e5b-4a0d-a73d-c9c1cedc5bae', 'x-xss-protection': '1; mode=block', 'Content-Length': '212', 'Expires': 'Fri, 11 Jul 2025 12:50:29 GMT', 'Cache-Control': 'max-age=0, no-cache, no-store', 'Pragma': 'no-cache', 'Date': 'Fri, 11 Jul 2025 12:50:29 GMT', 'Connection': 'close'})
+HTTP response body: {"message":"A message (messages[1]) in the request body is invalid","details":[{"message":"invalid uri","property":"template/actions/0/uri"},{"message":"invalid uri scheme","property":"template/actions/0/uri"}]}
+
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569430655948030517","quoteToken":"DQ8B-ibndByul9IuAsJhgAmQ4YKArXC7SFJ3n-ZsctHEr6ld8cO2-CcfgSHj9C85MLE_lU4PBEt3p1iRRQ048dZFauYx4mpD0RVBmIgKQMBDJjz8deDuShwGu4AMYKLwzoIOZG4a8iIn375m14XgXg","text":"智慧消費推薦"},"webhookEventId":"01JZWRS022FYVZ61P03N3QE0T3","deliveryContext":{"isRedelivery":false},"timestamp":1752238423734,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"7a9d455e2a6c40a1bf40db5a2ffa437c","mode":"active"}]}
+Handling webhook event with signature: FBe6I0x6fD68iGfWcv1sdwo7npEU+Vy07/K/NLCa+xU=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569430663313490166","quoteToken":"2HITdhWiKcCMSyWBHo73PR_yATJ9vnAhqPlWYvvr_hZRbTBR-6zfnZzCcerTwgZ7yDIkNULAhXWbiMF8O1wHu28KghrIv7mpoViQAw2vmY_7Xo_FgqYe3LdhFtU2_k-BhfTlLgFfFk2QE0LOLnr7AA","text":"餐飲"},"webhookEventId":"01JZWRS46TRV7DDBYGCJEP7DCY","deliveryContext":{"isRedelivery":false},"timestamp":1752238428311,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"b4781ba8aa2c46d385abb0b7760b2d9f","mode":"active"}]}
+Handling webhook event with signature: fEaC8cDwBH0c727TWvStumGUBoDIvV2rT7d/9k7paHk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569430670409990587","quoteToken":"Q8g0fLPQL_yMJIt1JJaOCOLPY5NuNLorNaI8OQoIKAyFo_BOBNkKgOBW4NtbvxLYcJplk9kUBhlWttYgtwGs_xNy4U5eZiwjX2PxhuG2jD1ZOYxRRwdCQybux2ltJShvDX1Jg6tsVvP1yMCHvBoQXQ","text":"2500"},"webhookEventId":"01JZWRS8R8HQ06RDADD5G2YCH9","deliveryContext":{"isRedelivery":false},"timestamp":1752238432525,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"72a063688e094b7ebf4e2d89ac20f931","mode":"active"}]}
+Handling webhook event with signature: RUM+Vba8SREMd+EnPHNwIv1Zi18MPBe31aGDZ7Xr2rM=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: 1 validation error for ButtonsTemplate
+actions
+  field required (type=value_error.missing)
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569430887842709764","quoteToken":"fpOSkqZkgb_4RwY32X-PLAncF65LcQ6cg5J8XkGz1_wf6HWYMBoA_TvWb_rXgM57zVkrQ6RGk8YXqzbbCMGUO4y_4LlEIAbxLJu36zmrG7-GxMwPWUMetV1jt_sIvsMx1vxetoxW01AAmr5Y_9qKUw","text":"智慧消費推薦"},"webhookEventId":"01JZWRX74WEXEW5VVCZ7VEK3JJ","deliveryContext":{"isRedelivery":false},"timestamp":1752238561952,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"03f7cc5d1af248d59fff9867f8867d00","mode":"active"}]}
+Handling webhook event with signature: UkAPp2naVQUPbfvYxKECMB3Z3twTgyQCxpRqzhQzlQA=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569430893647888386","quoteToken":"pWM_uGU2HVq4zGUGxoj8FemxauLhMykzrUCajK43w_yPQoaEgRXcAfNPnBXwoG0TBFyeN_Szixwet0WoTj4HBI39jeZITUiAH2kje7x9XOiVQpKVqTAqI7fz1-xpcl8R_37QC5UJCIBO7WpcUzr3mg","text":"餐飲"},"webhookEventId":"01JZWRXAHG6DG4PHQAT9P498MC","deliveryContext":{"isRedelivery":false},"timestamp":1752238565428,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"b399eb7e3af448338f728245fe27ae45","mode":"active"}]}
+Handling webhook event with signature: fY81uKMvNxUNtC+UF7Y/ZJ+KLQMuetLQYwgIRe1zXk8=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569430902037021082","quoteToken":"091sdVoUaes_CYSjllwQ6k6cWhDSGYXLnkVIAqL70MS4wzhw5B82nKVIbOo5X33dZEUfusx23baeY1qRbGbHHybrd5wZmgA53PKUNgRTDknqgIsSj_P_DodHAIR7ah4DNcFGF_ZLj1UZBrijQ8FW5A","text":"2500"},"webhookEventId":"01JZWRXFG9QK98EEK5R3B4JC86","deliveryContext":{"isRedelivery":false},"timestamp":1752238570501,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"e37381a20b27414a87f7f429ff00ffbc","mode":"active"}]}
+Handling webhook event with signature: WEi7aOzSCbeYeXo8YJW379NtAtAhE4Z5VxZpJFOXnDk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: 1 validation error for ButtonsTemplate
+actions
+  field required (type=value_error.missing)
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569498544533144199","quoteToken":"sH5lJGwWLLB5NlR3aI0ZNaSMLMa-4YXhmwgc20DedhlUCrYPC90t6JqOBj_4gEIMKjQmQwdswUmUmaf85D_3S9IKxUVjOvMzk8k0LcvwaWPXuseCAOEeeAPGp4xubkWJvqWQdXPYa3wMq9AgmDXZ_A","text":"智慧消費推薦"},"webhookEventId":"01JZXZBWH0H49TS1216CDCTBMV","deliveryContext":{"isRedelivery":false},"timestamp":1752278888485,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"496c4e1bc13048b8b29feeae776215b5","mode":"active"}]}
+Handling webhook event with signature: 5W5XlJWzPlQbB6D7PozG1mMk673tp+LAF3hOl4ideXo=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569498553576063215","quoteToken":"VEIbvEnbthW5m0ZRRaAjn4tZKepXFVcKZ2vf1ZpzpM-tbDy4v5Cc5NNoNE2Qe_ZwPudgzYeqbH_eW8Ivzpk7LTwgQD0OkXJ1m9375DKtaVUDA7K2X5dbz8ag4oS3zfQojW601ujmIEmpM_a5_Kg_1w","text":"餐飲"},"webhookEventId":"01JZXZC1SBBS62PRE0P7579GAD","deliveryContext":{"isRedelivery":false},"timestamp":1752278893872,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"fd0607a78c80416fbe2087ea978fd1d8","mode":"active"}]}
+Handling webhook event with signature: taGIqGLxxMsQ2eq5f72YKw5N0p7RodbV9FNNKy8bMtY=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569498568943993113","quoteToken":"ZsiXMZL-ltOdgArytcmFrWVYVSs3rxKQFFcOFXutYiQntCGTyU-mqjP4CwkcOesJENcC3Eyuhxx7zUGf6gT6KEAE0ktfbLPEnXNUjLj95LOB9JuhPhuQd7yXVdwkgswZQJP6x1e_WOFj7nhVGHbbmg","text":"2500"},"webhookEventId":"01JZXZCA85TK1V6GTQ0H0J61BN","deliveryContext":{"isRedelivery":false},"timestamp":1752278903033,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"12050a22a4c44b15b0fa69580ce07d0d","mode":"active"}]}
+Handling webhook event with signature: M08XQ/LeOsf+n8oAfS2dPExp+B/wPhSMLlAN9QFGTeE=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Server': 'legy', 'Content-Type': 'application/json', 'x-content-type-options': 'nosniff', 'x-frame-options': 'DENY', 'x-line-request-id': '7310fdb4-de92-4e17-b3bc-240edac41689', 'x-xss-protection': '1; mode=block', 'Content-Length': '212', 'Expires': 'Sat, 12 Jul 2025 00:08:34 GMT', 'Cache-Control': 'max-age=0, no-cache, no-store', 'Pragma': 'no-cache', 'Date': 'Sat, 12 Jul 2025 00:08:34 GMT', 'Connection': 'close'})
+HTTP response body: {"message":"A message (messages[1]) in the request body is invalid","details":[{"message":"invalid uri scheme","property":"template/actions/0/uri"},{"message":"invalid uri","property":"template/actions/0/uri"}]}
+
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569499336820391988","quoteToken":"tjaZfC_p1Hbhay_29pE8sY6HnAmuSmz6Wg4ixj7Qy4oSkbKzfOjlPZX4-N3a32T7HotGyYYNgzDy_4Nmt_dbtMndNwlNVqC8ofIpXrKArhVrtWMj08xNcMJzZIAc6HZnFC_uuyHI9pIB0a3J8yUZ0w","text":"智慧消費推薦"},"webhookEventId":"01JZXZT9ANBK3V5DW4NHR6BD52","deliveryContext":{"isRedelivery":false},"timestamp":1752279360719,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"c7fa8dcc9f3e40acb3f26b103d2a0cc2","mode":"active"}]}
+Handling webhook event with signature: q0xI0l4kM6CiTl8PL2CM9XzboP8ymH57nYp/RjUrDbU=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569499345661984973","quoteToken":"i874D_tD0xVI4nIgEh6p2Cmok9MgBniE-SIsVQTDlS53M7MrXgtlvEjT9DF0FwwZ0IFuQdNuzkHscMLDMtoZ0IX67gTywQA4bAk4i8auYZnK1VgVBouNkStOjghA0BTYxzqha2BpD2dorV74iX-74Q","text":"餐飲"},"webhookEventId":"01JZXZTEV5315YEMTWZGGSB2KM","deliveryContext":{"isRedelivery":false},"timestamp":1752279365993,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"97477a013bf545309ced6e207a668a84","mode":"active"}]}
+Handling webhook event with signature: DZpQNm1yUjxwIfYdPCfzpJENusooLIvNv32/2ga/EEE=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569499354017824821","quoteToken":"44Pj9zqSmqVA25bzfUsVQUOnhaqi8rHiK5P9PXwd2x8q54wbI8uvLHCqKrH-BwsWIsosYmPxUfyDzEAgPqgxhYkv_73rSzxWZ0eYiO_m3zmospXs8GoomMh_k6oFYEtJ2kaERlZEvTROW67VVdTtgQ","text":"2500"},"webhookEventId":"01JZXZTKPRZ71S401HRZB91E10","deliveryContext":{"isRedelivery":false},"timestamp":1752279370983,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"4b73fe6d12d34941b2fc7f2c8c3a6412","mode":"active"}]}
+Handling webhook event with signature: xKrTRVx+3SWmWraYt3U6a2CiiodRLWsVMa64puEWdW8=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569501461336031743","quoteToken":"anKLQh9wOxOiui1j2tX1Jw8cZf8_kJ8GB5rkHGsiEaKmYgb6QmbrwDd4TMybCVh8DkdyB75lk1sNl6AyoQKCG5mtbXvGB1h3Ar_jOGaracNMlAhZqbPKSoUkvJmR2VpZpuQOkCeD59qVZmStS0WaxA","text":"智慧消費推薦"},"webhookEventId":"01JZY10Y6K9MDGV0XZEZ2MY5XQ","deliveryContext":{"isRedelivery":false},"timestamp":1752280627037,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"4882e3552969483ba5b171a8f1dea695","mode":"active"}]}
+Handling webhook event with signature: 2I+zqO2526DXFmcjo8BSShY+hLFUTx01bBSdR+HgoYQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569501471436702175","quoteToken":"0ppC270VlZ2d6yDH-VTTDMDTO4Gq7H3ItS8fB8JA9j91hS8Agz5_Ks_a_vZmxC5GS9WCm4qr_9JGOGK2MZGSd696WynCKBSqX1L3e_FLwSLdXscdMCQ3-0x7xYNEobWSAY6ln01q0HmLd0XckiMDIw","text":"餐飲"},"webhookEventId":"01JZY114922GXBDS466KN5GED6","deliveryContext":{"isRedelivery":false},"timestamp":1752280633127,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"456ad5db1bdd43b2b2393b4f46236584","mode":"active"}]}
+Handling webhook event with signature: qOykBG0QnRZY2q0al0+r2n0tTSFI19W00pk9yf4g1DM=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569501478952108344","quoteToken":"lBAER-VRWsj0BLvij6W6kYFF86fvnzgrPqvZ6PNcySD7ku3n6IkPe-_Z9aPxFV3HgFKuHg_UHKM5Vtc20So5ZKpWuKDqTYMWJcXgAAqjbUEoPjs6oy207q-oweiUp8i5KYyfbQQ53F-0LRZ-plnWcA","text":"2500"},"webhookEventId":"01JZY118JPKQAJEQNHD1XYVZTS","deliveryContext":{"isRedelivery":false},"timestamp":1752280637533,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"8ffcce4d5aea437f98f18970684bab17","mode":"active"}]}
+Handling webhook event with signature: cTkz/JeLOD4xH4H4Gmlfk93izlcKFkcSVSZ8T8FkDuc=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: 1 validation error for ButtonsTemplate
+text
+  none is not an allowed value (type=type_error.none.not_allowed)
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569502717782262238","quoteToken":"DOAC2XsWWRPKS8RirEdwOL786V29-blOZcC399HnnHhUUb7RbhFdcaIix2NN4flZk76GwK-92rTA47HBaGn35G36jtmFkxBPVa3AYNPh3qA_WduSDmuFCw78TMMOdX7VtCXKGv-4xUynirSYctOu7Q","text":"智慧消費推薦"},"webhookEventId":"01JZY1QSEZSEN9ZKBVX0BDMGVZ","deliveryContext":{"isRedelivery":false},"timestamp":1752281375989,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"f3ce4548b1b544a8ac261604fe5ab83e","mode":"active"}]}
+Handling webhook event with signature: mIatjMxslYDOzVu4eXXMTDk7kQ6qc/ksPKFXGxCgiqo=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569502732512133546","quoteToken":"bXiZaf1AxUpwP-kUiRrvr5-8VhD19hojFi0U1s2ioWuTFRvHJjuDtTmUte6I4NuD-JQh4OBtTap4VEprYyEyE4paGUaTFTQRbH5RbO_bM-vtnayRBG7eY6GMnmUuOEHq_XC8jCrLULW43nQMuq0uTQ","text":"餐飲"},"webhookEventId":"01JZY1R28AQQ3JF9GPXA49255J","deliveryContext":{"isRedelivery":false},"timestamp":1752281384718,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"4fec8cdb012c4d82b909686c688925c8","mode":"active"}]}
+Handling webhook event with signature: PW3+AsYOY7CnQ/YznSZJLEjHiJaAsnJo8YDhBlqXTrk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569502745262817417","quoteToken":"Dc6BWMeeGbteV4ax6OtvezbwVpMMe0i0amLyW30gWiTQkgNU3aLaGqkuwbNHQzGSwiektblJINJcW4v4X1nrzFQv_YH7NoCVq4B5NhsETtHI_fik-PFSDtXd7iqE8NrOJSTLdmd2flD_ymDgyolmWA","text":"2500"},"webhookEventId":"01JZY1R9NK6C0YKS9M5P5D06CW","deliveryContext":{"isRedelivery":false},"timestamp":1752281392311,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"5df88c1577ec49d18611d354724339e2","mode":"active"}]}
+Handling webhook event with signature: Vozg0wT/KVW/o1LcwAFwrRPhAY0QM2YlT3ftHaDuw3I=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569502917480939746","quoteToken":"UO5HDl9o2pVuvrxUCz7wLlDtI9QiylkGSvnlOWVPJ7cHhSEPfsPUxNasz5v5T3dwbEOXNYVkbONIMCVI-eyf1x0Y4ZffdHCXeTPKthhSGB7V8JyawHCELUgqzCt90DBY15nQVms20MeunGAV8p5NPA","text":"智慧消費推薦"},"webhookEventId":"01JZY1VDXDBKY2PAF9SET9RRTH","deliveryContext":{"isRedelivery":false},"timestamp":1752281494962,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"7e44963c2cab461c8e0e66f51fa556c0","mode":"active"}]}
+Handling webhook event with signature: dAJIfW3h0VQlkHEl11LcWLfqFHNz8mX6Hihj80J0W60=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569502926054097462","quoteToken":"fJEESi50lM8levTlS0c1XPGjpaZIv2Xu2_T6YL2XclOM06qEdL21oikfaVcJxD1sNX56Z10SzC_i8wzr1k7JqcZ3ivHVQLkQOb_9T9hYq-YwKxpPt26AQ6dKAC6Tt6YOgnPr9ZBV66g1PkTd3_Q1wQ","text":"餐飲"},"webhookEventId":"01JZY1VJX9T67DM5NPZT1RYNYY","deliveryContext":{"isRedelivery":false},"timestamp":1752281500078,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"5e420bd9a8814bd3b79c21ee22065c3e","mode":"active"}]}
+Handling webhook event with signature: W9M4Z5Yi7I+zN+if++iKw3IA+uigR1WhZin8FWPZVm0=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569502936321753688","quoteToken":"zYIG3jiJDZ8Z4DZKjqvEd2YZMFfAi6iR6gwSQ7NOVpV_KXjbCd_wlEnh_ocOneQR25zxHzOAInnE_LvoPxSFVEnYx2AGJybUIocbfnxoVbi5ur0i4ZfNdszFn2HUv2dGVuvStByqPpRvsUtPCe8V0A","text":"2500"},"webhookEventId":"01JZY1VRGSEJCV2MCS1WZDFFXY","deliveryContext":{"isRedelivery":false},"timestamp":1752281506198,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"99114a3a53d94a7080a49c4699632b40","mode":"active"}]}
+Handling webhook event with signature: 7c6cgOBSaCSHcGy5oTtsp6gDWQplnVtY68Que+QKILU=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: 1 validation error for ButtonsTemplate
+text
+  none is not an allowed value (type=type_error.none.not_allowed)
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569503862608625921","quoteToken":"j7TmyVgotDoC4OY5zy0xLkFt5HNsH8zKDZgQuqJ9u2YdPQqMoFFCg5Ilk56lVWzDbNMc6fLcJWcw9xoTVt0191RKiP4owEothHzIlOiXUaAyYPZiBGhuTsdc3PRl6Nvw0gCT6ICnM6r2pYsBLC3CwA","text":"智慧消費推薦"},"webhookEventId":"01JZY2CKR3ECPTGQHXPDTBYZBA","deliveryContext":{"isRedelivery":false},"timestamp":1752282058364,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"f4c78deab35a4dfd81b7743dc8182c2f","mode":"active"}]}
+Handling webhook event with signature: h5zUwY47IZLeb+pY83oItQI/RhLnj9QE+4+XKhoS3FA=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569503872171639193","quoteToken":"6Ky3zPae0iJv374sS2S5Y6T4NkkN-vD6RT4M1UhIQY0d3USiwBZq9KJ44sgwasjXyftDdHwbpLLm0QfcPrP2gSOu2ovHP4G3f47G9waaAv8vKLivj_K6hTWZO2wx6PcXKwHNJ0ha4_2-m_YVhGa95w","text":"餐飲"},"webhookEventId":"01JZY2CSGWK592G40F58D29SG5","deliveryContext":{"isRedelivery":false},"timestamp":1752282064006,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"2eb8adb118a841a88bacd00816a7ae89","mode":"active"}]}
+Handling webhook event with signature: xAAstIC4lXnGufN/bymlf8omDKlS82XbIiMuS93EXxA=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569503878983713331","quoteToken":"eo2ROmeJydOpX6kihGGivj_9cKY17NpOX21sLZ1RTR1GVJvUpvdHUxX6DPau7DMgSfCbHUZrQsFp077M9Y1heaUKfeJOFiS14K141fJppvwxu_38myB5X4l6OsppQRjuM2HBglzNpfAeI6i7TS2iuw","text":"2500"},"webhookEventId":"01JZY2CXF0QVRAMNMH8KSAX7RP","deliveryContext":{"isRedelivery":false},"timestamp":1752282068174,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1c617cfc0be047eb98f46977a2f6ce40","mode":"active"}]}
+Handling webhook event with signature: yGX3ihV+0GDk17nJiFk44hXehtLUMCU+qBG/9on5nfI=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2500'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569507601461543377","quoteToken":"1MEuyCM3k29zqJ0rIQlML46_XeqBV6zcrZDHnacrdxKvxLHoHUzg93ua4f3xcYqGqfvveHOLirorIQdbDp7AWrjdeoi-2RlAp2jYrOMXYT5d9RG5GQI_WuuYbO7qZcDZayrN4wbaBi58qi5F7mDYbA","text":"智慧消費推薦"},"webhookEventId":"01JZY4GMBENADCCPQ8XX51D4EN","deliveryContext":{"isRedelivery":false},"timestamp":1752284286835,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"96829f05a7354332b9dee0635361ab6e","mode":"active"}]}
+Handling webhook event with signature: Wh4S5YKmjKrfiD4nSISfDEv+0BO/bkcszF4z9IDZAnU=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569507608591860263","quoteToken":"SG4gPdIJzYh9YvvA27HpFjLppauJcGe-CBGUw-9v7PQYKNOdBY6JG1WS8OgtEQKzgEFgEWeZ7soiWmk7oqm0vgjbhUT4I9xfCzvnYJF_W9lBGUM2hyrehiDU6chjjSGzqs3FNjXraz-a8wawYKCN0g","text":"餐飲"},"webhookEventId":"01JZY4GRE7MNQFRBHMTDG5CYD7","deliveryContext":{"isRedelivery":false},"timestamp":1752284291099,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"b3435139a9a9437ba65db2c2e65d5a09","mode":"active"}]}
+Handling webhook event with signature: YTNuUNhmb6aPZ3NoAOV03qA+f1k+thB+2BJkVhlLhy8=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569507616477151475","quoteToken":"NfPH0D8QyWOhnwitb54GbL2492QjgHhrrfCQV1-FNwf_qs5x5PCMn1pZ7WM3LEcaCwYF4RHaqgbv0uGuOs4vZmPHO3gA_xfY45O2-8K1eXjXV8d5TGIPVFYkCfr01KI8qBPc1GFhK-WJzh7AlxZFBw","text":"3000"},"webhookEventId":"01JZY4GWQ2G4QWAZJ0YJZ0SCQW","deliveryContext":{"isRedelivery":false},"timestamp":1752284295782,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"5e8d731fc84841aabb6e2524c67fa71a","mode":"active"}]}
+Handling webhook event with signature: FNvB1lLkbLHvk98CENPLtJ9hFvwnXKSCdP/r5h8lN8M=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3000'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: 1 validation error for PushMessageRequest
+messages
+  ensure this value has at most 5 items (type=value_error.list.max_items; limit_value=5)
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569508500016202002","quoteToken":"XM9sK5mWv-lkQha-H69Tz_RVEu4HxAnxXMgfvpQrcmYHuyVis1ZRySPcIfsX5kHO10S7iMRpFJKoWq1v5a7TZCRdSAjTQ5zsxcrKnWoz3kttVdSbf69S591LtN8-xwJItcZcP4QS92LuZvMHxwvcNA","text":"Hi"},"webhookEventId":"01JZY50Z9S3NNYZZK1YW3C3E3B","deliveryContext":{"isRedelivery":false},"timestamp":1752284822517,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"d84ed9e7fb534e7b9bf6ce2277136125","mode":"active"}]}
+Handling webhook event with signature: MRQg631RL/7wI+RjAdF4gM224eC0mJcu1ZyWzIRWe8M=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: 'Hi'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569508506391543997","quoteToken":"76BfZoh-cXnwhXEbcCTDgJhiC-HTcdeuuwf6k9a_XfTIMxwygvN5MRzHemsclD780zsogvyuqXjm8WihG6CcfH0TFvUIrV9lA4p8qgYTe8u1HsyT11p7MKlBKGgJ2a1SChBlk-2293u2ybySAkZ6kQ","text":"智慧消費推薦"},"webhookEventId":"01JZY5134JQPMB1J851YT5DW5S","deliveryContext":{"isRedelivery":false},"timestamp":1752284826262,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"a5ebb9d9ef2046c3a3ab392937dfb96e","mode":"active"}]}
+Handling webhook event with signature: DtoPuH16/taA5j+t7ibre8G6S2ROExrLDVEM5IUWeww=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569508512532267062","quoteToken":"T0wYfE0ZHXaJAGLgRw8V4Ak31hGgdikph0GTVIhjGiodBaJz3CPCxIqSm6Zkdp0U_phXXeaI7O6C7HbSxSrAd9b3nj8ywf6YtgmMTCwR_wC3IIL4h9bXANPBXzUWVFQCsuclMjP1CjJutgeTlxsB2w","text":"餐飲"},"webhookEventId":"01JZY516H0QNWDX9FW8CBMJBVN","deliveryContext":{"isRedelivery":false},"timestamp":1752284829924,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"bcfa7c05f3b24ff4a2bc41edecfc64e8","mode":"active"}]}
+Handling webhook event with signature: 4saj/uoAP+TEuGveRS91cVm/1b/BloNc4lqClOJ2i2o=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569508519075381352","quoteToken":"zC9ivLGQ7XruLH_jatYPOp-emO42uDSVtPSw9yng0R9qmHQsZQG7LU-PNHnhDvhpi0mzTxcja_TCtHMwEsK_NjyswZiou9Y0nuATfWQmDCWGRGBY3UeefNPxBZ4xMkMIOETQi9psts6TEvkpeKNHfw","text":"3000"},"webhookEventId":"01JZY51AM8ET79B843NA3F0HR8","deliveryContext":{"isRedelivery":false},"timestamp":1752284833933,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"0cd2a9aa3f1441c88c2cd8aa9962bc4b","mode":"active"}]}
+Handling webhook event with signature: uX+gUgPIxfHZu0IiebtGc6tKKwA/txp2AzTOImHUyFA=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3000'
+State is 'awaiting_amount'.
+Gemini API 或後續處理出錯: 1 validation error for PushMessageRequest
+messages
+  ensure this value has at most 5 items (type=value_error.list.max_items; limit_value=5)
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569508740399628986","quoteToken":"yKQJ-w1KTkjnXeJINTM97GRhJOFfcgbMiYt4i7kP4x2o4nUbYvpotgtJjaRAS0vWeKwohw-pPO6XkR9IoPreMeERsbMRFdizVoAD97muIS8R9J9DAWdoNmX8rfOqks7OHqqIh6u_rYlTAoZn4Nk6QA","text":"智慧消費推薦"},"webhookEventId":"01JZY55AV7BNHPMP8KA47K23QS","deliveryContext":{"isRedelivery":false},"timestamp":1752284965711,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"4c7bdc0f00ba4136a9b213cd471c25e5","mode":"active"}]}
+Handling webhook event with signature: oxC+SAIK8AXnjNcnmg6DtBB5PwraK48keZJvHV+NEos=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569508744342274245","quoteToken":"pOL4oR_BhlcX4y7n8N3NIyAaDKElLsAfdFFW-0JWrefv-qdmuxq3NzVQnyB5zE55n3j7xFvYVCKeZopMPDy07JRBegLib3MAyatk07Yd7gpr1DeBXd5aQTX8TYrIqpVrE6jxBH7vqgph8mHChNX1cQ","text":"餐飲"},"webhookEventId":"01JZY55DAVNVWQDZ5ZEQ03H98E","deliveryContext":{"isRedelivery":false},"timestamp":1752284968042,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"827aeafba50d4573b4692f26acf14eb4","mode":"active"}]}
+Handling webhook event with signature: oh7ZL/YmRZpkuRrlEfintEHhH4xLrPssAxjO5UEU4qQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569508750298185865","quoteToken":"9Nn-81GOGYUapBtvOSNmAX-sK4MGtIsxqs_1QrazOdwthGjsX-Cgglc3zD-CPYua1r01WATLEHZA30kmAH5rmspTAwVDR1GomY6755HUrdQs-JFMvEfguWDL7sXmIbIJuW6fxsBruiMkJQka_DVtXA","text":"2000"},"webhookEventId":"01JZY55GSFN6STSR5XYXH2NB05","deliveryContext":{"isRedelivery":false},"timestamp":1752284971591,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"e88ff012b15f4762aa92507c2eb72677","mode":"active"}]}
+Handling webhook event with signature: BAeL4c2fzey96dQhvSFd/HwafU5+bFNCB6JNx2FFUIo=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569508824084381714","quoteToken":"f3GxAqeRPjTzmrzo-eZey5pNNp4Y5zlMmyx6WR7y9dUFIolLHTNEhSe_WRZGYNsAReezYyQT4SS5NOS5n1onxBUTsw9qNsUJq1l2BMSwzhXciRxknu3KY2OVCdMbaOZ6LP3mg8m8-31pxV0MHZRliQ","text":"餐廳消費屬於一般消費，可享1%現金回饋，是您現有卡片中最高的。"},"webhookEventId":"01JZY56VTF942Q263W346PDE7D","deliveryContext":{"isRedelivery":false},"timestamp":1752285015568,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"84f3d845c9c14c88b84e54abf2097167","mode":"active"}]}
+Handling webhook event with signature: eD3rp1qFQcIxWc9GJR8Zx45fd05YOy8dqFuCVBzG6Hg=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐廳消費屬於一般消費，可享1%現金回饋，是您現有卡片中最高的。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509012660289690","quoteToken":"Km8PWC5aNr6C2sMo5U_qkyOgu1IC_BGBQiTCC-6aGlvn31dpCi2wUK1s9ER_VOeAhslZqbjv2P5JvQWLjAfpISZSEwHgi7OrD0-oE2TFe8xzsNJM16Gl-zs6q8oSZEo904qiMREYWqa4EidkGVDI_w","text":"智慧消費推薦"},"webhookEventId":"01JZY5A9F9WPWGFQNGBBNXMEE5","deliveryContext":{"isRedelivery":false},"timestamp":1752285127971,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1d307906f1cb4d43956380744778c2b8","mode":"active"}]}
+Handling webhook event with signature: RtyE0ncyNNFgmfaHUssB168jBosBWx3tlTt39H0FkXo=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509017357910068","quoteToken":"L1kA-K4UzCaaU-O1j2LRmJsgZ3ykc8CdXx75MtN8qGgY_m0JXMyDuvd6RvEtqL51W_UfVAiX1zU4XFmk_Ay5gWzPqTipnbbwQIiNgFuVfVt5XLbAPyJGV14Gzgfz3SER4KSHntKSC9Kyi8FQdNW_dQ","text":"餐飲"},"webhookEventId":"01JZY5ACGC9V5DCT5CFJRWDCE6","deliveryContext":{"isRedelivery":false},"timestamp":1752285130769,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"9a70bd50a33045be819d098047f93f3e","mode":"active"}]}
+Handling webhook event with signature: ferJsK23n2WQjTTYLAmpFFtojYi+IIbcp9SKDeG5Ctw=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509023364153838","quoteToken":"ca_VzAeoJE4-vOBTkXr1UdyYLsOMnEOa7ruFHAsujzxHPHBVE9om3Sjt06OaOUQf7mA4it4C9LBiHfGVx2q1mGW3_V6IpwFoGnSiMymDnz9c8DwnqXAav3qAjILeY-H3tiUydKcIqXKqcQyLp0OKvw","text":"2000"},"webhookEventId":"01JZY5AFN3T52C9GKF6JC5YYMJ","deliveryContext":{"isRedelivery":false},"timestamp":1752285134358,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"84772a815e2e4e8aa66789a6b02be7e0","mode":"active"}]}
+Handling webhook event with signature: h0YoIa2Q1n+a9jsNBK1leXogKe9+0ohWp+PbT8mpRa4=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509086933024943","quoteToken":"Tp4bgccE9dOo59l9OMrTCfQNry-47xAO4bLrucXYqFlYrPzzSja5NkAY5NZgHiA6V-fcyb5X2isFMlvLyNVG8MaQ8rKSPNPyQy-b-CWjof1cqUBicEDBap5cr0bfLF6hdC8mdyX0KecDIEotRFoupw","text":"綁定街口支付並透過其掃碼支付，可享台新GOGO卡數位通路高回饋。需符合Richart帳戶自動扣繳與使用數位帳單等活動條件。"},"webhookEventId":"01JZY5BN0CWTZHXD276R2RJJPP","deliveryContext":{"isRedelivery":false},"timestamp":1752285172241,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"b6f88cc864814569b7facfdef8a061bc","mode":"active"}]}
+Handling webhook event with signature: GerB0A+sN6Kn3offYIRTcjO2DqtOyMS8/j6nxn1uWC0=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '綁定街口支付並透過其掃碼支付，可享台新GOGO卡數位通路高回饋。需符合Richart帳戶自動扣繳與使用數位帳單等活動條件。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509124279894087","quoteToken":"8Y7C3CezwzpZYx5vwylY4tb-_EEs-DGSEsJtTcHLgSGhea7js26tyROynMSCHq-VC3A9k6IlR4tsnWSHBJZLRBx35mnvcOHrpkMMDmA8FbZy74MHtpPQO2SpgyLSwZTg-HI7hg7F9HEycCRVF1Wq3w","text":"若餐廳不支援街口支付或偏好實體刷卡，玉山UBear卡提供一般消費1%回饋。"},"webhookEventId":"01JZY5CAY3QEVJ0ZFPPW89QXF4","deliveryContext":{"isRedelivery":false},"timestamp":1752285194695,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"e7e874c5f74b4bd38c789546902aadee","mode":"active"}]}
+Handling webhook event with signature: SzWQBeUvn+OpE6vLPprMhEctCTM20xGXpT84Dnz38H0=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '若餐廳不支援街口支付或偏好實體刷卡，玉山UBear卡提供一般消費1%回饋。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509141425422693","quoteToken":"h-jzhx4QhmxbGi8ri4NdvoMzHvQrf4VoZBET5tpO7-6MLJk5asqxzYQ3g30tovoey2_sMpRY8_G-5ZyZfuwMQ_h7wo1emaCv9s4gG0NTm7-DiCK44zkLc4KOcP9v7wCKhBBgGvQjDGitomwP1IGR_g","text":"若未綁定台新GOGO卡或無街口App特定活動，單獨使用街口支付本身的回饋通常較低或無。建議優先搭配台新GOGO卡使用以獲得最佳回饋。"},"webhookEventId":"01JZY5CMQFRY6DYDNHZG2KQWQY","deliveryContext":{"isRedelivery":false},"timestamp":1752285204724,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"192b7de829a84464b13150d64edbf9be","mode":"active"}]}
+Handling webhook event with signature: dzQ57t1y9UhB4gbGaFEBsTHqpOS3e7gShcNsHdfHdWQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '若未綁定台新GOGO卡或無街口App特定活動，單獨使用街口支付本身的回饋通常較低或無。建議優先搭配台新GOGO卡使用以獲得最佳回饋。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509311378883196","quoteToken":"aMRMhTI3ETXeZn6M3XF39mWGatXyRcmyh5N0OmhlhzZ1ylfqABX3dWLWpzLNfD-zjv1u0yoNAYBpnZB0LjDJHpY-QVvMwn6mIYK7-_YFhZCByZc-4_j4bXancFjCTnuP-nnH-7_OC_F_0EeisklEJw","text":"智慧消費推薦"},"webhookEventId":"01JZY5FQN2MMC6REXTZJ7PR531","deliveryContext":{"isRedelivery":false},"timestamp":1752285306121,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"cb125be2e46d47dc9a31df7da0af6c1c","mode":"active"}]}
+Handling webhook event with signature: kT9K+pz5wqesE11dqU93bmOi+RUYsTrp/DHxR8/dswQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509315958800487","quoteToken":"jcNblO6hH9IWxdsGXDFmpUbyv_LngblW2MsDQRF7OUEivj7p_0AsVxuuyTgM2KpLX9EtfFG9bfurCEkyVOsiA-ESZGZ8A99LhtaeYSjk4HWmSQzWAShpazpKg-O3mGfDT4v2Yu7O292ozNjAXHVYzQ","text":"餐飲"},"webhookEventId":"01JZY5FT22X1VWAGEG9JVTGZ32","deliveryContext":{"isRedelivery":false},"timestamp":1752285308750,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"36f98eb59a1348feaab002b01c092d15","mode":"active"}]}
+Handling webhook event with signature: +GJMWE4caAwQccFIkikF3j7FQnXtylM4ad+YiBu6OW8=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509324314640744","quoteToken":"5_KUosb7jmbekcTzHsFFcOZRKH02P-NgaN0-dN3TdvQkG7bNFgpm9SQh_SHIl5ceL0a48Yw1fTqbbrT41a7jFf-qk-zoek3yFpw7q0Ig0gZZky4Tv7c11Jua6cGeH9RztHem5RYGls9TR9VyG2HwsA","text":"2000"},"webhookEventId":"01JZY5FZ5HXSQM31J320T8ZD3F","deliveryContext":{"isRedelivery":false},"timestamp":1752285313876,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1e7469400e2f4565b8f8fe21a1f9706f","mode":"active"}]}
+Handling webhook event with signature: 3kwofadtZUXtWOjykz5/w1lhUhifOZMT8I6O/E9kzuQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509392077029480","quoteToken":"-GSYhdv3LW1qjL_rJedZa5Xzr6zYXdFSYSOx025pXznGVS-81Z8Ik0gZIsSvn8jByhfYHktIfrVD5qFXRpT2BWqeIo3m1Cih3ojVQrBhsm05JJkDtGycD3OS4h_2XS17-Zem0KpdxuCjARXZ8Nf2Zw","text":"台新GOGO卡 (透過街口支付)台新GOGO卡針對指定行動支付（含街口支付）提供3.8%高回饋，建議結帳時詢問店家是否接受街口支付並以此卡付款。"},"webhookEventId":"01JZY5H6CBQAENJPS4D24M1291","deliveryContext":{"isRedelivery":false},"timestamp":1752285354154,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"7aa8abcb87ba46bca26682c60fa4241f","mode":"active"}]}
+Handling webhook event with signature: 2Xqu2KaSPm1zPw1sz4lolD+tF11F3k8Q5xBHYQYlZMs=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '台新GOGO卡 (透過街口支付)台新GOGO卡針對指定行動支付（含街口支付）提供3.8%高回饋，建議結帳時詢問店家是否接受街口支付並以此卡付款。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509419205788061","quoteToken":"8tDNwLBPnYDmexszEefLPk90qdEsgFpWUVsGxSGONKtKO45p2tSY1_hoP4dTEFVwqeW0hsoYla5o6qd0fEmfbbJoO1B9bdaO8sogX4vn1yRLzN0WNnH_jHR11GiVTIZVLrxJf6vqN41xp5azOsdJNg","text":"玉山UBear卡若餐廳無法使用行動支付，玉山UBear卡提供一般消費1%回饋，作為替代選擇。"},"webhookEventId":"01JZY5HPDJ16E9Y7F37HC24NRJ","deliveryContext":{"isRedelivery":false},"timestamp":1752285370295,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1f2a4486d1c94e2ca2495399b69806b7","mode":"active"}]}
+Handling webhook event with signature: w4Tkc8Awp8LKwPAeRbgockiSSRSdggDFtFFCj6kYJUs=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '玉山UBear卡若餐廳無法使用行動支付，玉山UBear卡提供一般消費1%回饋，作為替代選擇。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509436150776093","quoteToken":"ALhACsK3uB-BRBPHhOd57MYXTulNTxxw1iaaIPZLtWYEuxSiBZmTZ0nOOcKwvxuL5r_2ZVXFEfMPgTtITJ04JuGnjXFXlKGdej4JIVKfFX4kfabMHpg0OVep3S4dOhdYgdaIKJXSJxV-jI4LBPtjbw","text":"街口支付若無合適信用卡可綁定或上述卡片不適用，街口支付本身偶有基礎點數或合作店家優惠，但回饋率通常不高，主要優勢為便利性及特定活動。"},"webhookEventId":"01JZY5J046WZ34608H9DKTSJZM","deliveryContext":{"isRedelivery":false},"timestamp":1752285380394,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"a6f090b15c5c4d3b804c0ae2e24b5c01","mode":"active"}]}
+Handling webhook event with signature: SYF/pvEJNCMbD/Q1pMchreAilt/CbVeTcSLX5nIENqw=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '街口支付若無合適信用卡可綁定或上述卡片不適用，街口支付本身偶有基礎點數或合作店家優惠，但回饋率通常不高，主要優勢為便利性及特定活動。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509738962747546","quoteToken":"a6qIyAUGA5WQedz0gsDyve2gZUavbjOeFrAhZ4h9eJ4OMWt_4Dk1AcXZ2aqLJBjQsmAPxg8UYqY0LmFPEP-9fpPxv9h56sUfMeHy0yUcK0DjHMb5qtuZ0NuM1IERb5-J37rgYXqxIadPCJyZoiXdsg","text":"智慧消費推薦"},"webhookEventId":"01JZY5QGHB9SXP8QRWZ3HEE4T5","deliveryContext":{"isRedelivery":false},"timestamp":1752285560881,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"024ecd5ab704497787e4016669be8cc1","mode":"active"}]}
+Handling webhook event with signature: uIvA6YqV+3KdVOZmkVfa7JwNF7iAlFK2gT+Y9AE2kMA=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509744717332787","quoteToken":"jyXUdce5UFIw8r8PTDhfA0Oge1KzhM6959L1k1G0kKcNQXwiqQ5lhHrqG4sNVelU-yC_0c63FcHY08t11E_6EFS6qC1vWgfaoYpkuFvssB7l7MR0QsJIiU2Mq2EriET7hgvM3c5tJBST5WD9r6hSQQ","text":"餐飲"},"webhookEventId":"01JZY5QKD6P2A7B75EHAHYX027","deliveryContext":{"isRedelivery":false},"timestamp":1752285564311,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1b07f0adc8444a2f9e0be15f008e3cb4","mode":"active"}]}
+Handling webhook event with signature: ZSHEqSxVXld88fyDLDX/om1lDIG0LcEeQ68HGhE+4hU=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569509752770396335","quoteToken":"8pojAWShQCMvA_vUB0ZHb4uHteuDxrzuwaVpaC5BBQUERqpU2hpOenIfPwZDhh5jhr6IwPKUBdSJa1zYju2pR51jA0VF4Wmnrh5U97Ass6KKca1nRaGKYlUgGX8kk90htEP7DA7-UJQtzmTvPqUAmg","text":"3000"},"webhookEventId":"01JZY5QRJK2NWB2ZNXZ4BA8WZ2","deliveryContext":{"isRedelivery":false},"timestamp":1752285569113,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"d6adaa3c297f4d89bf6520968882e223","mode":"active"}]}
+Handling webhook event with signature: SA/ilFis6p3KP27iNBwtXTPUx9G8sZmncdjTgm98F3s=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569511953975476363","quoteToken":"QMA_qImMpnFCF5oqf6tkgXaKaUwbfh4Z_XK2nm34cmBIK8ObSdPNFOsjSNe654G8zHD3KBwfzJCS5HuLMY7m1jVhYq7J74zuSJGYCDq-1LOeiNLLTjJwcVU26uazQEpR2f5-R9hH_OUbZEaH3uPmMw","text":"台新 GOGO 卡 (搭配街口支付使用)：GOGO卡針對指定數位通路（含街口支付）提供最高3.8%加碼回饋（需滿足任務條件，如設定Richart自動扣繳卡費及電子帳單，每月上限300元刷卡金，本次消費可完全覆蓋）。"},"webhookEventId":"01JZY6ZSXF28E0T9PMF4Y8AWDC","deliveryContext":{"isRedelivery":false},"timestamp":1752286881204,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"d0dd5c930971484291ab6c4d7a2c6a16","mode":"active"}]}
+Handling webhook event with signature: qMcyTcJjbe8lZKIeoNYG74MMlXBWqbd1TotfhIo6sYg=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '台新 GOGO 卡 (搭配街口支付使用)：GOGO卡針對指定數位通路（含街口支付）提供最高3.8%加碼回饋（需滿足任務條件，如設定Richart自動扣繳卡費及電子帳單，每月上限300元刷卡金，本次消費可完全覆蓋）。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569511963705475660","quoteToken":"mpisUQKetZlo_pyk4-66mQs1bc2Jv0YfFPqpg11V9cDI2LxnzrXtpoUoT7c7ao-ziVQdj02L5upSKYIcdSwcoeXGZZMF0CI44OP2WFUEeWUjnW64QgTAwfeGjAqFTbooyjwEtU_OqFLrKzuCvevraw","text":"智慧消費推薦"},"webhookEventId":"01JZY6ZZGX9MYMX08RPYR7SPC3","deliveryContext":{"isRedelivery":false},"timestamp":1752286886937,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"76c0caedf03c462099b617598c530ea3","mode":"active"}]}
+Handling webhook event with signature: xEB8+Eo2is7KT5uMkKvBvPBz4L56GzCd2hU3g1h1iVM=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569511968974045580","quoteToken":"zZpB_Q90lfB_XuOAOGo1jDEuJyZfjLPwC4hl293cNRBkhSLriUF2cjTUIDewGz4Pb-68elqmUo4YzUT6ptZGnNQQmkxwlHVW_7mBJDPCwdvXcVZJDpMqmQR7STdQRX8tAbKD7uHZEunD7k2f6P5bGA","text":"餐飲"},"webhookEventId":"01JZY702NPA46FRHRY0SKEYCG5","deliveryContext":{"isRedelivery":false},"timestamp":1752286890190,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"839d0dd55ae24f1faf33ea3e994c3b9d","mode":"active"}]}
+Handling webhook event with signature: n/hfll2BqEm5BTlLgMNvNK379hDYJp73j2VZB4AF6Gs=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '餐飲'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569511985130766427","quoteToken":"ofx6ATfMFX7SkK_cf5iEtcccVUEx1rrdQUThxFeonbQG5ILiKZ5wtS9_Jbop-t3JzZgUZWtugaCGR3KNk150rQvGJNK_TDqOtkgSN-L6IW__dIHBbHf3Zx2cwuQqyDZpTz6g56J5YRWSDVw5lBtTBg","text":"2000"},"webhookEventId":"01JZY70C1KKA1EG5CQ9XX4W5TM","deliveryContext":{"isRedelivery":false},"timestamp":1752286899867,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"3076022c804f4d7a8ceb8c34bbdfccc2","mode":"active"}]}
+Handling webhook event with signature: oQlzFHH1w1K3bNKv7VIQyzsOmWIYEamWsoRKhNK0X/E=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569512171558404411","quoteToken":"uS9kuRoPjRuMlvH4I_awNuTzRQwshs1o6ugbqgQMk2eKdW6dXAJIMCwjAidg1fYrBHyZldwh1bxyllRdTJOUzed7TGjtrB3OGCmqwlOUEReQV2oq2Yfq6m0pOQ6AW_HqqSoHwvK3fToyOehLsNLlEg","text":"台新GoGo卡 (搭配街口支付)：台新GoGo卡針對精選行動支付（包含街口支付）提供高回饋，此筆消費可享3%回饋 (基本0.5%+精選加碼2.5%)，若Richart帳戶條件符合可達3.8%。"},"webhookEventId":"01JZY73R5909BQ4QV5124GQSWD","deliveryContext":{"isRedelivery":false},"timestamp":1752287010949,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1963dc9e108b462aa898b1bde0e4be4d","mode":"active"}]}
+Handling webhook event with signature: 3ESSC7G5evP1uMgGRUFDnVPZckMr4cUhNJaKbTLbT7U=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '台新GoGo卡 (搭配街口支付)：台新GoGo卡針對精選行動支付（包含街口支付）提供高回饋，此筆消費可享3%回饋 (基本0.5%+精選加碼2.5%)，若Richart帳戶條件符合可達3.8%。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569512189158228005","quoteToken":"xITDcH7rGPUCArGjAfA370BXasrAUgPoIRccYMO-J6s41tLm7O9XNFbdYHO5nxbDhYDmYq4grtY8anhe1ueI30ktnqY4JQs66RHWxBLA2DFg_5WNxTdm3ZtBUjuvcw3g6jPoHhVaA4YwsMzV7db0Gw","text":"智慧消費推薦"},"webhookEventId":"01JZY742HW6ENQ2MHY7V11FRKM","deliveryContext":{"isRedelivery":false},"timestamp":1752287021410,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"65bb49f9ead04136b6d94d61aba995b7","mode":"active"}]}
+Handling webhook event with signature: cAYMzCBUKwQkeYTjl12bP7dCxCl25YmAPjJ49Zsa+fE=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569512196506911030","quoteToken":"o8sEtbo3N-4K201LxEuri4qZnpS4cVHfXNdNJr377g13zwSaL17NHBWKK59PM035l1vcXiYpTl60wicFs9NmoXNWrjP4UtaCuEO7vS3ovMWJffdhSeNBrd6G2BNH7zDlGsowMF1GXOpPBSvbfkF93A","text":"購物"},"webhookEventId":"01JZY7470NPG874RM16VRMK20B","deliveryContext":{"isRedelivery":false},"timestamp":1752287025889,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"3da3bcce47734916a11f8b0a12280160","mode":"active"}]}
+Handling webhook event with signature: /P6XBR1tttv/0MZ8CDS+Zdm6f7PPmadPwCQT9DGD4To=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '購物'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569512208015294556","quoteToken":"AoO5pge7RQvPKTl51LlyfOZE1qdimJZuH4ib3JeEVDaAQZex4lYMxYOaZyO5xAVCeVbCpg_w3AHTSM49-BRK7tgdJ0ZAKG9XiMskTGFCBAxFExKR_LcB6qdkgJknHx04BPKnc3a-5-MgYDbfMAW_TQ","text":"3000"},"webhookEventId":"01JZY74DQHV7FJ8S4N9Q57AX76","deliveryContext":{"isRedelivery":false},"timestamp":1752287032615,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"c6f3eb89497945699e2854323b7b85c2","mode":"active"}]}
+Handling webhook event with signature: 2FLUncpbvmEbPxPy11tGOsJxTbPFocwRoOSY3MJ5qqI=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569549184059834709","quoteToken":"zeDhunVkXb2tbBZwV1dt4O0aHsEjqtqizSygm72nCdbtgXQZniytpsO03nyfnE8JLcJys6adBTTIX2IQS2nIG-obsAHpGhtWAa4D2iL8i267r05L0kMMw7zufCaV3FrSlm2l9_M6vqoo8ga2giGuXQ","text":"智慧消費推薦"},"webhookEventId":"01JZYW50KNRTZKCXMEDTDQSE2M","deliveryContext":{"isRedelivery":false},"timestamp":1752309071994,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"870192d320194ab4b39c15c068968ae0","mode":"active"}]}
+Handling webhook event with signature: 4ne09JKsHXWEE2ro+LwK25OrxXHE5IjHmt9K51ibqnk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569549197011845309","quoteToken":"uAX_lrb_RdcnvougJXWeL475T0pC8u3Lz2-A4udJTH6U_AHI1MfZId3xzIXYKMJRyUMgm-FAi12rv-XL1KAoOEMk-Sazxim7NX9MGuxynM1sH_mySazZWyA4eHMYS0WJeybaQq1B5XWZva5Wm5t-tQ","text":"娛樂"},"webhookEventId":"01JZYW57YN5V2HYY801HTSFP1B","deliveryContext":{"isRedelivery":false},"timestamp":1752309079889,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"61fead03f2844240a78c18174a5e1b28","mode":"active"}]}
+Handling webhook event with signature: c04jY3bOGJXdBAYmnHbEWEBjRQXKAV7NvjEIaqVf2fQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '娛樂'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569549206356754828","quoteToken":"LRyFI7kGNPeHXJZP82S3fBVOlmw6e4TM67-_YIT5pczoHv_yYE1of_4GnPU1kBc2ufyrG6Ik0yR3ZzoVG0ZGR96B7jsYaBrorb34OGU8gW8_8GZHGw4-bnoWM87YPs8O_pwkS6bVcofyy4sNYJ8jsg","text":"3000"},"webhookEventId":"01JZYW5D8492CBT8V0A5VHVTWJ","deliveryContext":{"isRedelivery":false},"timestamp":1752309085284,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"e9618222e08b4d7cadbc3afbedd9262d","mode":"active"}]}
+Handling webhook event with signature: Ls3TC/L2D4Y6MxoBNHdDWbllDZHfpTMu0hfS7KlFAdo=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '3000'
+State is 'awaiting_amount'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569549277308387586","quoteToken":"L4M6qUubEhR387BarWYE2XZLLV5tftaL38GkuvV2512rzOWAVy6t4JKcC_UTCY-tHNuBBD7zZJEVQ5jD0MwVAqFVgmLlm2HQNrlbtoKTTyN-xKfvWOEYGLikT-JaQIilyCtR5i0o7PH8MlNkriALBw","text":"國泰Cube卡 (切換至「集精選」)：若本次娛樂消費為指定電影院 (如威秀、國賓、秀泰、新光影城)，切換至「集精選」方案可享3%小樹點回饋。"},"webhookEventId":"01JZYW6Q2BAZXKP8V26YFAVYEX","deliveryContext":{"isRedelivery":false},"timestamp":1752309127677,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"07efe81a2ce34cb6a79d27a116443b5c","mode":"active"}]}
+Handling webhook event with signature: gmO+s/cqa6wmo7gq/s0VfNkKBhffCjEoiNmigHTMI+E=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '國泰Cube卡 (切換至「集精選」)：若本次娛樂消費為指定電影院 (如威秀、國賓、秀泰、新光影城)，切換至「集精選」方案可享3%小樹點回饋。'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569549597517545778","quoteToken":"qiGuhGtWwlN7V5e_Zu1UXb_GJpuclbb11A4Gu9-g2zFx6ASS6hNz-VRipE3Z0BrnSKuzX-nqwTKkl8loMeky9OyNf9H43rna9DNtGF2Z801N8c5eaqCxvQ12So3DlMBRYYmixVt_kVL4pQzsXhsdUw","text":"玉山UBear卡：若本次娛樂消費為網路交易 (如線上購票、遊戲儲值)，可享3%網路消費回饋。(上限200元/月，刷約7000元封頂)"},"webhookEventId":"01JZYWCGYWMJSN8WV0T0BAGSC0","deliveryContext":{"isRedelivery":false},"timestamp":1752309318436,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"94986955bbd6473390f44887837ef691","mode":"active"}]}
+Handling webhook event with signature: WTc/6q0rUif6ZzySASlC+6XKIXhJToloyFlMm3H90mU=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '玉山UBear卡：若本次娛樂消費為網路交易 (如線上購票、遊戲儲值)，可享3%網路消費回饋。(上限200元/月，刷約7000元封頂)'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556158952505808","quoteToken":"nAyTYJ3kgIXm3x70WuhWmjwUs8sKMaIGR1s90NGdoU44Gosi2e21l3AkdcXuK9xf2Fq-zOS36HGal6kmLH169M02YRrfjD01XiKLEB4_K-bzONsRm8lfZPt7ikeilErH9ogYsv5DgCzPj_3G9gatAw","text":"基本資料設定"},"webhookEventId":"01JZZ03WH7NDVWVZ2TK67YQW84","deliveryContext":{"isRedelivery":false},"timestamp":1752313229356,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"b3f0c877ce5d465395ca8be18f4a3190","mode":"active"}]}
+Handling webhook event with signature: NLxG8WtR7xZlnpSnbxD29k7SFWyd5R/Lz0PMlVOBsJ0=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=2"},"webhookEventId":"01JZZ042E48MFSQ9Q27VAQ7PBJ","deliveryContext":{"isRedelivery":false},"timestamp":1752313235563,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"bb1dc6b4f7694a288522b0884d6a086a","mode":"active"}]}
+Handling webhook event with signature: KiSGZFUAKrXCbwcKuU0wvzWDOCOubzHH+/PTOVkxme0=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=2'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556179957579779","quoteToken":"3ROELJICXFFDkafgDVLyNayDnt88dSexZ4gsrdt5kXKkF0jxPj8T4yZvUCcviMytW_zobC2YPkuDi1MVKdL4bWnsflQs-bqqZCaRuGD0r15OgbZJzukgslKPEpVTX-oLF9c2RNhEOtwQjKCISq406w","text":"基本資料設定"},"webhookEventId":"01JZZ048CN8K53QS8QMKNG02HK","deliveryContext":{"isRedelivery":false},"timestamp":1752313241983,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"70a0d1462d6c49e6a32557e90678859b","mode":"active"}]}
+Handling webhook event with signature: jIi0szP919vzXKer2T0lUSBylwQncvBSFkU9ptrQxi0=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=2"},"webhookEventId":"01JZZ04HQQ98SJ0WZQFF4HJ7YH","deliveryContext":{"isRedelivery":false},"timestamp":1752313251073,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"0bf5aabc3aa9406ea1fae35abb0221e1","mode":"active"}]}
+Handling webhook event with signature: l+BzQK5gUjsK33jaMzFxKP0JNyPbvyYZIpf/hCA+zuc=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=2'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556206700462374","quoteToken":"5UqBiSsNIZ3bAMN0Xrf1iyvHr1FuZ0nx-u7lNJ2vGsGYgYu1RMFlFpnX3I1pyl9AGgv5XKj-18WDG6sUBmbggJcV55ncIWamLfw9u4dCF-ADQQ5QdcbRYEMfiroK6arVq889E2cXrtRRre5LDCNigw","text":"基本資料設定"},"webhookEventId":"01JZZ04R13NS07NXAQJNABZA44","deliveryContext":{"isRedelivery":false},"timestamp":1752313257811,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"4dfb3d1474704261be8b4dc337c14691","mode":"active"}]}
+Handling webhook event with signature: jdxBpUU6KLvWZgRfRJczeknxaGy/3XGgt6sMeughB4I=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=done"},"webhookEventId":"01JZZ04TG6MXYVPQT0PHPG0TAF","deliveryContext":{"isRedelivery":false},"timestamp":1752313260184,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"4c7cc7a72f434f84a5d43c8b49e82cde","mode":"active"}]}
+Handling webhook event with signature: qDbwfWmWIy4y2WLDh4NH82ioRVWbXoDnvotMl5UAy8s=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=done'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_card&id=7"},"webhookEventId":"01JZZ050CNX57ZKYSA3KDD76QK","deliveryContext":{"isRedelivery":false},"timestamp":1752313266482,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1b47984e29e9402783f263e6f3f86f8a","mode":"active"}]}
+Handling webhook event with signature: KmXdCcyI9NLhcAs4DD3CIjAUkgcY2v//Gb26uiithXA=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_card&id=7'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556239080489462","quoteToken":"nltNhb0yzCixbBqylE0Tp5pETZezs_4zLAyLpYI6oFaG1EZjMpO_cio6G0IppQ4vOZJ2PAP_dRPLW_8rQDZPuofm1OZdGIf2vd2g4Jb9baa0InbM3H37SCYsZ7SstWMws_T4PXuvHTzaXdyfkW4D2g","text":"基本資料設定"},"webhookEventId":"01JZZ05B5PDDQK340DGXS836Q8","deliveryContext":{"isRedelivery":false},"timestamp":1752313277115,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"93e4dd5f9c92445a9a581bbe9a33277f","mode":"active"}]}
+Handling webhook event with signature: aGk1Nf7Ms8kGZmNNFv6bozjR++sbp4bjc3B4L7Zv00Y=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=1"},"webhookEventId":"01JZZ05QM18T4W78AP5Q51JJZC","deliveryContext":{"isRedelivery":false},"timestamp":1752313290288,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"84a689c1a3544e9399f30d90c96a475b","mode":"active"}]}
+Handling webhook event with signature: qKAz28HuRX4XFDObnEnKlwiVcIC+IYTRhS29wglqzxw=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=1'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556270068006934","quoteToken":"4xlahAsh9NvJU_1_Q3ch5P3aHrKJwUIVUbXJS3G4hE8SsJXc-SwQ8h23v5nZauOvk6TxDEdJqN4VssN-TYf7YmZcyXCqVkBBj1s0cgnxCTk5e5ygeTHRB5KNULP7VeCoydL1ytZfENY4S6gIf1K_Dw","text":"基本資料設定"},"webhookEventId":"01JZZ05X6NHXHGXFZBAQ00J9AA","deliveryContext":{"isRedelivery":false},"timestamp":1752313295579,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"9790fec73cbb4b369fbd176e30d9b911","mode":"active"}]}
+Handling webhook event with signature: 8PIP4Xlvgm8IcTdSbFSgeitykVj3PnevdZ05N8bkW2M=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=done"},"webhookEventId":"01JZZ0623STGWK6QJTM4VCRCTH","deliveryContext":{"isRedelivery":false},"timestamp":1752313301066,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"b15c3fd22f784d638ef50800e3715654","mode":"active"}]}
+Handling webhook event with signature: c2a+lqoLPlFDoHIBBTqUFjVB3BPPyeBvt/hISIKRKV0=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=done'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_card&id=9"},"webhookEventId":"01JZZ0661JGE53FHT74CDV6165","deliveryContext":{"isRedelivery":false},"timestamp":1752313304849,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"08604bbfa9cf475288233786893421c0","mode":"active"}]}
+Handling webhook event with signature: w2qj4Phm3IvC4YdevAqWKK3dQ/C1Cc4npst8nC25Da4=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_card&id=9'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556299864866886","quoteToken":"OOpCSFn11Ag-naJVACgm1-t4ou0eqeTzhFAheAW8Q2U3r_pzOfh_SS8citDI81VRtuNo_3RV2TIhLoD0X9DrH3Y1fsqC2X3co83-yW1sl8qb98ok1FMGSsVUtNd72AtbVZfyy4oAoM0oYAZ2e_0hcQ","text":"基本資料設定"},"webhookEventId":"01JZZ06E8P36NSPMT02NNPT4YK","deliveryContext":{"isRedelivery":false},"timestamp":1752313313365,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"321cd3860aa2430ea816e99d903a851c","mode":"active"}]}
+Handling webhook event with signature: HYpDJkIq7843zUy5ExFPaZiMm4Da0tLBPIat7NL2ga0=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=2"},"webhookEventId":"01JZZ06QW1BBVQN0KV31AFPR1R","deliveryContext":{"isRedelivery":false},"timestamp":1752313323304,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"5f7700fdbfbf4c8f822756e1e1ec21c0","mode":"active"}]}
+Handling webhook event with signature: wV9QrqH5d3ShgJXxsuNpaicAtlB6mwVVbE3LK+yyhuA=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=2'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556325986468288","quoteToken":"gB_TrqBCaBXEBr0Bfwalx5D9Y5gPlEiU6OuUuL3vC5UTJSXOXaJV2IKleJlUjaQEMdcz0UyLTCZghb644lUcb-0qG-kjAElTinrLdyUVe3WfLiUvjtxQmNdQ_HyvRwOGW0bmvvHlnMLkujkB67H_yw","text":"基本資料設定"},"webhookEventId":"01JZZ06XRQEVK4JES1M59W94GN","deliveryContext":{"isRedelivery":false},"timestamp":1752313328925,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"5adfa4d65fd54bc4ae775a883aa91a11","mode":"active"}]}
+Handling webhook event with signature: TDcm1zhx5mwsfx4dse4maB3rQynuZRhhNzlQ8O+NrPA=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=1"},"webhookEventId":"01JZZ078G4Z8GFFQZWZJ28FVDT","deliveryContext":{"isRedelivery":false},"timestamp":1752313339918,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"872620e0335b441aad84711336bd0527","mode":"active"}]}
+Handling webhook event with signature: YO8UuMWV/wjfbd5vDdz4sJd2qxM4wmkNPIc3JVQkTDY=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=1'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556355111977539","quoteToken":"_sGC14Uzq_Ng_qoZcJ2JAUlDqZ7TJrbzI3wSiFuZYiCxjjVT2r0MI4Mc05QqU8TmMpQXc947ZXJuonhm8IiNvJrOpbCr88EZbUHBalSwNovUeP4bIs4tWS90flRyniCa7m0DiZth8-wGIsWVaqOkTw","text":"基本資料設定"},"webhookEventId":"01JZZ07ETC742F06KMGWGBWB5P","deliveryContext":{"isRedelivery":false},"timestamp":1752313346385,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"05d573a0692d45d5ade5cbe92772a136","mode":"active"}]}
+Handling webhook event with signature: Ad/2QWop/4CVz04UsukpkZKt43vcxghNZ8xCcJheIPs=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=done"},"webhookEventId":"01JZZ07M036BMRYAPECM498787","deliveryContext":{"isRedelivery":false},"timestamp":1752313351694,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"5fce7a8b6b5a4fa6890da39f7639ee9e","mode":"active"}]}
+Handling webhook event with signature: kGs45OyiyfQew9ZImOUOiluLDHuTWhlCOdDRowhdfok=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=done'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_card&id=6"},"webhookEventId":"01JZZ07X859MWSEN5GBXX7WKD2","deliveryContext":{"isRedelivery":false},"timestamp":1752313361182,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"2e4aea4b583a45039bf10c7ba1abc500","mode":"active"}]}
+Handling webhook event with signature: yvoREUxPK45PFlIXMTH0nbCI3QpPJRkI9H8qFnNbyVg=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_card&id=6'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556436766425280","quoteToken":"P3EduPSc08hxgfHT1nj4CAK6qMbFBmKJTzzpQ_sst9KvH-1XeXlHOzKK1Lmz9OKC5wqngjZlqOaPY-zGkCsgexdOaCyuvF1igk7zTQeBlSKtLijIL0psEVW5kdcHSb8hpJuurakzHuteJr2owBalEA","text":"基本資料設定"},"webhookEventId":"01JZZ08Y7Q79AYPGFGCY5EPGHQ","deliveryContext":{"isRedelivery":false},"timestamp":1752313394941,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"132ecd7dfe764e58a001b61ead0e3542","mode":"active"}]}
+Handling webhook event with signature: u6svzNGcJy8VXcJeVSH7xfoNv1zbiTH+yD8orE2cv5k=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=2"},"webhookEventId":"01JZZ095QDEC6M0PET8ADGR0KE","deliveryContext":{"isRedelivery":false},"timestamp":1752313402613,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"d67f08b3e26748a6b22fd6e0e20aa913","mode":"active"}]}
+Handling webhook event with signature: BKS/ln1lGU16bydMm0pSFAQE2i13EbDWWNnZSHgCr54=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=2'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556456211218502","quoteToken":"yELidJLDaEBy13ZQzof6F0EwqQmd3OTRUacfhzOdM1jOqEszrJpjmevGFFOyzjOcSINlsunF-3U51lt8N9SH1CkqQwvvcaVFqLeQUSuFyrGC6XqakqbboGaMm9a4TKyjA0OSMhrKZM4INNYq7Jszng","text":"基本資料設定"},"webhookEventId":"01JZZ099MQB2Z22TN2GTSCZF8S","deliveryContext":{"isRedelivery":false},"timestamp":1752313406705,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"d1b8b6650d3046f39161740f8c60e92b","mode":"active"}]}
+Handling webhook event with signature: cRyzR2YBwVE97k3Cwh5OTmfP5+dr/ZIXj3X0ZkR87gQ=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=2"},"webhookEventId":"01JZZ09HPQE1CBNNNZ2X2CAW6S","deliveryContext":{"isRedelivery":false},"timestamp":1752313415229,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"c7b91fae488949c18796a73e156ba2c3","mode":"active"}]}
+Handling webhook event with signature: M1rv11gRcd/HySmQFqfr8fMud5qSG7QDHCj8NmwS2mA=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=2'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"569556490822615296","quoteToken":"cTaKr9xzbzeKTJb-syvT5ultbQvUhU1XaOBPkijODYRvvyBHhSt5YoElLaG-3F-O3gYI1poPuk7PdP98OjxsFuAI3ZIaN1BZEye56m6pgTI0g-HY_xhjs5m5kMctu2N5jyOy1hk8qkT8N3_HM7Z84A","text":"基本資料設定"},"webhookEventId":"01JZZ09XPM6K5WGAB6Q0JBXW4X","deliveryContext":{"isRedelivery":false},"timestamp":1752313427161,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"958f15a9e5464fbd8075bb4637ee7a34","mode":"active"}]}
+Handling webhook event with signature: DkwkPJs4OFsY9lD7h0JjYIVxQLs7/rl3Yw2gv+mySB8=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=done"},"webhookEventId":"01JZZ0A1WGWTMRD2Q55XNRC6Z0","deliveryContext":{"isRedelivery":false},"timestamp":1752313431450,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"bcc6506984234bdf8d3ea4411e011191","mode":"active"}]}
+Handling webhook event with signature: 8vmvAky+kHbmlGtxhEuId6IPuWasbNzGAa0MQEmMXZM=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=done'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_card&id=done"},"webhookEventId":"01JZZ0A4KKJMRZAP9MFEC34MJS","deliveryContext":{"isRedelivery":false},"timestamp":1752313434236,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"9ef5c47f84c74824a486b5155bc23734","mode":"active"}]}
+Handling webhook event with signature: 3/mEkaCtxO4IJOFFQ41TswPUVBfkJiJCFNvD0Z9Z6rM=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_card&id=done'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570022550374711315","quoteToken":"CJ90KX0-q_LnLE_py2Kw6wWoWQBbfhH4lGY9JuM61W9Y4l-a9_YJFyoqBFe4Zssn00EPCcg7Ab4mVs2n1FdCCrhT3eKmmzidbIOaAwUHlXAD6r3tl6izuo2Qoqr2rR-QEnVLGPk4hD7mCNOCJLQAzQ","text":"33"},"webhookEventId":"01K0797G26BE068FCNGRA27HWQ","deliveryContext":{"isRedelivery":false},"timestamp":1752591220438,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"07a7ed8ae2464480adce5f5261bb3081","mode":"active"}]}
+Handling webhook event with signature: bScepdcANq9ydSk82uiC8gIgqSXdoJUMh9AzrtlJuiY=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '33'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570022628991959245","quoteToken":"Ij25yV2X0X_K6kWCDG906demA86Su29670yz5shes4IQDzoG8Roq74Ax4AQIygoPot_tt-EmC77XyQ3k7sdqV-tD8A7tUI_O8D95JvduaxAPO_L_P0k5zF6BRYReIZDr72HDuntoL5X0S25OvdvwFQ","text":"基本資料設定"},"webhookEventId":"01K0798XTN3XG2Q187ZQZFMET8","deliveryContext":{"isRedelivery":false},"timestamp":1752591267162,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"17b48179274445b6bd955035c71ba7de","mode":"active"}]}
+Handling webhook event with signature: sI5XjbmWlebdm2EFQMGG1V3d6t9YJ3oGmG5RIQVO5DE=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '基本資料設定'
+Matched '基本資料設定', starting registration.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"postback","postback":{"data":"action=register_mobile&id=2"},"webhookEventId":"01K07993REEQY7JXTF1QCJY188","deliveryContext":{"isRedelivery":false},"timestamp":1752591273241,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"32f6f884de634fad97a86775f4e011cd","mode":"active"}]}
+Handling webhook event with signature: eML/eieGI6LX9QvZ7YOHJWl9vcSApk1kIYvMCFjGLx4=
+PostbackEvent received from Ue211b597e4cf6e76b2006235523d7281: 'action=register_mobile&id=2'
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570031147656937694","quoteToken":"-jeUXLM0xcoSH_pKmR85mflNdXdxS8j-AfCW3UpVggXnb72VMR6OqvvZhsN7rgIgG_Vi32wXvxofwf_LxglXTB-UbFtk0ZiSEULPHZPks7e7EO_WIEjXLHpQXoNmtSp3Uq_exRDTc4LWMvHghwS9fg","text":"99"},"webhookEventId":"01K07E3W398PPH73KFFJBJJNPX","deliveryContext":{"isRedelivery":false},"timestamp":1752596344683,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"1a0b837fba394b308d41a7dbc3c76e24","mode":"active"}]}
+Handling webhook event with signature: qBV0+Eu5QmFCMfwo7zTS2hIKm5xcFLGKuUp3ipd5F94=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '99'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Invalid signature. Please check your channel secret.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Invalid signature. Please check your channel secret.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[]}
+Handling webhook event with signature: dDvq1kUydWH20sLNq7Gi/HdNrW0svxNFUyE8FNrZkfc=
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570123197547020837","quoteToken":"CDpJznOzOYoEfrxa6CLwDYnLBpE0RK5s7hDptxC7T1-7-OjnH8skE8Xt8wnaiuKEFkQTRV-pJIi-FZzDFHPBNuT7OclP1iRJQH8x2m5_4n-JvAsLDttwktNvmil0GTl_cvknWhBYXWy_-GT-pCOofA","text":"99"},"webhookEventId":"01K092E8DM0WQ3GPFKX3KMB7RG","deliveryContext":{"isRedelivery":false},"timestamp":1752651210697,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"6a66665356d742b8ac350bbe3151c7b3","mode":"active"}]}
+Handling webhook event with signature: 1URNaUdwvB5ryzcdP80DHMDNElamdwBpU602nU+2ebY=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '99'
+No match found, sending main menu as default.
+Error in handle_message: 1 validation error for TemplateMessage
+template
+  value is not a valid dict (type=type_error.dict)
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570125098657513748","quoteToken":"77kEKyxMmE671Hpv3pEFwBbNJUTX_aimQwGjOAXRM4tbM8gYDEiZOeOCPI6Xgg9gKhcWVKNsWznvoTom7ktT_BYX9GgoUMiZcCLElaCqmS_bleVzxMMan4-0QeA5AePeZNztF47sduKiRKow7XlmFA","text":"99"},"webhookEventId":"01K093GTQMW055EZ78BV6ZPMSF","deliveryContext":{"isRedelivery":false},"timestamp":1752652343904,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"718a3db7625a4d1b93029200f866a14d","mode":"active"}]}
+Handling webhook event with signature: isYvoxI6Q3k1VtbPAtWagJT7x8djq9TBDUZl9sPJ01o=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '99'
+No match found, sending main menu as default.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570125109948580254","quoteToken":"0PnvelmjBT2qLdlbo51w-sUbyKJR0xp1ok4rljMncBCehFf5ORFq9qM4Ja7Dp1ayD_0nADDUwDAYTO2zVdYcR-jprLp4DScZenBb0Pha0s_hSvYYmCDpHmgAlSWNeOMBMzjJ82BLsBxBY5Jls3_E9Q","text":"智慧消費推薦"},"webhookEventId":"01K093H1AVTVBR863JBCSZ11Q1","deliveryContext":{"isRedelivery":false},"timestamp":1752652350692,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"105db6114a4a4b298fd9f28dc32b0141","mode":"active"}]}
+Handling webhook event with signature: vjHaMtaXKmbLXM6e3UIIRXTZQpTRowEGmAFdKT3fKR0=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '智慧消費推薦'
+Matched '智慧消費推薦', starting consumption flow.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570125118387257808","quoteToken":"yunkQE3HKg-ErH6_uz6RYs2ib0SRfL7AuIENqC3kl3yUQ0YjXALUpuTLl9DEdUU2C56i_kA5Lgh7ltDwNDPqA2bGjO1j2lXO_xT7MnPGIdWMkqZ8bToAjL-1EOf_VdxWGj-KDH1Uob7EnF4NHkK6CA","text":"娛樂"},"webhookEventId":"01K093H61131Q998T2N1Y4W06E","deliveryContext":{"isRedelivery":false},"timestamp":1752652355605,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"cd86969e290644d8955b1e9345a90f73","mode":"active"}]}
+Handling webhook event with signature: UHEpSDTNxfFCrY1mFisGyFQPQiX8+nJPO2QrDSEVlrk=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '娛樂'
+State is 'awaiting_category'.
+Request body: {"destination":"U02ed60945fe4b82ad2c12c28e106c8dd","events":[{"type":"message","message":{"type":"text","id":"570125128151597363","quoteToken":"u_6BEcPt3IbJLslp785FrRR6AAvKuBQPIpokNISSdWvNipYA7sMfisqB05KyJ5X33jlwR80P5vzUWi3zVSCyi_DeS9YYqZKk9o2JppAwBluBNwNdzZxTG9QHLPfGxQj0SlGjOpi6MAiD3AZgmj0s9A","text":"2000"},"webhookEventId":"01K093HBRP71WGJQHNM1ANZ1XE","deliveryContext":{"isRedelivery":false},"timestamp":1752652361423,"source":{"type":"user","userId":"Ue211b597e4cf6e76b2006235523d7281"},"replyToken":"b9d9968bef8e499c9f0f70c0da69da65","mode":"active"}]}
+Handling webhook event with signature: dpNea4lDDhVKOJQkM36DspvmWNfU4Eh/QFSu8MXB76o=
+處理文字訊息事件
+MessageEvent received from Ue211b597e4cf6e76b2006235523d7281: '2000'
+State is 'awaiting_amount'.

@@ -1,0 +1,486 @@
+# LINE Bot 主程式
+
+# -*- coding: utf-8 -*-
+import os
+import json
+import configparser
+from flask import Flask, request, abort
+from linebot.v3 import WebhookHandler
+from linebot.v3.exceptions import InvalidSignatureError
+from linebot.v3.messaging import (
+    Configuration,
+    ApiClient,
+    MessagingApi,
+    ReplyMessageRequest,
+    PushMessageRequest, # 這裡已經正確引入了 v3 的 PushMessageRequest
+    TextMessage,
+    TemplateMessage,
+    ButtonsTemplate,
+    PostbackAction,
+    URIAction,
+    QuickReply,
+    QuickReplyItem,
+    MessageAction,
+    ShowLoadingAnimationRequest
+)
+from linebot.v3.webhooks import FollowEvent, MessageEvent, PostbackEvent, TextMessageContent
+import google.generativeai as genai
+import logging
+import urllib.parse
+
+import db # 假設 connect_db 模組提供 get_db_connection()
+
+# LINE 設定
+LINE_CHANNEL_ACCESS_TOKEN = os.getenv('LINE_CHANNEL_ACCESS_TOKEN')
+LINE_CHANNEL_SECRET = os.getenv('LINE_CHANNEL_SECRET')
+LIFF_PAYMENT_MANAGER_URL = os.getenv('LIFF_PAYMENT_MANAGER_URL') # 新增：讀取 LIFF URL
+
+# Gemini 設定
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+
+# --- 初始化 ---
+app = Flask(__name__)
+
+# --- 設定日誌 ---
+log_handler = logging.FileHandler('app.log', encoding='utf-8') # 設定日誌檔案
+app.logger.addHandler(log_handler)
+app.logger.setLevel(logging.INFO) # 設定日誌等級為 INFO
+
+# LINE Bot API 設定
+configuration = Configuration(access_token=LINE_CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(LINE_CHANNEL_SECRET)
+
+# Gemini API 設定
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+genai.configure(api_key=GEMINI_API_KEY)
+gemini_model = genai.GenerativeModel('gemini-2.5-flash')
+
+# 使用者狀態追蹤 (簡易版，正式上線建議使用 Redis 或資料庫)
+user_states = {}
+
+# --- 資料庫輔助函式 (假設 connect_db 模組提供 get_db_connection) ---
+# 確保 connect_db 模組中的 get_db_connection 函數能正確返回資料庫連線
+get_db_connection = db.get_db_connection
+
+# 管理支付方式連結
+payment_manager_url = f"http://104.196.220.167/userid/
+#payment_manager_url = f"https://personalproject-je9f.onrender.com/userid/"
+#payment_manager_url = f"https://a49cf479229b.ngrok-free.app/userid/"
+
+def get_payment_options(type_filter):
+    print('從資料庫獲取支付選項')
+    conn = get_db_connection()
+    if not conn: return []
+    with conn.cursor() as cursor:
+        cursor.execute("SELECT id, name, open_url, apply_url, type FROM payment_options WHERE type = %s", (type_filter,))
+        result = cursor.fetchall()
+    conn.close()
+    return result
+
+def get_all_payment_options():
+    print('從資料庫獲取所有支付選項')
+    conn = get_db_connection()
+    if not conn: return []
+    with conn.cursor() as cursor:
+        cursor.execute("SELECT id, name, open_url, apply_url, type FROM payment_options")
+        result = cursor.fetchall()
+    conn.close()
+    return result
+
+def get_user_id(line_user_id):
+    print('根據 line_user_id 查找或建立使用者，並返回資料庫 user.id')
+    conn = get_db_connection()
+    if not conn: return None
+    with conn.cursor() as cursor:
+        cursor.execute("SELECT id FROM users WHERE line_user_id = %s", (line_user_id,))
+        user = cursor.fetchone()
+        if user:
+            user_id = user['id']
+        else:
+            cursor.execute("INSERT INTO users (line_user_id) VALUES (%s)", (line_user_id,))
+            conn.commit()
+            user_id = cursor.lastrowid
+    conn.close()
+    return user_id
+
+def get_user_payment_methods(user_id):
+    print('獲取使用者已有的支付工具')
+    conn = get_db_connection()
+    if not conn: return [], []
+    with conn.cursor() as cursor:
+        sql = """
+            SELECT po.name, po.type, po.open_url, po.apply_url
+            FROM user_payment_methods upm
+            JOIN payment_options po ON upm.payment_option_id = po.id
+            WHERE upm.user_id = %s
+        """
+        cursor.execute(sql, (user_id,))
+        methods = cursor.fetchall()
+    conn.close()
+
+    mobile_payments = [m for m in methods if m['type'] == 'mobile']
+    credit_cards = [m for m in methods if m['type'] == 'credit_card']
+
+    return mobile_payments, credit_cards
+
+# --- 接收 user id 並 redirect ---
+# app route 用於接收 user id 並重定向到支付方式管理頁面
+@app.route("/userid/<user_id>")
+def redirect_to_payment_manager(user_id):
+    print('接收 user id 並重定向到支付方式管理頁面')
+    if not user_id:
+        app.logger.error("未提供有效的 user_id")
+        return "錯誤：未提供有效的 user_id", 400
+
+    # 構建重定向 URL
+    redirect_url = f"{LIFF_PAYMENT_MANAGER_URL}?user_id={user_id}"
+    app.logger.info(f"Redirecting to payment manager: {redirect_url}")
+    return f'<html><body><script>window.location.href="{redirect_url}";</script></body></html>', 302
+
+# --- LINE Bot 主要路由 ---
+@app.route("/callback", methods=['POST'])
+def callback():
+    print('接收 LINE Webhook 的主要進入點')
+    signature = request.headers['X-Line-Signature']
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
+    try:
+        app.logger.info("Handling webhook event with signature: " + signature)
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        app.logger.error("Invalid signature. Please check your channel secret.")
+        abort(400)
+    except Exception as e:
+        app.logger.error(f"An unexpected error occurred in handler: {e}")
+    return 'OK'
+
+# --- LINE 事件處理器 ---
+@handler.add(FollowEvent)
+def handle_follow(event):
+    print('處理 "加入好友" 事件')
+    app.logger.info(f"FollowEvent received for user: {event.source.user_id}")
+    line_user_id = event.source.user_id
+    get_user_id(line_user_id) # 確保使用者已在資料庫中
+
+    reply_message = TextMessage(text="歡迎使用 回饋達人！")
+
+    with ApiClient(configuration) as api_client:
+        line_bot_api = MessagingApi(api_client)
+        try:
+            # 步驟 1: 使用 reply_token 回覆歡迎文字
+            app.logger.info("Replying with welcome text.")
+            line_bot_api.reply_message(
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[reply_message]
+                )
+            )
+
+            # 步驟 2: 使用 push_message 主動推送主選單
+            app.logger.info("Pushing main menu.")
+            line_bot_api.push_message(
+                PushMessageRequest(
+                    to=line_user_id,
+                    messages=[create_main_menu(line_user_id)]
+                )
+            )
+        except Exception as e:
+            app.logger.error(f"Error in handle_follow: {e}")
+
+@handler.add(MessageEvent, message=TextMessageContent)
+def handle_message(event):
+    app.logger.info('處理文字訊息事件')
+    text = event.message.text
+    line_user_id = event.source.user_id
+    reply_token = event.reply_token
+    app.logger.info(f"MessageEvent received from {line_user_id}: '{text}'")
+    state = user_states.get(line_user_id)
+
+    with ApiClient(configuration) as api_client:
+        line_bot_api = MessagingApi(api_client)
+        # 在處理訊息前先顯示載入動畫
+        line_bot_api.show_loading_animation(
+            ShowLoadingAnimationRequest(
+                chatId=line_user_id,
+                loadingSeconds=20,  # 顯示載入動畫 3 秒
+                reply_token=reply_token
+            )
+        )
+
+        try:
+            if text == "智慧消費推薦":
+                app.logger.info("Matched '智慧消費推薦', starting consumption flow.")
+                start_consumption_flow(line_user_id, reply_token, line_bot_api)
+            # 處理「管理支付方式」選項
+            elif text == "管理支付方式":
+                app.logger.info("Matched '管理支付方式', opening payment manager LIFF.")
+                user_db_id = get_user_id(line_user_id) # 獲取資料庫中的 user_id
+                if user_db_id:
+                    # 構建 LIFF URL，將 user_id 作為參數傳遞
+                    line_bot_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=reply_token,
+                            messages=[
+                                TextMessage(text="請點擊下方連結管理您的支付方式："),
+                                TemplateMessage(
+                                    alt_text="管理支付方式",
+                                    template=ButtonsTemplate(
+                                        title='支付方式管理',
+                                        text='點擊按鈕進入設定頁面',
+                                        actions=[
+                                            URIAction(label='前往管理', uri=payment_manager_url+user_db_id)
+                                        ]
+                                    )
+                                )
+                            ]
+                        )
+                    )
+                else:
+                    line_bot_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=reply_token,
+                            messages=[TextMessage(text="抱歉，無法獲取您的用戶ID，請稍後再試。")]
+                        )
+                    )
+            elif state and state.get('step') == 'awaiting_category':
+                app.logger.info("State is 'awaiting_category'.")
+                state['category'] = text
+                state['step'] = 'awaiting_amount'
+                line_bot_api.reply_message(
+                    ReplyMessageRequest(
+                        reply_token=reply_token,
+                        messages=[TextMessage(text=f"好的，消費類別是「{text}」。\n請輸入您的預估消費金額（純數字）：")]
+                    )
+                )
+            elif state and state.get('step') == 'awaiting_amount':
+                app.logger.info("State is 'awaiting_amount'.")
+                if text.isdigit():
+                    state['amount'] = int(text)
+                    state['step'] = 'done'
+                    get_gemini_recommendation(line_user_id, reply_token, line_bot_api)
+                    user_states.pop(line_user_id, None) # 清除狀態
+                else:
+                    line_bot_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=reply_token,
+                            messages=[TextMessage(text="請輸入有效的純數字金額。")]
+                        )
+                    )
+            else:
+                app.logger.info("No match found, sending main menu as default.")
+                line_bot_api.reply_message(
+                    ReplyMessageRequest(
+                        reply_token=reply_token,
+                        messages=[create_main_menu(line_user_id)]
+                    )
+                )
+        except Exception as e:
+            app.logger.error(f"Error in handle_message: {e}")
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    print('處理 Postback 事件 (使用者點擊按鈕)')
+    data = event.postback.data
+    line_user_id = event.source.user_id
+    reply_token = event.reply_token
+    app.logger.info(f"PostbackEvent received from {line_user_id}: '{data}'")
+
+    with ApiClient(configuration) as api_client:
+        line_bot_api = MessagingApi(api_client)
+
+        try:
+            params = dict(x.split('=') for x in data.split('&'))
+            action = params.get('action')
+
+            # 目前此處不再有需要處理的 Postback，因為相關功能已轉移到 LIFF 網頁
+            pass
+        except Exception as e:
+            app.logger.error(f"Error in handle_postback: {e}")
+
+# --- 功能流程函式 ---
+def create_main_menu(line_user_id):
+    user_db_id = get_user_id(line_user_id)
+    print('建立主選單 TemplateMessage')
+    return TemplateMessage(
+        alt_text='主選單',
+        template=ButtonsTemplate(
+            title='回饋達人',
+            text='請選擇您要使用的服務：',
+            actions=[
+                MessageAction(label='智慧消費推薦', text='智慧消費推薦'),
+                #URIAction(label='管理支付方式', uri=liff_url_with_param) # 新增：管理支付方式按鈕
+                URIAction(label='管理支付方式', uri=payment_manager_url+str(user_db_id)) # 新增：管理支付方式按鈕
+            ]
+        )
+    )
+
+def start_consumption_flow(line_user_id, reply_token, api: MessagingApi):
+    print('開始消費推薦流程')
+    user_states[line_user_id] = {'step': 'awaiting_category'}
+
+    quick_reply_items = [
+        QuickReplyItem(action=MessageAction(label=cat, text=cat))
+        for cat in ["餐飲", "購物", "交通", "娛樂", "網購"]
+    ]
+
+    api.reply_message(
+        ReplyMessageRequest(
+            reply_token=reply_token,
+            messages=[TextMessage(
+                text="請告訴我這次的消費類別是什麼？\n(例如：餐飲、購物、繳費...)\n或直接點選下方建議類別。",
+                quick_reply=QuickReply(items=quick_reply_items)
+            )]
+        )
+    )
+
+def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
+    print('呼叫 Gemini API 並回覆推薦結果')
+    state = user_states.get(line_user_id)
+    if not state: return
+
+    user_id = get_user_id(line_user_id)
+    category = state.get('category')
+    amount = state.get('amount')
+
+    mobile_payments, credit_cards = get_user_payment_methods(user_id)
+    user_methods_str = ", ".join([p['name'] for p in mobile_payments] + [c['name'] for c in credit_cards])
+    if not user_methods_str: user_methods_str = "無"
+
+    all_options = get_all_payment_options()
+    all_options_str = ", ".join([opt['name'] for opt in all_options])
+
+    # 確保 prompt 中的使用者擁有的支付工具是從資料庫動態獲取的
+    prompt = f"""
+    你是一位台灣地區的信用卡與行動支付優惠專家。請根據以下資訊，為使用者提供支付建議。
+
+    # 使用者資訊
+    - **本次消費類別**: {category}
+    - **預估消費金額**: {amount}元
+    - **使用者目前擁有的支付工具**: {user_methods_str}
+
+    # 任務
+    請嚴格按照指定的 JSON 格式回傳，不要有任何額外的文字或解釋。
+
+    - **就使用者「已有」的支付工具**: 從他擁有的工具中，選出最適合這次消費的前 5 名，並標示回饋%數，並自動計算預估回饋金。如果他沒有任何工具，或沒有適合的，請在 `recommendations` 中回傳空陣列 `[]`。
+
+    # JSON 格式範本
+    {{
+      "existing_tools_recommendation": {{
+        "title": "使用您現有的工具，推薦如下(請注意高%數的限額)：",
+        "recommendations": [
+          {{"name": "支付工具名稱", "percent": "%數", "cashback": "n元", "reason": "推薦理由"}},
+        ]
+      }}
+    }}
+    """
+
+    try:
+        api.push_message(PushMessageRequest(to=line_user_id, messages=[TextMessage(text="正在為您分析最佳支付方式，請稍候...")]))
+
+        with ApiClient(configuration) as api_client:
+            line_bot_api = MessagingApi(api_client)
+            # 在處理訊息前先顯示載入動畫
+            line_bot_api.show_loading_animation(
+                ShowLoadingAnimationRequest(
+                    chatId=line_user_id,
+                    loadingSeconds=60,  # 顯示載入動畫最長 60 秒
+                    reply_token=reply_token
+                )
+            )
+
+        response = gemini_model.generate_content(prompt)
+
+        cleaned_response_text = response.text.strip().replace("```json", "").replace("```", "")
+        recommendations = json.loads(cleaned_response_text)
+
+        print("刷卡內容：", user_id, category, amount, recommendations)
+        save_transaction(user_id, category, amount, recommendations)
+
+        reply_messages = format_recommendation_messages(recommendations)
+        print("回覆訊息：", reply_messages)
+        api.push_message(PushMessageRequest(to=line_user_id, messages=reply_messages))
+
+    except Exception as e:
+        app.logger.error(f"Gemini API 或後續處理出錯: {e}")
+        api.push_message(PushMessageRequest(to=line_user_id, messages=[TextMessage(text="抱歉，分析時發生錯誤，請稍後再試。")]))
+
+
+def format_recommendation_messages(reco_data):
+    print('將 Gemini 回傳的 JSON 格式化為 LINE 的 TemplateMessage')
+    messages = []
+    all_payment_options = {opt['name']: opt for opt in get_all_payment_options()}
+
+    # 處理現有工具推薦
+    existing_reco = reco_data.get('existing_tools_recommendation')
+    if existing_reco and existing_reco.get('recommendations'):
+        #messages.append(TextMessage(text=existing_reco.get('title', '現有工具推薦：')))
+        messages = []
+        for item in existing_reco['recommendations']:
+            name = item.get('name')
+            percent = item.get('percent', 0)
+            cashback = item.get('cashback', '0元')
+            reason = name + "：" +item.get('reason', '無特別理由')
+            option_details = all_payment_options.get(name)
+
+            action = None
+            #if option_details and option_details.get('type') == 'mobile' and option_details.get('open_url'):
+            #    action = URIAction(label="開啟 APP", uri=option_details.get('open_url'))
+
+            if action:
+                messages.append(TemplateMessage(
+                    alt_text=f"推薦：{name}",
+                    template=ButtonsTemplate(title=f"推薦使用：{name}", text=reason, actions=[action])
+                ))
+            else:
+                messages.append(TemplateMessage(alt_text="推薦理由", template=(ButtonsTemplate(text=f"【{name}】\n預估回饋：{percent} 回饋金：{cashback}", actions=[MessageAction(label='查看詳情', text=reason)]))))
+    else:
+        messages.append(TextMessage(text="您現有的支付工具中，本次消費沒有特別合適的推薦。"))
+
+    # 處理新工具推薦
+    #new_reco = reco_data.get('new_tools_recommendation')
+    #if new_reco and new_reco.get('recommendations'):
+    #    messages.append(TextMessage(text="---")) # 分隔線
+    #    messages.append(TextMessage(text=new_reco.get('title', '新工具推薦：')))
+    #
+    #    for item in new_reco['recommendations']:
+    #        name = item.get('name')
+    #        reason = item.get('reason')
+    #        option_details = all_payment_options.get(name)
+    #
+    #        action = None
+    #        if option_details and option_details.get('apply_url'):
+    #            action = URIAction(label="前往申辦", uri=option_details.get('apply_url'))
+    #
+    #        if action:
+    #            messages.append(TemplateMessage(
+    #                alt_text=f"可考慮申辦：{name}",
+    #                template=ButtonsTemplate(title=f"可考慮申辦：{name}", text=reason, actions=[action])
+    #            ))
+    #        else:
+    #            messages.append(TextMessage(text=f"【建議申辦：{name}】\n{reason}"))
+
+    if not messages:
+        return [TextMessage(text="抱歉，目前無法提供有效的建議。")]
+
+    return messages
+
+
+def save_transaction(user_id, category, amount, recommendations):
+    print('將交易與推薦結果存入資料庫')
+    conn = get_db_connection()
+    if not conn: return
+
+    with conn.cursor() as cursor:
+        sql = """
+            INSERT INTO transactions (user_id, category, amount, recommended_options)
+            VALUES (%s, %s, %s, %s)
+        """
+        cursor.execute(sql, (user_id, category, amount, json.dumps(recommendations, ensure_ascii=False)))
+    conn.commit()
+    conn.close()
+
+# --- 主程式進入點 ---
+if __name__ == "__main__":
+    print('主程式進入點')
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port)

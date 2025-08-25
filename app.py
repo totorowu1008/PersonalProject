@@ -103,7 +103,7 @@ def init_gemini():
     if not _gemini_model and GEMINI_KEY:
         try:
             genai.configure(api_key=GEMINI_KEY)
-            _gemini_model = genai.GenerativeModel('gemini-2.5-flash-lite')
+            _gemini_model = genai.GenerativeModel('gemini-2.5-flash')
             app.logger.info(f"{time_now} Gemini 初始化成功")
         except Exception as e:
             app.logger.error(f"{time_now} Gemini 初始化失敗：{e}")
@@ -152,7 +152,9 @@ def redirect_to_payment_manager(user_id):
 def get_user_id(line_user_id):
     """依 LINE 使用者 ID 取得或建立資料庫 user_id"""
     conn = get_db_connection()
-    if not conn: return None
+    if not conn: 
+        app.logger.error(f"{time_now} get_user_id {line_user_id} 連線失敗！")
+        return None
     try:
         with conn.cursor() as cursor:
             cursor.execute("SELECT id FROM users WHERE line_user_id = %s", (line_user_id,))
@@ -173,11 +175,15 @@ def get_user_id(line_user_id):
 def get_all_payment_options():
     """取得所有支付工具選項"""
     conn = get_db_connection()
-    if not conn: return []
+    if not conn: 
+        app.logger.error(f"{time_now} get_all_payment_options 連線失敗！")
+        return []
     try:
         with conn.cursor() as cursor:
             cursor.execute("SELECT id, name, open_url, apply_url, type FROM payment_options")
-            return cursor.fetchall()
+            results = cursor.fetchall()
+            app.logger.info(f"{time_now} get_all_payment_options {len(results)} 筆資料查詢成功！")
+            return [{'id': r[0], 'name': r[1], 'open_url': r[2], 'apply_url': r[3], 'type': r[4]} for r in results]
     except Exception as e:
         app.logger.error(f"{time_now} get_all_payment_options 失敗: {e}")
     finally:
@@ -187,7 +193,9 @@ def get_all_payment_options():
 def get_user_payment_methods(user_id):
     """取得使用者已設定的支付工具"""
     conn = get_db_connection()
-    if not conn: return [], []
+    if not conn: 
+        app.logger.error(f"{time_now} get_user_payment_methods 連線失敗！")
+        return [], []
     try:
         with conn.cursor() as cursor:
             cursor.execute("""
@@ -196,8 +204,10 @@ def get_user_payment_methods(user_id):
                 JOIN payment_options po ON upm.payment_option_id = po.id
                 WHERE upm.user_id = %s
             """, (user_id,))
-            methods = cursor.fetchall()
+            results = cursor.fetchall()
+            methods = [{'name': r[0], 'type': r[1], 'open_url': r[2], 'apply_url': r[3]} for r in results]
         mobile_payments = [m for m in methods if m['type'] == 'mobile']
+        credit_cards = [m for m in methods if m['type'] == 'credit_card']
         credit_cards = [m for m in methods if m['type'] == 'credit_card']
         return mobile_payments, credit_cards
     except Exception as e:
@@ -210,6 +220,7 @@ def get_user_payment_methods(user_id):
 def create_main_menu(line_user_id):
     """建立主選單按鈕"""
     user_db_id = get_user_id(line_user_id) or 0
+    app.logger.info(f"{time_now} 建立主選單按鈕 user_db_id = {user_db_id}")
     return TemplateMessage(
         alt_text='主選單',
         template=ButtonsTemplate(
@@ -242,6 +253,7 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
         return
     state = user_states.get(line_user_id)
     if not state:
+        app.logger.error(f"{time_now} 取得狀況失敗！ {line_user_id}")
         return
 
     user_id = get_user_id(line_user_id)
@@ -249,6 +261,7 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
     amount = state.get('amount')
     mobile_payments, credit_cards = get_user_payment_methods(user_id)
     user_methods_str = ", ".join([p['name'] for p in mobile_payments] + [c['name'] for c in credit_cards]) or "無"
+    app.logger.info(f"{time_now} 查詢擁有支付方式： {user_methods_str}")
 
     # 生成 prompt
     prompt = f"""
@@ -271,6 +284,7 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
         cleaned_response_text = response.text.strip().replace("```json", "").replace("```", "")
         recommendations = json.loads(cleaned_response_text)
         reply_messages = format_recommendation_messages(recommendations)
+        app.logger.info(f"{time_now} Gemini 查詢內容: {reply_messages}")
         api.push_message(PushMessageRequest(to=line_user_id, messages=reply_messages))
     except Exception as e:
         app.logger.error(f"{time_now} Gemini 推薦流程錯誤: {e}")
@@ -288,6 +302,7 @@ def format_recommendation_messages(reco_data):
             percent = item.get('percent', 0)
             cashback = item.get('cashback', '0元')
             reason = f"{name}：{item.get('reason', '無理由')}"
+            app.logger.info(f"{time_now} Gemini 查詢內容結果: {item}")
             messages.append(TemplateMessage(
                 alt_text=f"推薦：{name}",
                 template=ButtonsTemplate(text=f"【{name}】回饋：{percent} 預估金額：{cashback}",
@@ -327,6 +342,8 @@ if handler:
         text = event.message.text
         line_user_id = event.source.user_id
         reply_token = event.reply_token
+        state = user_states.get(line_user_id, {}).get('step')
+        app.logger.info(f"{time_now} event: {state} {line_user_id} {text}")
         _, config = init_line_bot()
         with ApiClient(config) as api_client:
             line_bot_api = MessagingApi(api_client)
@@ -337,7 +354,7 @@ if handler:
                     #print(f"管理支付方式設定頁面 {LINE_LIFF_URL}")
                     user_db_id = get_user_id(line_user_id)
                     uri=payment_manager_url + str(user_db_id)
-                    app.logger.error(f"{time_now} URI: {uri}")
+                    app.logger.info(f"{time_now} URI: {uri}")
                     if user_db_id:
                         line_bot_api.reply_message(
                             ReplyMessageRequest(
@@ -365,6 +382,7 @@ if handler:
                     # 記錄類別
                     user_states[line_user_id]['category'] = text
                     user_states[line_user_id]['step'] = 'awaiting_amount'
+                    app.logger.info(f"{time_now} 取得消費類別: {user_states[line_user_id]}")
                     line_bot_api.reply_message(
                         ReplyMessageRequest(reply_token=reply_token,
                                             messages=[TextMessage(text=f"好的，消費類別是「{text}」，請輸入金額：")])
@@ -372,6 +390,7 @@ if handler:
                 elif user_states.get(line_user_id, {}).get('step') == 'awaiting_amount':
                     if text.isdigit():
                         user_states[line_user_id]['amount'] = int(text)
+                        app.logger.info(f"{time_now} 取得消費金額: {user_states[line_user_id]}")
 
                         # --- 在呼叫 Gemini API 之前先顯示等待訊息並載入動畫 ---
                         line_bot_api.reply_message(
@@ -387,6 +406,7 @@ if handler:
                         )
                         
                         # 呼叫 Gemini API 獲取推薦
+                        app.logger.info(f"{time_now} 開始進行推薦: {line_user_id}")
                         get_gemini_recommendation(line_user_id, reply_token, line_bot_api)
                         user_states.pop(line_user_id, None)
                     else:

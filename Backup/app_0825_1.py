@@ -45,6 +45,10 @@ app.logger.addHandler(log_handler)
 app.logger.setLevel(logging.INFO)
 
 # --- 環境變數設定 ---
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 LINE_ACCESS_TOKEN = os.environ.get('LINE_ACCESS_TOKEN')
 LINE_SECRET = os.environ.get('LINE_SECRET')
 LINE_LIFF_URL = os.environ.get('LINE_LIFF_URL')

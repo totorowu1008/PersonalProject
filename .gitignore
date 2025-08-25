@@ -5,5 +5,7 @@ __pycache__
 .git
 ./Backup/
 ./template/
-gae25213.ppk
-gae25213gcp
+.env_GCP
+.gitignore
+.ssh
+./key/

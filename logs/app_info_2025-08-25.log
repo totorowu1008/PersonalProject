@@ -1,0 +1,24 @@
+2025-08-25 23:40:51 LINE Bot 尚未正確初始化
+2025-08-25 23:42:46 LINE Bot 尚未正確初始化
+2025-08-25 23:42:46 LINE Bot 尚未正確初始化
+2025-08-25 23:45:54 LINE Bot 尚未正確初始化
+2025-08-25 23:48:59 LINE Bot 初始化成功
+2025-08-25 23:48:59 get_user_id Ue211b597e4cf6e76b2006235523d7281 連線失敗！
+2025-08-25 23:48:59 建立主選單按鈕 user_db_id = 0
+2025-08-25 23:48:59 開始消費推薦流程 {'step': 'awaiting_category'}
+2025-08-25 23:48:59 取得消費類別: {'step': 'awaiting_amount', 'category': '交通'}
+2025-08-25 23:48:59 取得消費金額: {'step': 'awaiting_amount', 'category': '交通', 'amount': 5000}
+2025-08-25 23:48:59 開始進行推薦: Ue211b597e4cf6e76b2006235523d7281
+2025-08-25 23:48:59 Gemini 初始化成功
+2025-08-25 23:48:59 get_user_id Ue211b597e4cf6e76b2006235523d7281 連線失敗！
+2025-08-25 23:48:59 get_user_payment_methods 連線失敗！
+2025-08-25 23:48:59 查詢擁有支付方式： 無
+2025-08-25 23:48:59 get_all_payment_options 連線失敗！
+2025-08-25 23:48:59 Gemini 查詢內容結果: {'name': '遠東樂家卡 (信用卡)', 'percent': '最高5%', 'cashback': '250元', 'reason': '遠東樂家卡在指定交通運輸通路（如台鐵、高鐵、客運、計程車、共享汽機車、國道休息站及停車費等）提供最高5%的回饋。對於NT$5000的交通消費，若符合其5%回饋條件（通常有每月回饋上限，但對NT$5000的交通消費應能完整吃到），是目前回饋最高的選擇之一。'}
+2025-08-25 23:48:59 Gemini 查詢內容結果: {'name': '聯邦綠卡 (信用卡)', 'percent': '最高15%', 'cashback': '約225元', 'reason': '聯邦綠卡針對高鐵、台鐵、客運、共享汽機車等『綠色通路』提供高額回饋（最高15%，需符合當期活動與回饋上限）。雖然15%有較嚴格的上限，但對於NT$5000的交通支出，平均回饋率仍可達約4.5%，是交通類消費的強勢卡片，特別適合大眾運輸工具及共享交通。'}
+2025-08-25 23:48:59 Gemini 查詢內容結果: {'name': '台新 GoGo卡 (信用卡)', 'percent': '最高3.8%', 'cashback': '190元', 'reason': '台新GoGo卡在指定行動支付（LINE Pay、Apple Pay、Google Pay、街口支付等）消費享最高3.8%回饋。許多交通相關消費，如線上購買高鐵/台鐵票、Uber/Yoxi叫車、或使用行動支付感應搭乘部分捷運/公車，皆可透過這些行動支付完成。需搭配Richart帳戶自動扣繳及電子帳單，並達成每月任務門檻。'}
+2025-08-25 23:48:59 Gemini 查詢內容: [TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：遠東樂家卡 (信用卡)', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【遠東樂家卡 (信用卡)】回饋：最高5% 預估金額：250元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='遠東樂家卡 (信用卡)：遠東樂家卡在指定交通運輸通路（如台鐵、高鐵、客運、計程車、共享汽機車、國道休息站及停車費等）提供最高5%的回饋。對於NT$5000的交通消費，若符合其5%回饋條件（通常有每月回饋上限，但對NT$5000的交通消費應能完整吃到），是目前回饋最高的選擇之一。')])), TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：聯邦綠卡 (信用卡)', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【聯邦綠卡 (信用卡)】回饋：最高15% 預估金額：約225元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='聯邦綠卡 (信用卡)：聯邦綠卡針對高鐵、台鐵、客運、共享汽機車等『綠色通路』提供高額回饋（最高15%，需符合當期活動與回饋上限）。雖然15%有較嚴格的上限，但對於NT$5000的交通支出，平均回饋率仍可達約4.5%，是交通類消費的強勢卡片，特別適合大眾運輸工具及共享交通。')])), TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：台新 GoGo卡 (信用卡)', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【台新 GoGo卡 (信用卡)】回饋：最高3.8% 預估金額：190元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='台新 GoGo卡 (信用卡)：台新GoGo卡在指定行動支付（LINE Pay、Apple Pay、Google Pay、街口支付等）消費享最高3.8%回饋。許多交通相關消費，如線上購買高鐵/台鐵票、Uber/Yoxi叫車、或使用行動支付感應搭乘部分捷運/公車，皆可透過這些行動支付完成。需搭配Richart帳戶自動扣繳及電子帳單，並達成每月任務門檻。')]))]
+2025-08-25 23:48:59 get_user_id Ue211b597e4cf6e76b2006235523d7281 連線失敗！
+2025-08-25 23:48:59 建立主選單按鈕 user_db_id = 0
+2025-08-25 23:48:59 get_user_id Ue211b597e4cf6e76b2006235523d7281 連線失敗！
+2025-08-25 23:48:59 建立主選單按鈕 user_db_id = 0

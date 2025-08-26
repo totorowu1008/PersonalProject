@@ -46,21 +46,14 @@ LINE_LIFF_URL = os.environ.get('LINE_LIFF_URL')
 GEMINI_KEY = os.environ.get('GEMINI_KEY')
 #print(f"LINE_LIFF_URL: {LINE_LIFF_URL}")
 
-# 嘗試載入自訂 DB 模組
-try:
-    import db
-except ImportError:
-    db = None
-    logging.error(f"{time_now} 未找到 db 模組，資料庫功能將無法使用。")
-
 # --- Flask 初始化 ---
 app = Flask(__name__)
 date = datetime.datetime.now().strftime("%Y-%m-%d")
-info_log_handler = logging.FileHandler(f"app_info_{date}.log", encoding='utf-8')
+info_log_handler = logging.FileHandler(f"logs/app_info_{date}.log", encoding='utf-8')
 info_log_handler.setLevel(logging.INFO)
-#warning_log_handler = logging.FileHandler(f"app_warning_{date}.log", encoding='utf-8')
+#warning_log_handler = logging.FileHandler(f"logs/app_warning_{date}.log", encoding='utf-8')
 #warning_log_handler.setLevel(logging.WARNING)
-error_log_handler = logging.FileHandler(f"app_error_{date}.log", encoding='utf-8')
+error_log_handler = logging.FileHandler(f"logs/app_error_{date}.log", encoding='utf-8')
 error_log_handler.setLevel(logging.ERROR)
 app.logger.addHandler(info_log_handler)
 #app.logger.addHandler(warning_log_handler)
@@ -74,14 +67,44 @@ user_states = {}
 payment_manager_url = LINE_LIFF_URL.rstrip("/") + "/userid/"
 
 # ===== 資料庫輔助函式 =====
+# 載入自訂 DB 模組
+try:
+    import db
+except ImportError:
+    db = None
+    logging.error(f"{time_now} 未找到 db 模組，資料庫功能將無法使用。")
+
 def get_db_connection():
     """安全取得資料庫連線"""
     if db and hasattr(db, 'get_db_connection'):
         try:
-            app.logger.info(f"{time_now} 資料庫連線成功！")
+            #app.logger.info(f"{time_now} 資料庫連線成功！")
             return db.get_db_connection()
         except Exception as e:
             app.logger.error(f"{time_now} 資料庫連線失敗：{e}")
+    return None
+
+def get_user_id(line_user_id):
+    """依 LINE 使用者 ID 取得或建立資料庫 user_id"""
+    conn = get_db_connection()
+    if not conn: 
+        app.logger.error(f"{time_now} get_user_id {line_user_id} 連線失敗！")
+        return None
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT id FROM users WHERE line_user_id = %s", (line_user_id,))
+            user = cursor.fetchone()
+            if user:
+                app.logger.info(f"{time_now} user_id {line_user_id} 查詢成功！")
+                return user[0]
+            cursor.execute("INSERT INTO users (line_user_id) VALUES (%s)", (line_user_id,))
+            conn.commit()
+            app.logger.info(f"{time_now} user_id {line_user_id} 新增成功！")
+        return cursor.lastrowid
+    except Exception as e:
+        app.logger.error(f"{time_now} get_user_id {line_user_id} 失敗: {e}")
+    finally:
+        conn.close()
     return None
 
 # ===== 外部服務初始化 =====
@@ -118,7 +141,7 @@ def index():
 @app.route("/callback", methods=['POST'])
 def callback():
     """LINE webhook 入口"""
-    handler, config = init_line_bot()
+    handler, _ = init_line_bot()
     if not handler:
         app.logger.error(f"{time_now} LINE Bot 尚未正確初始化")
         return "Service unavailable", 503
@@ -149,29 +172,6 @@ def redirect_to_payment_manager(user_id):
     return f'<html><body><script>window.location.href="{redirect_url}";</script></body></html>', 302
 
 # ===== 資料庫相關功能 =====
-def get_user_id(line_user_id):
-    """依 LINE 使用者 ID 取得或建立資料庫 user_id"""
-    conn = get_db_connection()
-    if not conn: 
-        app.logger.error(f"{time_now} get_user_id {line_user_id} 連線失敗！")
-        return None
-    try:
-        with conn.cursor() as cursor:
-            cursor.execute("SELECT id FROM users WHERE line_user_id = %s", (line_user_id,))
-            user = cursor.fetchone()
-            if user:
-                app.logger.info(f"{time_now} user_id {line_user_id} 查詢成功！")
-                return user[0]
-            cursor.execute("INSERT INTO users (line_user_id) VALUES (%s)", (line_user_id,))
-            conn.commit()
-            app.logger.info(f"{time_now} user_id {line_user_id} 新增成功！")
-        return cursor.lastrowid
-    except Exception as e:
-        app.logger.error(f"{time_now} get_user_id {line_user_id} 失敗: {e}")
-    finally:
-        conn.close()
-    return None
-
 def get_all_payment_options():
     """取得所有支付工具選項"""
     conn = get_db_connection()
@@ -236,6 +236,7 @@ def create_main_menu(line_user_id):
 def start_consumption_flow(line_user_id, reply_token, api: MessagingApi):
     """開始消費推薦流程"""
     user_states[line_user_id] = {'step': 'awaiting_category'}
+    app.logger.info(f"{time_now} 開始消費推薦流程 {user_states[line_user_id]}")
     quick_reply_items = [QuickReplyItem(action=MessageAction(label=cat, text=cat))
                          for cat in ["餐飲", "購物", "交通", "娛樂", "網購"]]
     api.reply_message(
@@ -265,7 +266,7 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
 
     # 生成 prompt
     prompt = f"""
-    你是一位台灣地區的信用卡與行動支付優惠專家。請根據以下資訊，為使用者提供支付建議：
+    你是一位台灣地區的信用卡與行動支付優惠專家。請根據以下資訊，為使用者提供三個最高回饋金的支付建議：
     類別：{category}
     金額：{amount}
     已有支付工具：{user_methods_str}
@@ -342,8 +343,6 @@ if handler:
         text = event.message.text
         line_user_id = event.source.user_id
         reply_token = event.reply_token
-        state = user_states.get(line_user_id, {}).get('step')
-        app.logger.info(f"{time_now} event: {state} {line_user_id} {text}")
         _, config = init_line_bot()
         with ApiClient(config) as api_client:
             line_bot_api = MessagingApi(api_client)
@@ -429,5 +428,5 @@ if handler:
 
 # ===== 主程式啟動 =====
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 8000))
+    port = int(os.environ.get('LOCAL_PORT', 8000))
     app.run(host='0.0.0.0', port=port, debug=False)

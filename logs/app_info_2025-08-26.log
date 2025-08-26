@@ -1,0 +1,24 @@
+2025-08-26 00:03:05 LINE Bot 初始化成功
+2025-08-26 00:03:05 get_user_id Ue211b597e4cf6e76b2006235523d7281 連線失敗！
+2025-08-26 00:03:05 建立主選單按鈕 user_db_id = 0
+2025-08-26 00:15:08 LINE Bot 初始化成功
+2025-08-26 00:15:08 get_user_id Ue211b597e4cf6e76b2006235523d7281 連線失敗！
+2025-08-26 00:15:08 建立主選單按鈕 user_db_id = 0
+2025-08-26 10:34:14 LINE Bot 初始化成功
+2025-08-26 10:34:14 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 10:34:14 建立主選單按鈕 user_db_id = 1
+2025-08-26 10:34:14 開始消費推薦流程 {'step': 'awaiting_category'}
+2025-08-26 10:34:14 取得消費類別: {'step': 'awaiting_amount', 'category': '娛樂'}
+2025-08-26 10:34:14 取得消費金額: {'step': 'awaiting_amount', 'category': '娛樂', 'amount': 2000}
+2025-08-26 10:34:14 開始進行推薦: Ue211b597e4cf6e76b2006235523d7281
+2025-08-26 10:34:14 Gemini 初始化成功
+2025-08-26 10:34:14 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 10:34:14 查詢擁有支付方式： LINE Pay, 街口支付, 悠遊付, 玉山 UBear 卡, 國泰 CUBE 卡, 台新 GoGo 卡, 永豐 大戶 卡, 台新 Fly Go 卡, 第一銀行ileo卡, 星展ez卡
+2025-08-26 10:34:14 get_all_payment_options 22 筆資料查詢成功！
+2025-08-26 10:34:14 Gemini 查詢內容結果: {'name': '永豐 大戶卡 (DAWHO)', 'percent': '7%', 'cashback': '140元', 'reason': '永豐DAWHO卡指定通路（含串流影音平台如Netflix、YouTube Premium、Spotify、KKBOX等）享7%現金回饋，需符合數位帳戶與自動扣繳等條件。2000元消費可獲得140元回饋，遠超月上限（通常為300元）。'}
+2025-08-26 10:34:14 Gemini 查詢內容結果: {'name': '第一銀行 iLEO 卡', 'percent': '4%', 'cashback': '80元', 'reason': 'iLEO卡指定行動支付（綁定LINE Pay、街口支付）或指定串流影音享4%回饋，需綁定iLEO數位帳戶自動扣繳並符合指定任務。2000元消費可獲得80元回饋，符合月上限（通常為100元）。'}
+2025-08-26 10:34:14 Gemini 查詢內容結果: {'name': '台新 GoGo 卡', 'percent': '3.8%', 'cashback': '76元', 'reason': '台新GoGo卡精選通路（含影音娛樂，如Netflix、YouTube Premium、Disney+、Spotify、KKBOX等）享3.8%回饋，需綁定LINE Pay、街口支付等行動支付，並達成數位帳戶自動扣繳等條件。2000元消費可獲得76元回饋，符合月上限（通常為200元）。'}
+2025-08-26 10:34:14 Gemini 查詢內容: [TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：永豐 大戶卡 (DAWHO)', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【永豐 大戶卡 (DAWHO)】回饋：7% 預估金額：140元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='永豐 大戶卡 (DAWHO)：永豐DAWHO卡指定通路（含串流影音平台如Netflix、YouTube Premium、Spotify、KKBOX等）享7%現金回饋，需符合數位帳戶與自動扣繳等條件。2000元消費可獲得140元回饋，遠超月上限（通常為300元）。')])), TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：第一銀行 iLEO 卡', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【第一銀行 iLEO 卡】回饋：4% 預估金額：80元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='第一銀行 iLEO 卡：iLEO卡指定行動支付（綁定LINE Pay、街口支付）或指定串流影音享4%回饋，需綁定iLEO數位帳戶自動扣繳並符合指定任務。2000元消費可獲得80元回饋，符合月上限（通常為100元）。')])), TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：台新 GoGo 卡', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【台新 GoGo 卡】回饋：3.8% 預估金額：76元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='台新 GoGo 卡：台新GoGo卡精選通路（含影音娛樂，如Netflix、YouTube Premium、Disney+、Spotify、KKBOX等）享3.8%回饋，需綁定LINE Pay、街口支付等行動支付，並達成數位帳戶自動扣繳等條件。2000元消費可獲得76元回饋，符合月上限（通常為200元）。')]))]
+2025-08-26 10:38:49 LINE Bot 初始化成功
+2025-08-26 10:38:49 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 10:38:49 建立主選單按鈕 user_db_id = 1

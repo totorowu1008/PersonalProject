@@ -44,6 +44,7 @@ LINE_ACCESS_TOKEN = os.environ.get('LINE_ACCESS_TOKEN')
 LINE_SECRET = os.environ.get('LINE_SECRET')
 LINE_LIFF_URL = os.environ.get('LINE_LIFF_URL')
 GEMINI_KEY = os.environ.get('GEMINI_KEY')
+GEMINI_VERSION = os.environ.get('GEMINI_VERSION', 'gemini-2.5-flash-lite')  
 #print(f"LINE_LIFF_URL: {LINE_LIFF_URL}")
 
 # --- Flask 初始化 ---
@@ -126,7 +127,7 @@ def init_gemini():
     if not _gemini_model and GEMINI_KEY:
         try:
             genai.configure(api_key=GEMINI_KEY)
-            _gemini_model = genai.GenerativeModel('gemini-2.5-flash')
+            _gemini_model = genai.GenerativeModel(GEMINI_VERSION)
             app.logger.info(f"{time_now} Gemini 初始化成功")
         except Exception as e:
             app.logger.error(f"{time_now} Gemini 初始化失敗：{e}")

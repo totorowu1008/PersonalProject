@@ -22,3 +22,67 @@
 2025-08-26 10:38:49 LINE Bot 初始化成功
 2025-08-26 10:38:49 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
 2025-08-26 10:38:49 建立主選單按鈕 user_db_id = 1
+2025-08-26 10:38:49 開始消費推薦流程 {'step': 'awaiting_category'}
+2025-08-26 10:38:49 取得消費類別: {'step': 'awaiting_amount', 'category': '娛樂'}
+2025-08-26 10:38:49 取得消費金額: {'step': 'awaiting_amount', 'category': '娛樂', 'amount': 2000}
+2025-08-26 10:38:49 開始進行推薦: Ue211b597e4cf6e76b2006235523d7281
+2025-08-26 10:38:49 Gemini 初始化成功
+2025-08-26 10:38:49 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 10:38:49 查詢擁有支付方式： LINE Pay, 街口支付, 悠遊付, 玉山 UBear 卡, 國泰 CUBE 卡, 台新 GoGo 卡, 永豐 大戶 卡, 台新 Fly Go 卡, 第一銀行ileo卡, 星展ez卡
+2025-08-26 10:38:49 Gemini 推薦流程錯誤: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
+2025-08-26 11:06:25 LINE Bot 初始化成功
+2025-08-26 11:06:25 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 11:06:25 建立主選單按鈕 user_db_id = 1
+2025-08-26 11:06:25 開始消費推薦流程 {'step': 'awaiting_category'}
+2025-08-26 11:06:25 取得消費類別: {'step': 'awaiting_amount', 'category': '娛樂'}
+2025-08-26 11:06:25 取得消費金額: {'step': 'awaiting_amount', 'category': '娛樂', 'amount': 2000}
+2025-08-26 11:06:25 開始進行推薦: Ue211b597e4cf6e76b2006235523d7281
+2025-08-26 11:06:25 Gemini 初始化成功
+2025-08-26 11:06:25 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 11:06:25 查詢擁有支付方式： LINE Pay, 街口支付, 悠遊付, 玉山 UBear 卡, 國泰 CUBE 卡, 台新 GoGo 卡, 永豐 大戶 卡, 台新 Fly Go 卡, 第一銀行ileo卡, 星展ez卡
+2025-08-26 11:06:25 get_all_payment_options 22 筆資料查詢成功！
+2025-08-26 11:06:25 Gemini 查詢內容結果: {'name': '台新 GoGo 卡 (綁定 LINE Pay 或 街口支付)', 'percent': '3.8%', 'cashback': '76元', 'reason': '若您的娛樂消費可透過 LINE Pay 或 街口支付完成（例如線上訂票、線上遊戲、部分實體娛樂場所），台新 GoGo 卡綁定 Richart 帳戶自動扣繳並使用電子帳單後，可享 3.8% 回饋。這是您現有工具中最高的現金回饋選擇。'}
+2025-08-26 11:06:25 Gemini 查詢內容結果: {'name': '玉山 UBear 卡', 'percent': '3%', 'cashback': '60元', 'reason': '若您的娛樂消費屬於指定影音娛樂平台（如 Netflix、Disney+、Spotify、YouTube Premium、PlayStation Store、Nintendo eShop 等），玉山 UBear 卡可自動享有 3% 現金回饋，無需額外切換權益，簡單便利。'}
+2025-08-26 11:06:25 Gemini 查詢內容結果: {'name': '國泰 CUBE 卡 (切換至「玩數位」方案)', 'percent': '3%', 'cashback': '60元', 'reason': '在消費前將 CUBE 卡權益方案切換至「玩數位」，可針對廣泛的網路、影音娛樂及數位服務通路享有 3% 小樹點回饋（等值3%現金），涵蓋範圍較廣，可視您的娛樂消費類型進行選擇。'}
+2025-08-26 11:06:25 Gemini 查詢內容: [TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：台新 GoGo 卡 (綁定 LINE Pay 或 街口支付)', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【台新 GoGo 卡 (綁定 LINE Pay 或 街口支付)】回饋：3.8% 預估金額：76元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='台新 GoGo 卡 (綁定 LINE Pay 或 街口支付)：若您的娛樂消費可透過 LINE Pay 或 街口支付完成（例如線上訂票、線上遊戲、部分實體娛樂場所），台新 GoGo 卡綁定 Richart 帳戶自動扣繳並使用電子帳單後，可享 3.8% 回饋。這是您現有工具中最高的現金回饋選擇。')])), TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：玉山 UBear 卡', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【玉山 UBear 卡】回饋：3% 預估金額：60元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='玉山 UBear 卡：若您的娛樂消費屬於指定影音娛樂平台（如 Netflix、Disney+、Spotify、YouTube Premium、PlayStation Store、Nintendo eShop 等），玉山 UBear 卡可自動享有 3% 現金回饋，無需額外切換權益，簡單便利。')])), TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：國泰 CUBE 卡 (切換至「玩數位」方案)', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【國泰 CUBE 卡 (切換至「玩數位」方案)】回饋：3% 預估金額：60元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='國泰 CUBE 卡 (切換至「玩數位」方案)：在消費前將 CUBE 卡權益方案切換至「玩數位」，可針對廣泛的網路、影音娛樂及數位服務通路享有 3% 小樹點回饋（等值3%現金），涵蓋範圍較廣，可視您的娛樂消費類型進行選擇。')]))]
+2025-08-26 11:11:39 LINE Bot 初始化成功
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'
+2025-08-26 11:11:39 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 11:11:39 建立主選單按鈕 user_db_id = 1
+2025-08-26 11:11:39 開始消費推薦流程 {'step': 'awaiting_category'}
+2025-08-26 11:11:39 取得消費類別: {'step': 'awaiting_amount', 'category': '娛樂'}
+2025-08-26 11:11:39 取得消費金額: {'step': 'awaiting_amount', 'category': '娛樂', 'amount': 2000}
+2025-08-26 11:11:39 開始進行推薦: Ue211b597e4cf6e76b2006235523d7281
+2025-08-26 11:11:39 Gemini 初始化成功
+2025-08-26 11:11:39 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 11:11:39 查詢擁有支付方式： LINE Pay, 街口支付, 悠遊付, 玉山 UBear 卡, 國泰 CUBE 卡, 台新 GoGo 卡, 永豐 大戶 卡, 台新 Fly Go 卡, 第一銀行ileo卡, 星展ez卡
+2025-08-26 11:11:39 get_all_payment_options 22 筆資料查詢成功！
+2025-08-26 11:11:39 Gemini 查詢內容結果: {'name': '永豐 大戶 卡 (DAWHO)', 'percent': '7%', 'cashback': '140元', 'reason': '永豐DAWHO卡針對「娛樂」指定通路提供高達7%的現金回饋（包含基本1%、綁定數位帳戶加碼1%及指定通路加碼5%）。2000元消費可輕鬆拿滿回饋上限（5%加碼上限300元/月，即消費6000元內），是本次回饋最高的選擇。'}
+2025-08-26 11:11:39 Gemini 查詢內容結果: {'name': '玉山 UBear 卡', 'percent': '13% (上限100元)', 'cashback': '100元', 'reason': '若您的娛樂消費屬於「指定影音平台」（如Netflix、Disney+、Spotify等），玉山UBear卡提供13%高回饋，但每月回饋上限為100元，故2000元消費最高可回饋100元。此加碼需滿足當期帳單一般消費達5,000元的門檻。'}
+2025-08-26 11:11:39 Gemini 查詢內容結果: {'name': '第一銀行ileo卡', 'percent': '4%', 'cashback': '80元', 'reason': '綁定LINE Pay、街口支付等行動支付，或於網路消費，第一銀行iLEO卡可享4%回饋（包含基本0.5%、任務加碼1.5%及指定通路加碼2%）。此方案適用於多數線上或支援行動支付的娛樂消費，2%加碼上限為150元/月（消費7500元內）。'}
+2025-08-26 11:11:39 Gemini 查詢內容: [TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：永豐 大戶 卡 (DAWHO)', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【永豐 大戶 卡 (DAWHO)】回饋：7% 預估金額：140元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='永豐 大戶 卡 (DAWHO)：永豐DAWHO卡針對「娛樂」指定通路提供高達7%的現金回饋（包含基本1%、綁定數位帳戶加碼1%及指定通路加碼5%）。2000元消費可輕鬆拿滿回饋上限（5%加碼上限300元/月，即消費6000元內），是本次回饋最高的選擇。')])), TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：玉山 UBear 卡', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【玉山 UBear 卡】回饋：13% (上限100元) 預估金額：100元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='玉山 UBear 卡：若您的娛樂消費屬於「指定影音平台」（如Netflix、Disney+、Spotify等），玉山UBear卡提供13%高回饋，但每月回饋上限為100元，故2000元消費最高可回饋100元。此加碼需滿足當期帳單一般消費達5,000元的門檻。')])), TemplateMessage(type='template', quick_reply=None, sender=None, alt_text='推薦：第一銀行ileo卡', template=ButtonsTemplate(type='buttons', thumbnail_image_url=None, image_aspect_ratio=None, image_size=None, image_background_color=None, title=None, text='【第一銀行ileo卡】回饋：4% 預估金額：80元', default_action=None, actions=[MessageAction(type='message', label='查看詳情', text='第一銀行ileo卡：綁定LINE Pay、街口支付等行動支付，或於網路消費，第一銀行iLEO卡可享4%回饋（包含基本0.5%、任務加碼1.5%及指定通路加碼2%）。此方案適用於多數線上或支援行動支付的娛樂消費，2%加碼上限為150元/月（消費7500元內）。')]))]
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'
+2025-08-26 11:11:39 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 11:11:39 建立主選單按鈕 user_db_id = 1
+2025-08-26 11:11:39 開始消費推薦流程 {'step': 'awaiting_category'}
+2025-08-26 11:11:39 取得消費類別: {'step': 'awaiting_amount', 'category': '娛樂'}
+2025-08-26 11:11:39 取得消費金額: {'step': 'awaiting_amount', 'category': '娛樂', 'amount': 2000}
+2025-08-26 11:11:39 開始進行推薦: Ue211b597e4cf6e76b2006235523d7281
+2025-08-26 11:11:39 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 11:11:39 查詢擁有支付方式： LINE Pay, 街口支付, 悠遊付, 玉山 UBear 卡, 國泰 CUBE 卡, 台新 GoGo 卡, 永豐 大戶 卡, 台新 Fly Go 卡, 第一銀行ileo卡, 星展ez卡
+2025-08-26 11:11:39 Gemini 推薦流程錯誤: Unterminated string starting at: line 10 column 19 (char 217)
+2025-08-26 20:44:12 LINE Bot 初始化成功
+2025-08-26 20:44:12 Webhook error: 'Ue211b597e4cf6e76b2006235523d7281'
+2025-08-26 22:43:34 LINE Bot 初始化成功
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'
+2025-08-26 22:43:34 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 22:43:34 建立主選單按鈕 user_db_id = 1
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'
+2025-08-26 22:43:34 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 22:43:34 建立主選單按鈕 user_db_id = 1
+2025-08-26 22:43:34 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 22:43:34 URI: https://pp.gen-ai.rest/pmgr.php/userid/1
+2025-08-26 23:01:52 LINE Bot 初始化成功
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'
+2025-08-26 23:01:52 user_id Ue211b597e4cf6e76b2006235523d7281 查詢成功！
+2025-08-26 23:01:52 建立主選單按鈕 user_db_id = 1

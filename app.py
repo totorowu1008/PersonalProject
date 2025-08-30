@@ -282,7 +282,9 @@ def get_gemini_recommendation(line_user_id, reply_token, api: MessagingApi):
     """
     try:
         response = model.generate_content(prompt)
-        cleaned_response_text = response.text.strip().replace("```json", "").replace("```", "")
+        if not response.parts:
+            raise ValueError("No response parts returned from Gemini")
+        cleaned_response_text = response.parts[0].text.strip().replace("```json", "").replace("```", "")
         recommendations = json.loads(cleaned_response_text)
         reply_messages = format_recommendation_messages(recommendations)
         app.logger.info(f"{time_now} Gemini 查詢內容: {reply_messages}")
@@ -414,11 +416,13 @@ if handler:
                                                 messages=[TextMessage(text="請輸入有效的金額（純數字）")])
                         )
                 else:
+                    app.logger.info(f"{time_now} 重新開始: {user_states[line_user_id]}")
                     line_bot_api.reply_message(
                         ReplyMessageRequest(reply_token=reply_token,
                                             messages=[create_main_menu(line_user_id)])
                     )
             except Exception as e:
+                #app.logger.error(f"handle_message 錯誤: {e} {user_states[line_user_id]}")
                 app.logger.error(f"handle_message 錯誤: {e}")
                 # 若無法識別訊息，回覆主選單
                 line_bot_api.reply_message(

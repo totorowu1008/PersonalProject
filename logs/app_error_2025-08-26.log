@@ -1,2 +1,10 @@
 2025-08-26 00:03:05 get_user_id Ue211b597e4cf6e76b2006235523d7281 連線失敗！
 2025-08-26 00:15:08 get_user_id Ue211b597e4cf6e76b2006235523d7281 連線失敗！
+2025-08-26 10:38:49 Gemini 推薦流程錯誤: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'
+2025-08-26 11:11:39 Gemini 推薦流程錯誤: Unterminated string starting at: line 10 column 19 (char 217)
+2025-08-26 20:44:12 Webhook error: 'Ue211b597e4cf6e76b2006235523d7281'
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'
+handle_message 錯誤: 'Ue211b597e4cf6e76b2006235523d7281'

@@ -1,0 +1,21 @@
+[Unit]
+Description=My Python Webhook Service for Line Bot
+After=network.target
+
+[Service]
+# 請改成您登入 VM 的 Linux 使用者名稱
+User=totorowu671008
+# 建議將使用者加入 www-data 群組，方便處理權限
+Group=www-data
+
+# 請改成您 Python 專案的「絕對路徑」
+WorkingDirectory=/home/totorowu671008/release
+
+# 啟動指令，請使用虛擬環境中 gunicorn 的「絕對路徑」
+ExecStart=/usr/bin/python3 app.py &
+
+# 設定服務在失敗時自動重啟
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

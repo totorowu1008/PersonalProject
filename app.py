@@ -5,7 +5,7 @@ import os
 import datetime
 import json
 import logging
-from flask import Flask, request, abort
+from flask import Flask, request, abort, redirect
 
 # 格式化為 "年-月-日 時:分:秒"
 current_time = datetime.datetime.now()
@@ -160,17 +160,19 @@ def callback():
 
 # --- 接收 user id 並 redirect ---
 # app route 用於接收 user id 並重定向到支付方式管理頁面
-@app.route("/userid/<user_id>")
-def redirect_to_payment_manager(user_id):
-    #print('接收 user id 並重定向到支付方式管理頁面')
-    if not user_id:
-        app.logger.error(f"{time_now} 未提供有效的 user_id")
-        return "錯誤：未提供有效的 user_id", 400
+# @app.route("/userid/<user_id>", methods=['GET'])
+# def redirect_to_payment_manager(user_id):
+#     #print('接收 user id 並重定向到支付方式管理頁面')
+#     if not user_id:
+#         app.logger.error(f"{time_now} 未提供有效的 user_id")
+#         return "錯誤：未提供有效的 user_id", 400
 
-    # 構建重定向 URL
-    redirect_url = f"{LINE_LIFF_URL}/pmgr.php?user_id={user_id}"
-    app.logger.info(f"{time_now} Redirecting to payment manager: {redirect_url}")
-    return f'<html><body><script>window.location.href="{redirect_url}";</script></body></html>', 302
+#     # 構建重定向 URL
+#     redirect_url = f"{LINE_LIFF_URL}/pmgr.php?user_id={user_id}"
+#     app.logger.info(f"{time_now} Redirecting to payment manager: {redirect_url}")
+#     return redirect(redirect_url, code=302)
+    #return f'<html><body><script>window.location.href="{redirect_url}";</script></body></html>', 302
+#2025-08-30 改由 Apache 處理
 
 # ===== 資料庫相關功能 =====
 def get_all_payment_options():
@@ -221,7 +223,8 @@ def get_user_payment_methods(user_id):
 def create_main_menu(line_user_id):
     """建立主選單按鈕"""
     user_db_id = get_user_id(line_user_id) or 0
-    app.logger.info(f"{time_now} 建立主選單按鈕 user_db_id = {user_db_id}")
+    URI = LINE_LIFF_URL + "userid/" + str(user_db_id)
+    app.logger.info(f"{time_now} 建立主選單按鈕 user_db_id = {user_db_id} URI = {URI}")
     return TemplateMessage(
         alt_text='主選單',
         template=ButtonsTemplate(
@@ -229,7 +232,8 @@ def create_main_menu(line_user_id):
             text='請選擇您要使用的服務：',
             actions=[
                 MessageAction(label='智慧消費推薦', text='智慧消費推薦'),
-                URIAction(label='管理支付方式', uri=payment_manager_url + str(user_db_id))
+                URIAction(label='管理支付方式', uri=URI)
+                #URIAction(label='管理支付方式', uri=payment_manager_url + str(user_db_id))
             ]
         )
     )
@@ -344,6 +348,7 @@ if handler:
     def handle_message(event):
         """處理使用者文字訊息"""
         text = event.message.text
+        app.logger.info(f"{time_now} text: {text}")
         line_user_id = event.source.user_id
         reply_token = event.reply_token
         _, config = init_line_bot()
